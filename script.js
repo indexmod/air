@@ -50,7 +50,7 @@ function playAudio() {
 
         // Проверяем, если текущее время соответствует началу аудиофайла
         if (currentTimeOfDay >= startSecondsOfDay && currentTimeOfDay < startSecondsOfDay + (durationTime / 1000)) {
-            audioPlayer.src = `audio/${file}`;
+            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`; // Полный путь к файлам
             audioPlayer.play();
             updateCurrentTrack(file); // Обновляем отображение текущего трека
 
@@ -61,7 +61,7 @@ function playAudio() {
     }
     // Если не нашли соответствующий файл, запускаем первый файл
     if (audioFiles.length > 0) {
-        audioPlayer.src = `audio/${audioFiles[0]}`;
+        audioPlayer.src = `https://air.indexmod.xyz/audio/${audioFiles[0]}`; // Полный путь к файлам
         audioPlayer.play();
         updateCurrentTrack(audioFiles[0]); // Обновляем отображение текущего трека
     }
@@ -75,7 +75,7 @@ function playNext(durationTime) {
         const { startTime, durationTime: fileDurationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
         if (nextTime >= startSecondsOfDay && nextTime < startSecondsOfDay + (fileDurationTime / 1000)) {
-            audioPlayer.src = `audio/${file}`;
+            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`; // Полный путь к файлам
             audioPlayer.play();
             updateCurrentTrack(file); // Обновляем отображение текущего трека
 
