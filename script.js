@@ -1,12 +1,17 @@
 const audioPlayer = document.getElementById('audioPlayer');
-const trackNameDisplay = document.getElementById('trackName');
+const currentTrackDisplay = document.getElementById('currentTrack');
+let audioFiles = []; // Массив будет пустым
 
-// Массив с аудиофайлами
-const audioFiles = [
-    "00-00-00-00-59-44.mp3", // Пример: начинается в 00:00:00 и продолжается 59:44
-    "00-59-45-00-00-14.mp3", // Пример: начинается в 00:59:45 и продолжается 00:14
-    // Добавьте больше файлов по вашему желанию
-];
+// Функция для получения списка аудиофайлов
+async function fetchAudioFiles() {
+    const response = await fetch('audio-files.json'); // Запрос к JSON файлу
+    if (response.ok) {
+        audioFiles = await response.json(); // Получаем список файлов как JSON
+        playAudio(); // Запускаем воспроизведение после получения файлов
+    } else {
+        console.error('Ошибка при получении списка файлов');
+    }
+}
 
 // Функция для преобразования времени в миллисекунды
 function timeToMilliseconds(hours, minutes, seconds) {
@@ -29,34 +34,34 @@ function parseFilename(filename) {
     return { startTime, durationTime };
 }
 
+// Функция для обновления текста текущего трека
+function updateCurrentTrack(fileName) {
+    currentTrackDisplay.textContent = `Сейчас воспроизводится: ${fileName}`;
+}
+
 // Запуск плеера
 function playAudio() {
     const now = new Date();
     const currentTimeOfDay = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
 
-    let foundAudio = false;
-
     for (const file of audioFiles) {
         const { startTime, durationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
-        const endSecondsOfDay = startSecondsOfDay + (durationTime / 1000);
 
-        // Проверяем, если текущее время соответствует началу или уже прошло
-        if (currentTimeOfDay >= startSecondsOfDay && currentTimeOfDay < endSecondsOfDay) {
+        // Проверяем, если текущее время соответствует началу аудиофайла
+        if (currentTimeOfDay >= startSecondsOfDay && currentTimeOfDay < startSecondsOfDay + (durationTime / 1000)) {
             audioPlayer.src = `audio/${file}`;
-            trackNameDisplay.textContent = file; // Обновляем отображаемое название трека
             audioPlayer.play();
+            updateCurrentTrack(file); // Обновляем отображение текущего трека
             setTimeout(playNext, durationTime); // Запускаем следующий файл через продолжительность текущего
-            foundAudio = true;
-            break;
+            return;
         }
     }
-
     // Если не нашли соответствующий файл, запускаем первый файл
-    if (!foundAudio) {
+    if (audioFiles.length > 0) {
         audioPlayer.src = `audio/${audioFiles[0]}`;
-        trackNameDisplay.textContent = audioFiles[0]; // Обновляем отображаемое название трека
         audioPlayer.play();
+        updateCurrentTrack(audioFiles[0]); // Обновляем отображение текущего трека
     }
 }
 
@@ -64,28 +69,20 @@ function playAudio() {
 function playNext() {
     const now = new Date();
     const nextTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds() + 1; // Добавляем 1 секунду для перехода
-    let foundAudio = false;
-
     for (const file of audioFiles) {
         const { startTime, durationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
-        const endSecondsOfDay = startSecondsOfDay + (durationTime / 1000);
-
-        if (nextTime >= startSecondsOfDay && nextTime < endSecondsOfDay) {
+        if (nextTime >= startSecondsOfDay && nextTime < startSecondsOfDay + (durationTime / 1000)) {
             audioPlayer.src = `audio/${file}`;
-            trackNameDisplay.textContent = file; // Обновляем отображаемое название трека
             audioPlayer.play();
+            updateCurrentTrack(file); // Обновляем отображение текущего трека
             setTimeout(playNext, durationTime);
-            foundAudio = true;
-            break;
+            return;
         }
     }
-
     // Если не нашли, начинаем с начала
-    if (!foundAudio) {
-        playAudio();
-    }
+    playAudio();
 }
 
-// Запускаем плеер
-setInterval(playAudio, 1000); // Проверяем каждую секунду
+// Запускаем плеер и получаем список аудиофайлов
+fetchAudioFiles();
