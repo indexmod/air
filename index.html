@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
-
     <title>Эфир Indexmod</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="node_modules/essential-audio-player/dist/essential-audio-player.css">
 </head>
 <body>
-    <h1>Эфир Indexmod</h1>
-    <button id="playButton">Воспроизвести</button>
-    <audio id="audioPlayer" controls autoplay></audio>
-    <div id="currentTrack"></div>
-    <script src="script.js"></script>
+
+    <!-- Контейнер для аудиоплеера -->
+    <div id="audio-container">
+        <audio id="audioPlayer" controls>
+            <source src="audio/21-00-00-00-59-44.mp3" type="audio/mp3">
+            Ваш браузер не поддерживает элемент audio.
+        </audio>
+    </div>
+
+    <script src="node_modules/essential-audio-player/dist/essential-audio-player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = new EssentialAudioPlayer({
+                container: document.getElementById('audio-container'),
+                audioFile: 'audio/21-00-00-00-59-44.mp3',
+            });
+        });
+    </script>
 </body>
 </html>
