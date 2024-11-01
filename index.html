@@ -7,23 +7,14 @@
     <link rel="stylesheet" href="node_modules/essential-audio-player/dist/essential-audio-player.css">
 </head>
 <body>
-
-    <!-- Контейнер для аудиоплеера -->
-    <div id="audio-container">
-        <audio id="audioPlayer" controls>
-            <source src="audio/21-00-00-00-59-44.mp3" type="audio/mp3">
-            Ваш браузер не поддерживает элемент audio.
-        </audio>
-    </div>
-
-    <script src="node_modules/essential-audio-player/dist/essential-audio-player.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const player = new EssentialAudioPlayer({
-                container: document.getElementById('audio-container'),
-                audioFile: 'audio/21-00-00-00-59-44.mp3',
-            });
-        });
-    </script>
+  <script src="https://unpkg.com/audio5/build/audio5.min.js"></script>
+<script>
+  const audioPlayer = new Audio5js({
+      ready: function() {
+          this.load('audio/21-00-00-00-59-44.mp3');
+          this.play();
+      }
+  });
+</script>
 </body>
 </html>
