@@ -4,10 +4,10 @@ let audioFiles = []; // Массив будет пустым
 
 // Функция для получения списка аудиофайлов
 async function fetchAudioFiles() {
-    const response = await fetch('audio-files.json'); // Запрос к JSON файлу
+    const response = await fetch('audio-files.json');
     if (response.ok) {
-        audioFiles = await response.json(); // Получаем список файлов как JSON
-        playAudio(); // Запускаем воспроизведение после получения файлов
+        audioFiles = await response.json();
+        // playAudio(); // Уберите вызов playAudio здесь
     } else {
         console.error('Ошибка при получении списка файлов');
     }
@@ -48,45 +48,43 @@ function playAudio() {
         const { startTime, durationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
 
-        // Проверяем, если текущее время соответствует началу аудиофайла
         if (currentTimeOfDay >= startSecondsOfDay && currentTimeOfDay < startSecondsOfDay + (durationTime / 1000)) {
-            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`; // Полный путь к файлам
-            audioPlayer.play();
-            updateCurrentTrack(file); // Обновляем отображение текущего трека
-
-            // Используем promise для ожидания окончания воспроизведения
-            audioPlayer.onended = () => playNext(durationTime); // Запускаем следующий файл при завершении текущего
+            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`;
+            audioPlayer.play().catch(error => console.error(error));
+            updateCurrentTrack(file);
+            audioPlayer.onended = () => playNext(durationTime);
             return;
         }
     }
-    // Если не нашли соответствующий файл, запускаем первый файл
     if (audioFiles.length > 0) {
-        audioPlayer.src = `https://air.indexmod.xyz/audio/${audioFiles[0]}`; // Полный путь к файлам
-        audioPlayer.play();
-        updateCurrentTrack(audioFiles[0]); // Обновляем отображение текущего трека
+        audioPlayer.src = `https://air.indexmod.xyz/audio/${audioFiles[0]}`;
+        audioPlayer.play().catch(error => console.error(error));
+        updateCurrentTrack(audioFiles[0]);
     }
 }
 
 // Функция для перехода к следующему файлу
 function playNext(durationTime) {
     const now = new Date();
-    const nextTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds(); // Текущее время
+    const nextTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
     for (const file of audioFiles) {
         const { startTime, durationTime: fileDurationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
         if (nextTime >= startSecondsOfDay && nextTime < startSecondsOfDay + (fileDurationTime / 1000)) {
-            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`; // Полный путь к файлам
-            audioPlayer.play();
-            updateCurrentTrack(file); // Обновляем отображение текущего трека
-
-            // Используем promise для ожидания окончания воспроизведения
+            audioPlayer.src = `https://air.indexmod.xyz/audio/${file}`;
+            audioPlayer.play().catch(error => console.error(error));
+            updateCurrentTrack(file);
             audioPlayer.onended = () => playNext(fileDurationTime);
             return;
         }
     }
-    // Если не нашли, начинаем с начала
     playAudio();
 }
 
-// Запускаем плеер и получаем список аудиофайлов
+// Добавьте обработчик клика на кнопку воспроизведения
+document.getElementById('playButton').addEventListener('click', () => {
+    playAudio(); // Запускаем воспроизведение после клика
+});
+
+// Получаем список аудиофайлов при загрузке страницы
 fetchAudioFiles();
