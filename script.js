@@ -53,7 +53,9 @@ function playAudio() {
             audioPlayer.src = `audio/${file}`;
             audioPlayer.play();
             updateCurrentTrack(file); // Обновляем отображение текущего трека
-            setTimeout(playNext, durationTime); // Запускаем следующий файл через продолжительность текущего
+
+            // Используем promise для ожидания окончания воспроизведения
+            audioPlayer.onended = () => playNext(durationTime); // Запускаем следующий файл при завершении текущего
             return;
         }
     }
@@ -66,17 +68,19 @@ function playAudio() {
 }
 
 // Функция для перехода к следующему файлу
-function playNext() {
+function playNext(durationTime) {
     const now = new Date();
-    const nextTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds() + 1; // Добавляем 1 секунду для перехода
+    const nextTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds(); // Текущее время
     for (const file of audioFiles) {
-        const { startTime, durationTime } = parseFilename(file);
+        const { startTime, durationTime: fileDurationTime } = parseFilename(file);
         const startSecondsOfDay = startTime / 1000;
-        if (nextTime >= startSecondsOfDay && nextTime < startSecondsOfDay + (durationTime / 1000)) {
+        if (nextTime >= startSecondsOfDay && nextTime < startSecondsOfDay + (fileDurationTime / 1000)) {
             audioPlayer.src = `audio/${file}`;
             audioPlayer.play();
             updateCurrentTrack(file); // Обновляем отображение текущего трека
-            setTimeout(playNext, durationTime);
+
+            // Используем promise для ожидания окончания воспроизведения
+            audioPlayer.onended = () => playNext(fileDurationTime);
             return;
         }
     }
