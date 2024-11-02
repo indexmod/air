@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <title>Эйр Indexmod</title>
     <!-- CSS -->
@@ -12,7 +12,19 @@
 <body>
     <div class="gradient"></div>
     <div class="container">
-        <audio id="audio" controls></audio>
+        <!-- Скрытый стандартный аудиоплеер -->
+        <audio id="audio" style="display: none;"></audio>
+
+        <!-- Кастомный аудиоплеер -->
+        <div class="custom-audio-player">
+            <button id="play-pause-btn">Play</button>
+            <div id="progress-container" class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+        </div>
+
+        <!-- Информация о текущем треке -->
         <div id="track-info"></div>
     </div>
 
