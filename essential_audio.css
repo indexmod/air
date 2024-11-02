@@ -81,13 +81,14 @@ div.essential_audio > div:nth-child(1) div.off:after {
 
 /* 2.b) The Player Button – Loading */
 div.essential_audio > div:nth-child(1) div.load:after {
-	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><circle opacity='0.64' fill='%23FFFFFF' cx='6.5' cy='18.5' r='2'/><circle opacity='0.76' fill='%23FFFFFF' cx='6.5' cy='11.5' r='2'/><circle opacity='0.88' fill='%23FFFFFF' cx='11.5' cy='6.5' r='2'/><circle fill='%23FFFFFF' cx='18.5' cy='6.5' r='2'/><circle opacity='0.16' fill='%23FFFFFF' cx='23.5' cy='11.5' r='2'/><circle opacity='0.28' fill='%23FFFFFF' cx='23.5' cy='18.5' r='2'/><circle opacity='0.4' fill='%23FFFFFF' cx='18.5' cy='23.4' r='2'/><circle opacity='0.52' fill='%23FFFFFF' cx='11.5' cy='23.4' r='2'/></svg>");
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle opacity='0.64' fill='%23FFFFFF' cx='4' cy='14' r='1.5'/><circle opacity='0.76' fill='%23FFFFFF' cx='4' cy='8' r='1.5'/><circle opacity='0.88' fill='%23FFFFFF' cx='8' cy='4' r='1.5'/><circle fill='%23FFFFFF' cx='14' cy='4' r='1.5'/><circle opacity='0.16' fill='%23FFFFFF' cx='17' cy='8' r='1.5'/><circle opacity='0.28' fill='%23FFFFFF' cx='17' cy='14' r='1.5'/><circle opacity='0.4' fill='%23FFFFFF' cx='14' cy='17' r='1.5'/><circle opacity='0.52' fill='%23FFFFFF' cx='8' cy='17' r='1.5'/></svg>");
+	width: 50%; /* Уменьшение размера прелоадера */
+	height: 50%;
+	top: 25%; /* Центрирование по вертикали */
+	left: 25%; /* Центрирование по горизонтали */
 	animation: audio_load_rotate 1s infinite linear;
 }
-@keyframes audio_load_rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
-}
+
 
 /* 2.c) The Player Button – Playing */
 div.essential_audio > div:nth-child(1) div.play {
