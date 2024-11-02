@@ -32,23 +32,29 @@ div.essential_audio {
     max-width: 800px; /* Максимальная ширина для контейнера */
 }
 
-
-
 /* 2. The Player Button – General */
 div.essential_audio > div:nth-child(1) div {
-	width: 28px;
-	height: 28px;
-	margin-top: -13px;
-	border-radius: 50%;
-	background-color: #000;
+	width: 100%; /* Равная ширина с контейнером */
+	height: 100%; /* Высота контейнера */
+	border-radius: 50%; /* Круглая кнопка */
+	background-color: #000; /* Цвет фона кнопки */
+	display: flex; /* Центрирование содержимого внутри кнопки */
+	align-items: center; /* Центрирование по вертикали */
+	justify-content: center; /* Центрирование по горизонтали */
 }
+
 div.essential_audio > div:nth-child(1) div:after {
 	position: absolute;
-	top: 7%;
-	left: 7%;
-	width: 86%;
-	height: 86%;
+	top: 10%; /* Настроено под размер иконки */
+	left: 10%; /* Настроено под размер иконки */
+	width: 80%; /* Размер внутренней иконки */
+	height: 80%; /* Размер внутренней иконки */
+	content: ''; /* Оставлено пустым, если используется фоновое изображение или SVG */
+	background-color: #fff; /* Цвет иконки */
+	border-radius: 50%; /* Круглая форма для иконки внутри кнопки */
 }
+
+
 /* Set here how much the button exceeds the horizontal track limits: */
 /* This must not be deleted! (but can be changed, of course) */
 :root {
