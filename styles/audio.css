@@ -10,7 +10,7 @@ body {
   left: 0;
   width: 100%;
   height: 140%;
-  background: linear-gradient(90deg, #196090, #3498db);
+  background: linear-gradient(to right, #3498db, #8e44ad);
   background-size: 400% 400%;
   z-index: -1;
 }
