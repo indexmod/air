@@ -63,13 +63,23 @@ const progressBar = document.getElementById('progress-bar'); // Элемент �
 // Функция для загрузки трека
 function loadTrack() {
     audio.src = tracks[currentTrackIndex].url;
+    audio.currentTime = getCurrentTrackStartTime(); // Устанавливаем время начала трека
     audio.load();
+}
+
+// Функция для получения времени начала текущего трека
+function getCurrentTrackStartTime() {
+    if (currentMinute < 45) {
+        return 0; // Если меньше 45 минут, начинается с 0
+    } else {
+        return 0; // В этом примере, джинглы идут до 45-й минуты
+    }
 }
 
 // Функция для обновления прогресс-бара
 function updateProgressBar() {
     const progress = (audio.currentTime / audio.duration) * 100;
-    progressBar.style.width = `${progress}%`;
+    progressBar.style.width = progress + '%';
 }
 
 // Функция для воспроизведения следующего трека
