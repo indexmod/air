@@ -54,9 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const audioPlayer = document.getElementById('audioPlayer');
     const audioSource = document.getElementById('audioSource');
     const playPauseBtn = document.getElementById('play-pause-btn');
-    const progressBar = document.getElementById('progress-bar');
-    const currentTimeDisplay = document.getElementById('current-time');
-    const durationDisplay = document.getElementById('duration');
+    const trackInfoElement = document.getElementById('track-info');
 
     // Получение текущего часа и минуты
     const currentHour = new Date().getHours();
@@ -71,24 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
         audioSource.src = currentTrack.url; // Установка источника аудио
         audioPlayer.load(); // Загрузка аудиофайла
 
-        // Устанавливаем время и продолжительность после загрузки метаданных
-        audioPlayer.addEventListener('loadedmetadata', function () {
-            durationDisplay.textContent = formatTime(audioPlayer.duration);
-            audioPlayer.currentTime = currentMinute < 45 ? currentMinute * 60 : 0; // Установка текущего времени
-            updateProgress(); // Обновляем прогрессбар на нужное значение
+        // Обновите содержимое элемента
+        trackInfoElement.textContent = `Сейчас играет: ${currentTrack.title}`;
+
+        // Воспроизведение трека
+        audioPlayer.play().catch(error => {
+            console.error("Ошибка воспроизведения:", error);
         });
     } else {
         console.error("Аудиофайл для текущего часа не найден.");
-        durationDisplay.textContent = '0:00';
+        trackInfoElement.textContent = 'Трек не найден.';
     }
 
-    // Найдите элемент на странице с id 'track-info'
-const trackInfoElement = document.getElementById('track-info');
-
-// Обновите содержимое элемента
-trackInfoElement.textContent = `Сейчас играет: ${currentTrack}`;
-
-    // Обработчик кнопки воспроизведения/паузы
+    // Обработчик кнопки воспроизведения/паузы (если понадобится в дальнейшем)
     playPauseBtn.addEventListener('click', function () {
         if (audioPlayer.paused) {
             audioPlayer.play().then(() => {
@@ -101,30 +94,4 @@ trackInfoElement.textContent = `Сейчас играет: ${currentTrack}`;
             playPauseBtn.textContent = 'Звук';
         }
     });
-
-    // Обновление прогресса аудио
-    audioPlayer.addEventListener('timeupdate', updateProgress);
-
-    // Функция для обновления прогресс-бара
-    function updateProgress() {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        progressBar.style.width = progress + '%';
-        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-
-        // Проверяем, нужно ли переключить трек на следующий
-        if (audioPlayer.currentTime >= audioPlayer.duration) {
-            audioTrackIndex = (audioTrackIndex + 1) % tracks.length; // Зацикливание плейлиста
-            const nextTrack = tracks[audioTrackIndex];
-            audioSource.src = nextTrack.url;
-            audioPlayer.load();
-            audioPlayer.play();
-        }
-    }
-
-    // Форматирование времени
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-    }
 });
