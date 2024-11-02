@@ -124,7 +124,7 @@ div.essential_audio > div:nth-child(2):after {
 	position: absolute;
 	z-index: 0;
 	background-color: #196090;
-	opacity: 1;
+	opacity: 0;
 	mix-blend-mode: multiply;
 	top: 0px;
 	left: 0px;
