@@ -1,3 +1,9 @@
+// Получаем текущий час и минуту
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+const currentMinute = currentTime.getMinutes();
+const currentSecond = currentTime.getSeconds();
+
 // Трек-лист на сутки
 const tracks = [
     { title: "Программа 00", url: "https://air.indexmod.xyz/audio/00-00-00-00-59-44.mp3" },
@@ -50,93 +56,59 @@ const tracks = [
     { title: "Джингл 23", url: "https://air.indexmod.xyz/audio/23-59-45-00-00-14.mp3" }
 ];
 
+let currentTrackIndex = 0; // Индекс текущего трека
+const audio = new Audio(); // Создаем объект аудио
+const progressBar = document.getElementById('progress-bar'); // Элемент прогресс-бара
 
-// Элементы интерфейса
-const audioElement = document.getElementById('audio');
-const trackInfo = document.getElementById('track-info');
-const playPauseBtn = document.getElementById("play-pause-btn");
-const progressContainer = document.getElementById("progress-container");
-const progressBar = document.getElementById("progress-bar");
-const currentTimeElem = document.getElementById("current-time");
-const durationElem = document.getElementById("duration");
+// Функция для загрузки трека
+function loadTrack() {
+    audio.src = tracks[currentTrackIndex].url;
+    audio.load();
+}
 
-let currentTrackIndex = 0;
+// Функция для обновления прогресс-бара
+function updateProgressBar() {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = `${progress}%`;
+}
 
-// Функция для получения текущего трека
-function getCurrentTrack() {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
+// Функция для воспроизведения следующего трека
+function playNextTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length; // Переход к следующему треку
+    loadTrack();
+    audio.play();
+}
 
-    // Если текущее время равно 00:00, начинаем с джингла
-    if (currentMinute === 0 && currentHour === 0) {
-        return 0; // Индекс джингла 00
-    }
-
-    // Определяем индекс текущей программы
-    if (currentMinute === 0) {
-        return currentHour * 2; // Программа в начале часа
+// События управления воспроизведением
+document.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
     } else {
-        // Если не 00 минут, начинаем с текущей минуты
-        return currentHour * 2 + 1; // Начинаем с джингла перед программой
-    }
-}
-
-// Функция воспроизведения трека
-function playTrack(index) {
-    const track = tracks[index];
-    audioElement.src = track.url;
-    trackInfo.textContent = `Сейчас играет: ${track.title}`;
-    audioElement.play();
-    playPauseBtn.textContent = "Pause";
-}
-
-// Переключение Play/Pause
-playPauseBtn.addEventListener("click", () => {
-    if (audioElement.paused) {
-        audioElement.play();
-        playPauseBtn.textContent = "Pause";
-    } else {
-        audioElement.pause();
-        playPauseBtn.textContent = "Play";
+        audio.pause();
     }
 });
 
-// Автоматическое переключение на следующий трек
-audioElement.addEventListener('ended', () => {
-    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-    playTrack(currentTrackIndex);
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        event.preventDefault(); // Предотвращаем прокрутку страницы
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
 });
 
-// Обновление времени и прогресс-бара
-audioElement.addEventListener("timeupdate", () => {
-    const currentTime = audioElement.currentTime;
-    const duration = audioElement.duration;
+// Устанавливаем начальный трек в соответствии с текущим временем
+const initialTrackIndex = currentHour * 2 + (currentMinute >= 45 ? 1 : 0);
+currentTrackIndex = initialTrackIndex >= tracks.length ? 0 : initialTrackIndex;
+loadTrack();
 
-    // Обновление времени
-    currentTimeElem.textContent = formatTime(currentTime);
-    durationElem.textContent = formatTime(duration);
+// Обновляем прогресс-бар каждую секунду
+setInterval(updateProgressBar, 1000);
 
-    // Обновление прогресс-бара
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-});
+// Воспроизводим трек по окончании
+audio.addEventListener('ended', playNextTrack);
 
-// Пропуск при клике на прогресс-баре
-progressContainer.addEventListener("click", (e) => {
-    const width = progressContainer.clientWidth;
-    const clickX = e.offsetX;
-    const duration = audioElement.duration;
-    audioElement.currentTime = (clickX / width) * duration;
-});
-
-// Форматирование времени в мин:сек
-function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-}
-
-// Начинаем воспроизведение с текущего трека
-currentTrackIndex = getCurrentTrack();
-playTrack(currentTrackIndex);
+// Запускаем воспроизведение
+audio.play();
