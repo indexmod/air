@@ -52,7 +52,7 @@ div.essential_audio > div:nth-child(1) div:after {
 /* Set here how much the button exceeds the horizontal track limits: */
 /* This must not be deleted! (but can be changed, of course) */
 :root {
-	--button-protrusion: 4px;
+	--button-protrusion: 0px;
 }
 
 /* 2.a) The Player Button – Off */
