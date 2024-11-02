@@ -24,11 +24,35 @@
 <div class="gradient"></div>
     <div class="container">
         <!-- HTML & Audio -->
-				<div class="essential_audio" data-url="https://air.indexmod.xyz/list.xml" data-autoplay></div>
+        <div class="essential_audio" data-url="https://air.indexmod.xyz/list.xml" data-autoplay></div>
     </div>
 
     <!-- JavaScript -->
     <script src="https://air.indexmod.xyz/essential_audio.js"></script>
+    <script>
+        // Получаем URL списка треков из элемента с классом essential_audio
+        const audioElement = document.querySelector('.essential_audio');
+        const url = audioElement.getAttribute('data-url');
+
+        fetch(url)
+            .then(response => response.text())
+            .then(str => {
+                const data = (new window.DOMParser()).parseFromString(str, "text/xml");
+
+                // Извлекаем треки из XML
+                const tracks = Array.from(data.getElementsByTagName('track')).map(track => ({
+                    title: track.getElementsByTagName('title')[0].textContent,
+                    url: track.getElementsByTagName('url')[0].textContent
+                }));
+
+                // Логируем треки в консоль или используем их для воспроизведения
+                console.log(tracks);
+                // Здесь можно добавить логику для воспроизведения аудио с использованием полученных треков
+            })
+            .catch(error => {
+                console.error('Ошибка при загрузке или парсинге XML:', error);
+            });
+    </script>
 
 </body>
 </html>
