@@ -6,12 +6,26 @@
     <title>Эйр Indexmod</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://air.indexmod.xyz/essential_audio.css">
+    <style>
+        /* Стили для родительского контейнера */
+        body, html {
+            height: 100%; /* Устанавливаем высоту для html и body */
+            margin: 0; /* Убираем стандартные отступы */
+        }
+
+        .container {
+            display: grid; /* Используем CSS Grid */
+            place-items: center; /* Центрируем содержимое по горизонтали и вертикали */
+            height: 100%; /* Высота родительского контейнера */
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HTML & Audio -->
-
-    <div class="essential_audio" data-url="https://air.indexmod.xyz/18-59-45-00-00-14.mp3"></div>
+    <div class="container">
+        <!-- HTML & Audio -->
+        <div class="essential_audio" data-url="https://air.indexmod.xyz/18-59-45-00-00-14.mp3"></div>
+    </div>
 
     <!-- JavaScript -->
     <script src="https://air.indexmod.xyz/essential_audio.js"></script>

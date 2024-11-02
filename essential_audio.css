@@ -11,14 +11,27 @@
 /****************************************/
 
 
+
+/* Стили для родительского контейнера */
+body, html {
+    height: 100%; /* Устанавливаем высоту для html и body */
+    margin: 0; /* Убираем стандартные отступы */
+}
+
+.container {
+    display: grid; /* Используем CSS Grid */
+    place-items: center; /* Центрируем содержимое по горизонтали и вертикали */
+    height: 100%; /* Высота родительского контейнера */
+}
+
 /* 1. The Main Container */
 div.essential_audio {
-	position: relative;
-	z-index: 0;
-	width: 100%;
-	max-width: 800px; /* Максимальная ширина для контейнера */
-	margin: 0 auto; /* Центрирование по горизонтали */
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    max-width: 800px; /* Максимальная ширина для контейнера */
 }
+
 
 
 /* 2. The Player Button – General */
