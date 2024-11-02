@@ -82,6 +82,12 @@ document.addEventListener('DOMContentLoaded', function () {
         durationDisplay.textContent = '0:00';
     }
 
+    // Найдите элемент на странице с id 'track-info'
+const trackInfoElement = document.getElementById('track-info');
+
+// Обновите содержимое элемента
+trackInfoElement.textContent = `Сейчас играет: ${currentTrack}`;
+
     // Обработчик кнопки воспроизведения/паузы
     playPauseBtn.addEventListener('click', function () {
         if (audioPlayer.paused) {
