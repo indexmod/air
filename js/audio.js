@@ -1,8 +1,10 @@
-// Получаем текущий час и минуту
-const currentTime = new Date();
-const currentHour = currentTime.getHours();
-const currentMinute = currentTime.getMinutes();
-const currentSecond = currentTime.getSeconds();
+document.addEventListener('DOMContentLoaded', function () {
+  const audioPlayer = document.getElementById('audioPlayer');
+  const audioSource = document.getElementById('audioSource');
+  const playPauseBtn = document.getElementById('play-pause-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const currentTimeDisplay = document.getElementById('current-time');
+  const durationDisplay = document.getElementById('duration');
 
 // Трек-лист на сутки
 const tracks = [
@@ -56,69 +58,80 @@ const tracks = [
     { title: "Джингл 23", url: "https://air.indexmod.xyz/audio/23-59-45-00-00-14.mp3" }
 ];
 
-let currentTrackIndex = 0; // Индекс текущего трека
-const audio = new Audio(); // Создаем объект аудио
-const progressBar = document.getElementById('progress-bar'); // Элемент прогресс-бара
+  // Получение текущего часа и минуты
+  const currentHour = new Date().getHours();
+  const currentMinute = new Date().getMinutes();
 
-// Функция для загрузки трека
-function loadTrack() {
-    audio.src = tracks[currentTrackIndex].url;
-    audio.currentTime = getCurrentTrackStartTime(); // Устанавливаем время начала трека
-    audio.load();
-}
+  // Определяем индекс трека в зависимости от текущей минуты
+  let audioTrackIndex;
+  if (currentMinute < 45) {
+    audioTrackIndex = currentHour * 2; // Программа
+  } else {
+    audioTrackIndex = currentHour * 2 + 1; // Джингл
+  }
 
-// Функция для получения времени начала текущего трека
-function getCurrentTrackStartTime() {
-    if (currentMinute < 45) {
-        return 0; // Если меньше 45 минут, начинается с 0
+  const currentTrack = tracks[audioTrackIndex];
+
+  if (currentTrack) {
+    audioSource.src = currentTrack.url; // Установка источника аудио
+    audioPlayer.load(); // Загрузка аудиофайла
+
+    // Устанавливаем время и продолжительность после загрузки метаданных
+    audioPlayer.addEventListener('loadedmetadata', function () {
+      if (audioPlayer.duration) {
+        durationDisplay.textContent = formatTime(audioPlayer.duration);
+
+        // Устанавливаем прогрессбар на текущую минуту
+        const secondsFromHourStart = currentMinute < 45 ? currentMinute * 60 : 0;
+        audioPlayer.currentTime = Math.min(secondsFromHourStart, audioPlayer.duration);
+        updateProgress(); // Обновляем прогрессбар на нужное значение
+      } else {
+        durationDisplay.textContent = '0:00';
+      }
+    });
+  } else {
+    console.error("Аудиофайл для текущего часа не найден.");
+    durationDisplay.textContent = '0:00';
+  }
+
+  // Обработчик кнопки воспроизведения/паузы
+  playPauseBtn.addEventListener('click', function () {
+    if (audioPlayer.paused) {
+      audioPlayer.play().then(() => {
+        playPauseBtn.textContent = 'Пауза';
+      }).catch(error => {
+        console.error("Ошибка воспроизведения:", error);
+      });
     } else {
-        return 0; // В этом примере, джинглы идут до 45-й минуты
+      audioPlayer.pause();
+      playPauseBtn.textContent = 'Звук';
     }
-}
+  });
 
-// Функция для обновления прогресс-бара
-function updateProgressBar() {
-    const progress = (audio.currentTime / audio.duration) * 100;
+  // Обновление прогресса аудио
+  audioPlayer.addEventListener('timeupdate', updateProgress);
+
+  // Функция для обновления прогресс-бара
+  function updateProgress() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progressBar.style.width = progress + '%';
-}
+    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
 
-// Функция для воспроизведения следующего трека
-function playNextTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % tracks.length; // Переход к следующему треку
-    loadTrack();
-    audio.play();
-}
-
-// События управления воспроизведением
-document.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-    } else {
-        audio.pause();
+    // Проверяем, нужно ли переключить трек на следующий
+    if (audioPlayer.currentTime >= audioPlayer.duration) {
+      // Переключаем на следующий трек
+      audioTrackIndex = (audioTrackIndex + 1) % tracks.length; // Зацикливание плейлиста
+      const nextTrack = tracks[audioTrackIndex];
+      audioSource.src = nextTrack.url;
+      audioPlayer.load();
+      audioPlayer.play();
     }
+  }
+
+  // Форматирование времени
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  }
 });
-
-document.addEventListener('keydown', (event) => {
-    if (event.code === 'Space') {
-        event.preventDefault(); // Предотвращаем прокрутку страницы
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    }
-});
-
-// Устанавливаем начальный трек в соответствии с текущим временем
-const initialTrackIndex = currentHour * 2 + (currentMinute >= 45 ? 1 : 0);
-currentTrackIndex = initialTrackIndex >= tracks.length ? 0 : initialTrackIndex;
-loadTrack();
-
-// Обновляем прогресс-бар каждую секунду
-setInterval(updateProgressBar, 1000);
-
-// Воспроизводим трек по окончании
-audio.addEventListener('ended', playNextTrack);
-
-// Запускаем воспроизведение
-audio.play();
