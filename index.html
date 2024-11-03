@@ -3,30 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аудиоплеер</title>
-    <style>
-        #progress-bar {
-            width: 100%;
-            background: #e0e0e0;
-        }
-        #progress {
-            height: 5px;
-            background: #76c7c0;
-        }
-    </style>
+    <title>Минимальный аудиоплеер</title>
 </head>
 <body>
-    <h1>Аудиоплеер</h1>
+    <h1>Минимальный аудиоплеер</h1>
     <audio id="audioPlayer" controls>
         <source id="audioSource" src="" type="audio/mpeg">
         Ваш браузер не поддерживает аудиоплеер.
     </audio>
     <div id="track-info"></div>
-    <div id="progress-bar">
-        <div id="progress"></div>
-    </div>
     <button id="play-pause-btn">Воспроизвести</button>
 
+    <!-- Подключение JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
