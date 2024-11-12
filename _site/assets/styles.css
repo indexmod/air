@@ -1,0 +1,121 @@
+/* Основной стиль для body */
+body {
+    margin: 0;
+    padding: 5px; /* Отступ вокруг страницы */
+    background-color: #001f3f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+/* Центрирование основного контента */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Стиль для кастомного аудиоплеера */
+.custom-audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.play-btn-wrapper {
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+/* Кнопка воспроизведения */
+#play-pause-btn {
+    background: none;
+    color: white;
+    border: none;
+    padding: 0;
+    font-size: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    width: 60px;
+    height: 60px;
+}
+
+/* Стили для состояний кнопки */
+#play-pause-btn::before {
+    content: "▶"; /* Символ плей */
+    display: inline-block;
+    font-size: 48px;
+}
+
+#play-pause-btn.playing::before {
+    content: "❚❚"; /* Символ паузы */
+}
+
+#play-pause-btn.paused::before {
+    content: "▶"; /* Символ плей */
+}
+
+/* Время воспроизведения */
+.time-display {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Контейнер для прогресс-бара */
+.progress-container {
+    background-color: #555;
+    border-radius: 5px;
+    width: 100%;
+    height: 3px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* Прогресс-бар */
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 0;
+    transition: width 0.1s;
+}
+
+/* Респонсивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .main-content {
+        padding: 10px;
+        width: 100%;
+    }
+    .custom-audio-player {
+        padding: 10px;
+    }
+    .time-display {
+        font-size: 12px;
+    }
+}

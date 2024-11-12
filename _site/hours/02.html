@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02:00 - 03:00</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          function redirectToNextHour() {
+              const now = new Date();
+              const currentHour = now.getHours();
+              const nextHour = (currentHour + 1) % 24;
+
+              // Рассчитаем оставшиеся миллисекунды до следующего часа
+              const timeToNextHour = (60 - now.getMinutes()) * 60 * 1000 - now.getSeconds() * 1000;
+
+              // Проверим, совпадает ли текущий час страницы с часом в URL
+              const pageHour = parseInt("02:00", 10);
+              if (pageHour !== currentHour) {
+                  window.location.href = `/hours/${currentHour.toString().padStart(2, '0')}`;
+                  return;
+              }
+
+              // Установим таймер для перенаправления на следующий час
+              setTimeout(function() {
+                  window.location.href = `/hours/${nextHour.toString().padStart(2, '0')}`;
+              }, timeToNextHour);
+          }
+
+          redirectToNextHour();
+      });
+  </script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const audioPlayer = document.getElementById("audio-player");
+      const playPauseBtn = document.getElementById("play-pause-btn");
+      const progressBar = document.querySelector(".progress-bar");
+      const currentTimeDisplay = document.getElementById("current-time");
+      const durationDisplay = document.getElementById("duration");
+
+      const permalink = "/hours/02";
+      const source = audioPlayer.querySelector("source");
+      source.src = `/assets/audio${permalink}.mp3`;
+      audioPlayer.load();
+
+      let autoPlayDisabled = true;
+      let isUserInteraction = false;
+
+      // Устанавливаем начальное время воспроизведения и обновляем прогресс-бар
+      audioPlayer.addEventListener("loadedmetadata", () => {
+          const currentMinute = new Date().getMinutes();
+          const currentSecond = new Date().getSeconds();
+
+          if (currentMinute === 0 && currentSecond < 10) {
+              // Начало часа — воспроизводим с начала
+              audioPlayer.currentTime = 0;
+          } else {
+              // Воспроизводим с текущей минуты
+              audioPlayer.currentTime = currentMinute * 60;
+          }
+
+          // Обновляем прогресс-бар и отображение времени
+          updateProgressBar();
+          durationDisplay.textContent = formatTime(audioPlayer.duration);
+
+          // Попытка автозапуска
+          attemptAutoPlay();
+      });
+
+      // Попытка автозапуска
+      function attemptAutoPlay() {
+          audioPlayer.play().then(() => {
+              console.log("Автозапуск успешно выполнен");
+              playPauseBtn.classList.remove("paused");
+              playPauseBtn.classList.add("playing");
+              autoPlayDisabled = false;
+          }).catch(error => {
+              console.error("Автозапуск блокирован:", error);
+              autoPlayDisabled = true;
+              // Попробуем снова при взаимодействии с пользователем
+              enableAutoPlayOnInteraction();
+          });
+      }
+
+      // Включаем автозапуск при взаимодействии пользователя
+      function enableAutoPlayOnInteraction() {
+          const interactionHandler = () => {
+              if (autoPlayDisabled) {
+                  attemptAutoPlay();
+              }
+              document.removeEventListener("click", interactionHandler);
+              document.removeEventListener("keydown", interactionHandler);
+              document.removeEventListener("mousemove", interactionHandler);
+              document.removeEventListener("scroll", interactionHandler);
+          };
+
+          document.addEventListener("click", interactionHandler);
+          document.addEventListener("keydown", interactionHandler);
+          document.addEventListener("mousemove", interactionHandler);
+          document.addEventListener("scroll", interactionHandler);
+      }
+
+      // Функция переключения воспроизведения
+      function togglePlayPause() {
+          if (audioPlayer.paused) {
+              audioPlayer.play().then(() => {
+                  playPauseBtn.classList.remove("paused");
+                  playPauseBtn.classList.add("playing");
+              }).catch(error => {
+                  console.error("Не удалось воспроизвести:", error);
+              });
+          } else {
+              audioPlayer.pause();
+              playPauseBtn.classList.remove("playing");
+              playPauseBtn.classList.add("paused");
+          }
+      }
+
+      // Обработчики событий
+      playPauseBtn.addEventListener("click", () => {
+          isUserInteraction = true;
+          togglePlayPause();
+      });
+
+      document.addEventListener("keydown", (event) => {
+          if (event.code === "Space") {
+              event.preventDefault();
+              isUserInteraction = true;
+              togglePlayPause();
+          }
+      });
+
+      // Обновление прогресс-бара
+      function updateProgressBar() {
+          if (audioPlayer.duration) {
+              const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+              progressBar.style.width = `${progressPercent}%`;
+              currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+          }
+      }
+
+      // Обновляем прогресс-бар сразу после установки currentTime
+      audioPlayer.addEventListener("loadedmetadata", updateProgressBar);
+
+      // Обновляем прогресс-бар при изменении времени
+      audioPlayer.addEventListener("timeupdate", updateProgressBar);
+
+      // Форматирование времени
+      function formatTime(seconds) {
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins}:${secs < 10 ? '0' + secs : secs}`;
+      }
+  });
+</script>
+
+</head>
+<body>
+  <main>
+    <div class="main-content">
+      <h1>02:00 - 03:00</h1>
+      <!-- Аудио элемент скрыт -->
+<audio id="audio-player" autoplay>
+  <source src="/assets/audio//hours/02.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает воспроизведение аудио.
+</audio>
+
+<!-- Кастомный аудио-плеер -->
+<div class="custom-audio-player">
+  <!-- Кнопка воспроизведения -->
+  <button id="play-pause-btn" class="paused"></button>
+
+
+  <!-- Контейнер для времени -->
+  <div class="time-display">
+    <span id="current-time">0:00</span>
+    <span style="color: white;"> / </span>
+    <span id="duration">0:00</span>
+  </div>
+
+  <!-- Прогресс-бар, занимающий 90% ширины страницы -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+</div>
+
+      <p><!-- Содержимое для отображения в 02:00 - 03:00 -->
+<p>Добро пожаловать на страницу 02:00 - 03:00</p>
+</p>
+    </div>
+    <div>
+    </main>
+</body>
+</html>
