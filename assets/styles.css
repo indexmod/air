@@ -175,3 +175,11 @@ marquee {
         font-size: 12px;
     }
 }
+
+.highlight {
+    background-color: yellow;  /* Выделение маркером */
+    color: black;  /* Черный цвет текста */
+    font-weight: bold; /* Полужирный шрифт */
+    border-radius: 4px; /* Скругление углов */
+    padding: 0 4px;  /* Небольшие отступы */
+}
