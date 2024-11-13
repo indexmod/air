@@ -151,14 +151,14 @@ marquee {
 
 /* Стили для ссылки на донаты */
 .footer-info a {
-    text-decoration: underline; /* Подчеркивание ссылки */
-    color: violet;
+    text-decoration: none; /* Подчеркивание ссылки */
+    color: #660066;
     font-weight: bold;
 }
 
 .footer-info a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
-    color: violet;
+    text-decoration: none; /* Подчеркивание при наведении */
+    color: #660066;
 }
 
 /* Респонсивные стили для мобильных устройств */
