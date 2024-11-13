@@ -1,177 +1,187 @@
-/* Основной стиль для body */
-body {
-    margin: 0;
-    padding: 5px; /* Отступ вокруг страницы */
-    background: linear-gradient(to left, #001f3f 0%, #002f5f 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: monospace;
-    font-size: 15px; /* Установим шрифт моноспейс 15px */
-    box-sizing: border-box;
-}
-/* Стили для кружочка (lime-circle) */
-.lime-circle {
-    color: lime; /* Цвет лайм */
-    font-size: 1.5em; /* Увеличиваем размер для соответствия строке */
-    margin-right: 0.5em; /* Пробел между кружочком и временем */
-    display: inline-block;
-    vertical-align: middle; /* Выравнивание по центру строки */
-    line-height: 0.6; /* Устанавливаем высоту строки для правильного выравнивания */
+/* Глобальные стили страницы */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Основной стиль для body */
+body {
+  margin: 0;
+  padding: 5px; /* Отступ вокруг страницы */
+  background: linear-gradient(to left, #001f3f 0%, #002f5f 100%);
+  color: silver;
+  font-family: monospace;
+  font-size: 15px; /* Установим шрифт моноспейс 15px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
 
 /* Центрирование основного контента */
 .main-content,
 .custom-audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    padding: 5px;
-    box-sizing: border-box; /* Учитываем padding в ширине */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 5px;
+  box-sizing: border-box; /* Учитываем padding в ширине */
 }
 
 /* Кнопка воспроизведения */
 #play-pause-btn {
-    background: none;
-    color: white;
-    border: none;
-    padding: 0;
-    font-size: 100px; /* Увеличиваем размер шрифта */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    width: 100px; /* Ширина кнопки */
-    height: 100px; /* Высота кнопки */
+  background: none;
+  color: silver;
+  border: none;
+  padding: 0;
+  font-size: 100px; /* Увеличиваем размер шрифта */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  width: 100px; /* Ширина кнопки */
+  height: 100px; /* Высота кнопки */
 }
 
 /* Стили для символа плей (треугольник) */
 #play-pause-btn::before {
-    content: "▲"; /* Используем равносторонний треугольник для лучшей пропорции */
-    display: inline-block;
-    font-size: 90px; /* Уменьшаем размер символа */
-    color: white; /* Белый цвет символа */
-    transform: rotate(90deg); /* Поворачиваем треугольник вправо */
+  content: "▲"; /* Используем равносторонний треугольник для лучшей пропорции */
+  display: inline-block;
+  font-size: 90px; /* Уменьшаем размер символа */
+  color: silver; /* Белый цвет символа */
+  transform: rotate(90deg); /* Поворачиваем треугольник вправо */
 }
 
 /* Состояние воспроизведения (пауза) */
 #play-pause-btn.playing::before {
-    content: "■"; /* Символ квадрата */
-    font-size: 80px;
+  content: "■"; /* Символ квадрата */
+  font-size: 80px;
 }
 
 /* Состояние паузы (плей) */
 #play-pause-btn.paused::before {
-    content: "▲"; /* Используем треугольник */
-    font-size: 90px;
-    transform: rotate(90deg);
+  content: "▲"; /* Используем треугольник */
+  font-size: 90px;
+  transform: rotate(90deg);
 }
 
 /* Время воспроизведения */
 .time-display {
-    display: flex;
-    gap: 5px;
-    font-size: 15px; /* Установим шрифт моноспейс 15px */
-    color: white;
-    font-family: monospace; /* Моноспейс шрифт */
+  display: flex;
+  gap: 5px;
+  font-size: 15px; /* Установим шрифт моноспейс 15px */
+  color: silver;
+  font-family: monospace; /* Моноспейс шрифт */
 }
 
 /* Прогресс-бар */
 .progress-container {
-    background-color: #555;
-    border-radius: 5px;
-    width: 100%;
-    height: 3px;
-    margin-top: 10px;
+  background-color: #555;
+  border-radius: 5px;
+  width: 100%;
+  height: 3px;
+  margin-top: 10px;
 }
 
 .progress-bar {
-    background-color: white;
-    height: 100%;
-    width: 0;
-    transition: width 0.1s;
+  background-color: silver;
+  height: 100%;
+  width: 0;
+  transition: width 0.1s;
 }
 
-/* Основные стили для футера */
+/* Кружок перед временем */
+.lime-circle {
+  color: lime; /* Цвет лайм */
+  font-size: 1.3em; /* Размер */
+  margin-right: 5px; /* Отступ справа */
+  vertical-align: -1px; /* Поднимаем кружок на 2px */
+}
+
+/* Для футера и остального контента */
 .footer-info {
-    position: fixed;
-    bottom: -1px; /* Смещаем на 1px за край */
-    right: -1px; /* Смещаем на 1px за край */
-    background-color: white;
-    padding: 7px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    font-family: monospace;
-    font-size: 15px;
-    font-weight: bold;
-    color: #002f5f;
-    border-radius: 10px 0 0 0;
-    width: auto; /* Контейнер будет растягиваться в зависимости от содержимого */
-    max-width: 100%;
-    display: flex; /* Для размещения элементов в одну строку */
-    align-items: center; /* Центрируем элементы по вертикали */
-    gap: 10px; /* Отступ между элементами */
-    overflow: hidden; /* Чтобы не выходило за пределы контейнера */
+  position: fixed;
+  bottom: -1px; /* Смещаем на 1px за край */
+  right: -1px; /* Смещаем на 1px за край */
+  background-color: #1C1C1C;
+  padding: 4px 15px; /* Отступы */
+  font-family: monospace;
+  font-size: 14px;
+  color: silver;
+  border-radius: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 290px; /* Контейнер будет растягиваться в зависимости от содержимого */
+  max-width: 100%;
+  gap: 10px;
 }
 
 /* Время в футере */
 .time-container {
-    font-weight: bold;
-    color: white;
-    background-color: #002f5f; /* Контейнер с цветом для времени */
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 16px;
+  color: silver;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 /* Стили для абзаца в футере */
 .footer-info p {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    white-space: nowrap; /* Не допускаем перенос строк */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  silver-space: nowrap; /* Не допускаем перенос строк */
 }
 
 /* Стили для бегущей строки */
 marquee {
-    display: inline-block;
-    width: 50%; /* Установить фиксированную ширину для marquee */
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
+  display: inline-block;
+  width: 30%; /* Установить фиксированную ширину для marquee */
+  margin: 0;
+  padding: 0;
 }
 
 /* Стили для ссылки на донаты */
 .footer-info a {
-    text-decoration: underline; /* Подчеркивание ссылки */
-    color: violet;
-    font-weight: bold;
+  text-decoration: none; /* Подчеркивание ссылки */
+  color: #E6E6FA;
 }
 
 .footer-info a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
-    color: violet;
+  text-decoration: none; /* Подчеркивание при наведении */
+  color: #E6E6FA;
 }
 
 /* Респонсивные стили для мобильных устройств */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    .main-content,
-    .custom-audio-player {
-        padding: 10px;
-        width: 100%;
-    }
-    .time-display {
-        font-size: 12px;
-    }
+  body {
+    padding: 10px;
+  }
+  .main-content,
+  .custom-audio-player {
+    padding: 10px;
+    width: 100%;
+  }
+  .time-display {
+    font-size: 12px;
+  }
+}
+
+.highlight {
+  background-color: #800080; /* Основной фиолетовый */
+  color: #E6E6FA; /* Сиреневый */
+  border-radius: 4px; /* Скругление углов */
+  padding: 0 4px;  /* Небольшие отступы */
 }

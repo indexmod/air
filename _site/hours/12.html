@@ -157,14 +157,16 @@
 </script>
 
     <script>
-  // Функция для обновления времени
+// Функция для обновления времени
 function updateTime() {
-    const currentTimeElement = document.getElementById('footer-current-time'); // Обновляем элемент с уникальным ID
+    const footerTimeWrapper = document.getElementById('footer-time-wrapper');
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Добавляем кружок перед временем
+    footerTimeWrapper.innerHTML = `<span class="lime-circle">●</span> ${hours}:${minutes}:${seconds}`;
 }
 
 // Обновляем время каждую секунду
@@ -191,7 +193,6 @@ updateTime(); // Начальный запуск для отображения �
 
   <!-- Контейнер для времени -->
   <div class="time-display">
-      <span class="lime-circle">●</span>
       <span id="current-time">0:00</span>
       <span style="color: white;"> / </span>
       <span id="duration">0:00</span>
@@ -211,13 +212,15 @@ updateTime(); // Начальный запуск для отображения �
   </main>
 
   <!-- Контейнер для информации в правом нижнем углу -->
+
   <div class="footer-info">
-      <p>
-          <span id="footer-current-time" class="time-container"></span> <!-- Время в белом контейнере -->
-          <marquee behavior="scroll" direction="left" scrollamount="5">Радио "Эфир" by Indexmod</marquee>
-          <span><a href="/donations" target="_blank">Донатс</a></span>
-      </p>
+    <p>
+      <span id="footer-time-wrapper"></span>
+      <marquee behavior="scroll" direction="left" scrollamount="1">Идет настройка радио "Эфир" by Indexmod</marquee>
+      <span class="highlight"><a href="/donations" target="_blank">Донаты</a></span>
+    </p>
   </div>
+
 
 </body>
 </html>

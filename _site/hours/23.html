@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23:00 - 00:00</title>
+    <title>Полуночное шоу Акт I</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -157,14 +157,16 @@
 </script>
 
     <script>
-  // Функция для обновления времени
+// Функция для обновления времени
 function updateTime() {
-    const currentTimeElement = document.getElementById('footer-current-time'); // Обновляем элемент с уникальным ID
+    const footerTimeWrapper = document.getElementById('footer-time-wrapper');
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Добавляем кружок перед временем
+    footerTimeWrapper.innerHTML = `<span class="lime-circle">●</span> ${hours}:${minutes}:${seconds}`;
 }
 
 // Обновляем время каждую секунду
@@ -176,7 +178,7 @@ updateTime(); // Начальный запуск для отображения �
 <body>
   <main>
     <div class="main-content">
-      <h1>23:00 - 00:00</h1>
+      <h1>Полуночное шоу Акт I</h1>
       <!-- Аудио элемент скрыт -->
 <audio id="audio-player" autoplay>
   <source src="/assets/audio//hours/23.mp3" type="audio/mpeg">
@@ -191,7 +193,6 @@ updateTime(); // Начальный запуск для отображения �
 
   <!-- Контейнер для времени -->
   <div class="time-display">
-      <span class="lime-circle">●</span>
       <span id="current-time">0:00</span>
       <span style="color: white;"> / </span>
       <span id="duration">0:00</span>
@@ -204,20 +205,21 @@ updateTime(); // Начальный запуск для отображения �
   </div>
 </div>
 
-      <p><!-- Содержимое для отображения в 23:00 - 00:00 -->
-<p>Добро пожаловать на страницу 23:00 - 00:00</p>
+      <p><p>Здесь будет ежедневное вечернее шоу из двух актов 1-й до полуночи и 2-й после</p>
 </p>
     </div>
   </main>
 
   <!-- Контейнер для информации в правом нижнем углу -->
+
   <div class="footer-info">
-      <p>
-          <span id="footer-current-time" class="time-container"></span> <!-- Время в белом контейнере -->
-          <marquee behavior="scroll" direction="left" scrollamount="5">Радио "Эфир" by Indexmod</marquee>
-          <span><a href="/donations" target="_blank">Донатс</a></span>
-      </p>
+    <p>
+      <span id="footer-time-wrapper"></span>
+      <marquee behavior="scroll" direction="left" scrollamount="1">Идет настройка радио "Эфир" by Indexmod</marquee>
+      <span class="highlight"><a href="/donations" target="_blank">Донаты</a></span>
+    </p>
   </div>
+
 
 </body>
 </html>
