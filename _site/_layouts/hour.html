@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
     {% include next-hour.html %}
     {% include play-audio-js.html %}
+    {% include time.html %}
 </head>
 <body>
   <main>
@@ -15,7 +16,15 @@
       {% include audio.html %}
       <p>{{ content }}</p>
     </div>
-    <div>
-    </main>
+  </main>
+
+  <!-- Контейнер для информации в правом нижнем углу -->
+  <div class="footer-info">
+    <p>
+      <span id="footer-current-time" class="time-container"></span> <!-- Время в белом контейнере -->
+      <marquee behavior="scroll" direction="left" scrollamount="3" width="50%">Вы слушаете радио "{{ site.title }}" by Indexmod</marquee>
+      <span><a href="/donations" target="_blank">Донать!</a></span>
+    </p>
+  </div>
 </body>
 </html>

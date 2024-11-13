@@ -9,6 +9,7 @@ body {
     justify-content: center;
     height: 100vh;
     font-family: monospace;
+    font-size: 15px; /* Установим шрифт моноспейс 15px */
     box-sizing: border-box;
 }
 
@@ -36,7 +37,6 @@ body {
     padding: 5px;
     box-sizing: border-box;
 }
-
 
 /* Кнопка воспроизведения */
 #play-pause-btn {
@@ -78,26 +78,26 @@ body {
     transform: rotate(90deg);
 }
 
-
-/* Стили для кружочка */
+/* Стили для кружочка (lime-circle) */
 .lime-circle {
-    color: lime;
-    font-size: 1em; /* Размер совпадает с размером текста */
-    margin-right: 0.3em; /* Пробел между кружочком и временем */
+    color: lime; /* Цвет лайм */
+    font-size: 1.5em; /* Увеличиваем размер для соответствия строке */
+    margin-right: 0.5em; /* Пробел между кружочком и временем */
     display: inline-block;
-    line-height: 1;
+    vertical-align: middle; /* Выравнивание по центру строки */
+    line-height: 1; /* Устанавливаем высоту строки для правильного выравнивания */
 }
-
 
 /* Время воспроизведения */
 .time-display {
     display: flex;
     gap: 5px;
-    font-size: 14px;
-    color: #ffffff;
+    font-size: 15px; /* Установим шрифт моноспейс 15px */
+    color: white; /* Цвет текста */
+    font-family: monospace; /* Моноспейс шрифт */
 }
 
-/* Контейнер для прогресс-бара */
+/* Прогресс-бар */
 .progress-container {
     background-color: #555;
     border-radius: 5px;
@@ -109,12 +109,90 @@ body {
     box-sizing: border-box;
 }
 
-/* Прогресс-бар */
 .progress-bar {
     background-color: white;
     height: 100%;
     width: 0;
     transition: width 0.1s;
+}
+
+/* Основные стили для футера */
+.footer-info {
+    position: fixed;
+    bottom: -1px; /* Смещаем на 1px за край */
+    right: -1px; /* Смещаем на 1px за край */
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-family: monospace;
+    font-size: 15px;
+    color: #002f5f;
+    border-radius: 10px 0 0 0;
+    width: auto; /* Контейнер будет растягиваться в зависимости от содержимого */
+    max-width: 100%; /* Ограничиваем ширину контейнера */
+    display: flex; /* Для размещения элементов в одну строку */
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 10px; /* Отступ между элементами */
+    overflow: hidden; /* Чтобы не выходило за пределы контейнера */
+}
+
+/* Стили для времени внутри футера */
+.time-container {
+    font-weight: bold;
+    color: white;
+    background-color: #002f5f; /* Контейнер с цветом для времени */
+    padding: 5px 10px; /* Отступы внутри контейнера */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 16px;
+}
+
+/* Стили для абзаца в футере */
+.footer-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    white-space: nowrap; /* Не допускаем перенос строк */
+}
+
+/* Стили для бегущей строки */
+.scrolling-text {
+    display: inline-block;
+    width: 50%; /* Ограничиваем ширину в половину длины текста */
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    position: relative;
+}
+
+/* Анимация прокрутки текста */
+.scrolling-text::after {
+    content: attr(title);
+    position: absolute;
+    animation: scroll-text 10s linear infinite;
+    white-space: nowrap;
+    left: 100%; /* Начинаем прокрутку за пределами контейнера */
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* Стили для ссылки на донаты */
+.footer-info a {
+    text-decoration: underline; /* Подчеркивание ссылки */
+    color: inherit; /* Ссылка будет иметь тот же цвет, что и текст */
+}
+
+.footer-info a:hover {
+    text-decoration: underline; /* Ссылка не должна менять стиль при наведении */
 }
 
 /* Респонсивные стили для мобильных устройств */

@@ -1,7 +1,7 @@
-title: "WEEK"
-description: "Циклический сайт для 24 часов вещания"
+title: "Эфир"
+description: "24/7"
 baseurl: ""  # Если сайт будет на поддомене, укажите базовый URL здесь
-url: "http://week.indexmod.xyz"  # URL для тестирования на поддомене
+url: "http://air.indexmod.xyz"  # URL для тестирования на поддомене
 
 # Папка для хранения 24-часовых страниц
 collections:

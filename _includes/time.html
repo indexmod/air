@@ -1,0 +1,15 @@
+<script>
+  // Функция для обновления времени
+function updateTime() {
+    const currentTimeElement = document.getElementById('footer-current-time'); // Обновляем элемент с уникальным ID
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Обновляем время каждую секунду
+setInterval(updateTime, 1000);
+updateTime(); // Начальный запуск для отображения времени сразу
+</script>

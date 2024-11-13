@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01:00 - 02:00</title>
+    <title>Ночь</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -16,7 +16,7 @@
               const timeToNextHour = (60 - now.getMinutes()) * 60 * 1000 - now.getSeconds() * 1000;
 
               // Проверим, совпадает ли текущий час страницы с часом в URL
-              const pageHour = parseInt("01:00", 10);
+              const pageHour = parseInt("00:00", 10);
               if (pageHour !== currentHour) {
                   window.location.href = `/hours/${currentHour.toString().padStart(2, '0')}`;
                   return;
@@ -156,11 +156,27 @@
   });
 </script>
 
+    <script>
+  // Функция для обновления времени
+function updateTime() {
+    const currentTimeElement = document.getElementById('footer-current-time'); // Обновляем элемент с уникальным ID
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Обновляем время каждую секунду
+setInterval(updateTime, 1000);
+updateTime(); // Начальный запуск для отображения времени сразу
+</script>
+
 </head>
 <body>
   <main>
     <div class="main-content">
-      <h1>01:00 - 02:00</h1>
+      <h1>Ночь</h1>
       <!-- Аудио элемент скрыт -->
 <audio id="audio-player" autoplay>
   <source src="/assets/audio//hours/00.mp3" type="audio/mpeg">
@@ -175,10 +191,12 @@
 
   <!-- Контейнер для времени -->
   <div class="time-display">
-    <span id="current-time">0:00</span>
-    <span style="color: white;"> / </span>
-    <span id="duration">0:00</span>
+      <span class="lime-circle">●</span>
+      <span id="current-time">0:00</span>
+      <span style="color: white;"> / </span>
+      <span id="duration">0:00</span>
   </div>
+
 
   <!-- Прогресс-бар, занимающий 90% ширины страницы -->
   <div class="progress-container">
@@ -186,10 +204,18 @@
   </div>
 </div>
 
-      <p>
+      <p><p>Наступила ночь!</p>
 </p>
     </div>
-    <div>
-    </main>
+  </main>
+
+  <!-- Контейнер для информации в правом нижнем углу -->
+  <div class="footer-info">
+    <p>
+      <span id="footer-current-time" class="time-container"></span> <!-- Время в белом контейнере -->
+      <marquee behavior="scroll" direction="left" scrollamount="3" width="50%">Вы слушаете радио "Эфир" by Indexmod</marquee>
+      <span><a href="/donations" target="_blank">Донать!</a></span>
+    </p>
+  </div>
 </body>
 </html>
