@@ -12,30 +12,28 @@ body {
     font-size: 15px; /* Установим шрифт моноспейс 15px */
     box-sizing: border-box;
 }
-
-/* Центрирование основного контента */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    max-width: 600px;
-    padding: 5px;
-    box-sizing: border-box; /* Учитываем padding в ширине */
+/* Стили для кружочка (lime-circle) */
+.lime-circle {
+    color: lime; /* Цвет лайм */
+    font-size: 1.5em; /* Увеличиваем размер для соответствия строке */
+    margin-right: 0.5em; /* Пробел между кружочком и временем */
+    display: inline-block;
+    vertical-align: middle; /* Выравнивание по центру строки */
+    line-height: 0.6; /* Устанавливаем высоту строки для правильного выравнивания */
 }
 
-/* Стиль для кастомного аудиоплеера */
+
+/* Центрирование основного контента */
+.main-content,
 .custom-audio-player {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     width: 100%;
     max-width: 600px;
     padding: 5px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Учитываем padding в ширине */
 }
 
 /* Кнопка воспроизведения */
@@ -66,26 +64,14 @@ body {
 /* Состояние воспроизведения (пауза) */
 #play-pause-btn.playing::before {
     content: "■"; /* Символ квадрата */
-    font-size: 80px; /* Подгоняем размер под треугольник */
-    color: white; /* Белый цвет символа */
+    font-size: 80px;
 }
 
 /* Состояние паузы (плей) */
 #play-pause-btn.paused::before {
     content: "▲"; /* Используем треугольник */
     font-size: 90px;
-    color: white;
     transform: rotate(90deg);
-}
-
-/* Стили для кружочка (lime-circle) */
-.lime-circle {
-    color: lime; /* Цвет лайм */
-    font-size: 1.5em; /* Увеличиваем размер для соответствия строке */
-    margin-right: 0.5em; /* Пробел между кружочком и временем */
-    display: inline-block;
-    vertical-align: middle; /* Выравнивание по центру строки */
-    line-height: 1; /* Устанавливаем высоту строки для правильного выравнивания */
 }
 
 /* Время воспроизведения */
@@ -93,7 +79,7 @@ body {
     display: flex;
     gap: 5px;
     font-size: 15px; /* Установим шрифт моноспейс 15px */
-    color: white; /* Цвет текста */
+    color: white;
     font-family: monospace; /* Моноспейс шрифт */
 }
 
@@ -103,10 +89,7 @@ body {
     border-radius: 5px;
     width: 100%;
     height: 3px;
-    position: relative;
-    overflow: hidden;
     margin-top: 10px;
-    box-sizing: border-box;
 }
 
 .progress-bar {
@@ -122,28 +105,29 @@ body {
     bottom: -1px; /* Смещаем на 1px за край */
     right: -1px; /* Смещаем на 1px за край */
     background-color: white;
-    padding: 10px;
+    padding: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: left;
     font-family: monospace;
     font-size: 15px;
+    font-weight: bold;
     color: #002f5f;
     border-radius: 10px 0 0 0;
     width: auto; /* Контейнер будет растягиваться в зависимости от содержимого */
-    max-width: 100%; /* Ограничиваем ширину контейнера */
+    max-width: 100%;
     display: flex; /* Для размещения элементов в одну строку */
     align-items: center; /* Центрируем элементы по вертикали */
     gap: 10px; /* Отступ между элементами */
     overflow: hidden; /* Чтобы не выходило за пределы контейнера */
 }
 
-/* Стили для времени внутри футера */
+/* Время в футере */
 .time-container {
     font-weight: bold;
     color: white;
     background-color: #002f5f; /* Контейнер с цветом для времени */
-    padding: 5px 10px; /* Отступы внутри контейнера */
-    border-radius: 5px; /* Скругление углов */
+    padding: 5px 10px;
+    border-radius: 5px;
     font-size: 16px;
 }
 
@@ -157,42 +141,24 @@ body {
 }
 
 /* Стили для бегущей строки */
-.scrolling-text {
+marquee {
     display: inline-block;
-    width: 50%; /* Ограничиваем ширину в половину длины текста */
-    white-space: nowrap;
-    overflow: hidden;
-    vertical-align: middle;
-    position: relative;
+    width: 50%; /* Установить фиксированную ширину для marquee */
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
 }
-
-/* Анимация прокрутки текста */
-.scrolling-text::after {
-    content: attr(title);
-    position: absolute;
-    animation: scroll-text 10s linear infinite;
-    white-space: nowrap;
-    left: 100%; /* Начинаем прокрутку за пределами контейнера */
-}
-
-@keyframes scroll-text {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
 
 /* Стили для ссылки на донаты */
 .footer-info a {
     text-decoration: underline; /* Подчеркивание ссылки */
-    color: inherit; /* Ссылка будет иметь тот же цвет, что и текст */
+    color: violet;
+    font-weight: bold;
 }
 
 .footer-info a:hover {
-    text-decoration: underline; /* Ссылка не должна менять стиль при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+    color: violet;
 }
 
 /* Респонсивные стили для мобильных устройств */
@@ -200,12 +166,10 @@ body {
     body {
         padding: 10px;
     }
-    .main-content {
-        padding: 10px;
-        width: 100%;
-    }
+    .main-content,
     .custom-audio-player {
         padding: 10px;
+        width: 100%;
     }
     .time-display {
         font-size: 12px;
