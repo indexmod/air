@@ -1,0 +1,160 @@
+/* Базовые стили страницы */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Фон страницы и текст */
+body {
+  font-family: 'Verdana', sans-serif;
+  color: #333; /* Темно-серый цвет текста для лучшей читаемости */
+  background-color: #fafafa; /* Светлый фон */
+  padding: 20px 40px; /* Поля сверху и снизу 20px, по бокам 40px */
+  line-height: 1.8;
+}
+
+/* Контейнер с максимальной шириной */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Заголовки (шрифт Georgia) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', serif;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Размеры и отступы заголовков */
+h1 {
+  font-size: 2.5rem;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 35px;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-top: 30px;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-top: 25px;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+h6 {
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* Основной текст */
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Ссылки */
+a {
+  color: #6a1b9a; /* Фиолетовый цвет ссылки */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1024px) {
+  body {
+    padding: 20px 30px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px 20px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Дополнительные стили для выделения текста (эффект маркера) */
+.highlight {
+  background-color: #ffff99;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
