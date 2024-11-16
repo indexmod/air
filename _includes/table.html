@@ -1,0 +1,9 @@
+<div id="schedule-monitor">
+  <ul>
+    {% for page in site.hours %}
+      {% if page.layout == "hour" %}
+          <strong>{{ page.start_time }}:</strong> {{ page.title }}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
