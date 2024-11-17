@@ -1,7 +1,8 @@
-<!-- Аудио элемент скрыт -->
+<!-- Аудио элемент с поддержкой mp3 и m4a -->
 <audio id="audio-player" autoplay>
   <source src="/assets/audio/{{ page.permalink }}.mp3" type="audio/mpeg">
-    Ваш браузер не поддерживает воспроизведение аудио.
+  <source src="/assets/audio/{{ page.permalink }}.m4a" type="audio/mp4">
+  Ваш браузер не поддерживает воспроизведение аудио.
 </audio>
 
 <!-- Кастомный аудио-плеер -->
@@ -9,16 +10,14 @@
   <!-- Кнопка воспроизведения -->
   <button id="play-pause-btn" class="paused"></button>
 
-
   <!-- Контейнер для времени -->
   <div class="time-display">
-      <span id="current-time">0:00</span>
-      <span style="color: white;"> / </span>
-      <span id="duration">0:00</span>
+    <span id="current-time">0:00</span>
+    <span style="color: white;"> / </span>
+    <span id="duration">0:00</span>
   </div>
 
-
-  <!-- Прогресс-бар, занимающий 90% ширины страницы -->
+  <!-- Прогресс-бар -->
   <div class="progress-container">
     <div class="progress-bar" id="progress-bar"></div>
   </div>
