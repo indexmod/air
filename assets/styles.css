@@ -13,11 +13,11 @@ html {
 /* Основной стиль для body */
 body {
   margin: 0;
-  padding: 10px; /* Отступ вокруг страницы */
+  padding: 5px;
   background: #1c1c1c;
-  color: silver;
-  font-family: monospace;
-  font-size: 15px; /* Установим шрифт моноспейс 15px */
+  color: #d3d3d3;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,44 +35,63 @@ body {
   width: 100%;
   max-width: 600px;
   padding: 5px;
-  box-sizing: border-box; /* Учитываем padding в ширине */
+  box-sizing: border-box;
+}
+
+/* Приглушенные стили для выделенных элементов */
+.highlight-section {
+  background-color: #2e8b57; /* Приглушённый тёмно-зелёный цвет */
+  color: #a9dfbf; /* Светлый приглушённый зелёный цвет */
+  border-radius: 4px;
+  padding: 0 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-location {
+  background-color: #d2b48c; /* Приглушённый оттенок жёлтого (цвет загара) */
+  color: #333; /* Тёмно-серый цвет для текста */
+  border-radius: 4px;
+  padding: 0 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Кнопка воспроизведения */
 #play-pause-btn {
   background: none;
-  color: silver;
+  color: #d3d3d3;
   border: none;
   padding: 0;
-  font-size: 100px; /* Увеличиваем размер шрифта */
+  font-size: 80px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: none;
-  width: 100px; /* Ширина кнопки */
-  height: 100px; /* Высота кнопки */
+  width: 80px;
+  height: 80px;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 /* Стили для символа плей (треугольник) */
 #play-pause-btn::before {
-  content: "▲"; /* Используем равносторонний треугольник для лучшей пропорции */
+  content: "▲";
   display: inline-block;
-  font-size: 90px; /* Уменьшаем размер символа */
-  color: silver; /* Белый цвет символа */
-  transform: rotate(90deg); /* Поворачиваем треугольник вправо */
+  font-size: 70px;
+  color: #d3d3d3;
+  transform: rotate(90deg);
 }
 
 /* Состояние воспроизведения (пауза) */
 #play-pause-btn.playing::before {
-  content: "■"; /* Символ квадрата */
-  font-size: 80px;
+  content: "■";
+  font-size: 60px;
 }
 
 /* Состояние паузы (плей) */
 #play-pause-btn.paused::before {
-  content: "▲"; /* Используем треугольник */
-  font-size: 90px;
+  content: "▲";
+  font-size: 70px;
   transform: rotate(90deg);
 }
 
@@ -80,9 +99,9 @@ body {
 .time-display {
   display: flex;
   gap: 5px;
-  font-size: 15px; /* Установим шрифт моноспейс 15px */
-  color: silver;
-  font-family: monospace; /* Моноспейс шрифт */
+  font-size: 13px;
+  color: #d3d3d3;
+  font-family: monospace;
 }
 
 /* Прогресс-бар */
@@ -95,17 +114,17 @@ body {
 }
 
 .progress-bar {
-  background-color: silver;
+  background-color: #d3d3d3;
   height: 100%;
   width: 0;
   transition: width 0.1s;
 }
 
 .lime-circle {
-  color: lime; /* Цвет лайм */
-  font-size: 0.9em; /* Размер */
-  margin-right: 0px; /* Отступ справа */
-  vertical-align: 2px; /* Поднимаем кружок на 2px */
+  color: lime;
+  font-size: 0.9em;
+  margin-right: 0px;
+  vertical-align: 2px;
 }
 
 /* Стили футера */
@@ -114,12 +133,12 @@ body {
   bottom: 0;
   right: 0;
   background-color: black;
-  padding: 5px 15px;
+  padding: 8px 15px;
   font-family: monospace;
-  font-size: 14px;
-  color: silver;
+  font-size: 12px;
+  color: #d3d3d3;
   border-radius: 20px 0 0 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -128,51 +147,47 @@ body {
 
 /* Время в футере */
 .time-container {
-  color: silver;
-  font-size: 16px;
+  color: #d3d3d3;
+  font-size: 14px;
 }
 
 /* Мигание текста */
 .blinking-text {
-  animation: blink 1s step-start infinite;
+  animation: blink 1.5s step-start infinite;
   color: #1c1c1c;
 }
 
 @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
   50% {
-    opacity: 0;
+    opacity: 0.5;
   }
 }
 
 /* Стили для ссылки на донаты */
 .highlight {
-  background-color: #800080;
-  color: black;
+  background-color: #9400D3;
+  color: #fff;
   border-radius: 4px;
-  padding: 0 4px;
+  padding: 0 6px;
   text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .highlight:hover {
   color: #E6E6FA;
 }
 
-/* Респонсивные стили для мобильных устройств */
-@media (max-width: 600px) {
-  .footer-info {
-    padding: 10px;
-    font-size: 12px;
-  }
-}
-
-
 /* Верхний блок с информацией */
 .header-info {
   position: fixed;
-  top: -3px;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: auto%;
+  width: 90%;
+  height: auto;
   padding: 7px 15px;
   background-color: black;
   color: grey;
@@ -182,15 +197,64 @@ body {
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   font-family: monospace;
-  font-size: 15px;
+  font-size: 14px;
   z-index: 1000;
 }
 
 /* Контейнер для ротации текста */
 .rotating-text-container {
   overflow: hidden;
-  height: 1.5em; /* Высота строки текста */
+  height: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Респонсивные стили для мобильных устройств */
+@media (max-width: 600px) {
+  body {
+    padding: 5px;
+    font-size: 13px;
+  }
+
+  .main-content,
+  .custom-audio-player {
+    padding: 5px;
+    max-width: 100%;
+  }
+
+  #play-pause-btn {
+    font-size: 70px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .time-display {
+    font-size: 12px;
+  }
+
+  .progress-container {
+    width: 90%;
+  }
+
+  .footer-info {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .header-info {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-container {
+    width: 95%;
+  }
+
+  .header-info {
+    top: 5px;
+    font-size: 12px;
+  }
 }
