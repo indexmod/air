@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 5px; /* Отступ вокруг страницы */
-  background: linear-gradient(to bottom, #1c1c1c 0%, #2a2a2a 100%);
+  background: #1c1c1c;
   color: silver;
   font-family: monospace;
   font-size: 15px; /* Установим шрифт моноспейс 15px */
@@ -23,13 +23,6 @@ body {
   justify-content: center;
   height: 100vh;
   box-sizing: border-box;
-}
-
-giphy-embed {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Центрирование основного контента */
@@ -108,7 +101,7 @@ giphy-embed {
   transition: width 0.1s;
 }
 
-/* Кружок перед временем */
+
 .lime-circle {
   color: lime; /* Цвет лайм */
   font-size: 1.3em; /* Размер */
@@ -116,79 +109,58 @@ giphy-embed {
   vertical-align: -1px; /* Поднимаем кружок на 2px */
 }
 
-/* Для футера и остального контента */
+/* Стили футера */
 .footer-info {
   position: fixed;
-  bottom: -1px; /* Смещаем на 1px за край */
-  right: -1px; /* Смещаем на 1px за край */
-  background-color: #1C1C1C;
-  padding: 4px 15px; /* Отступы */
+  bottom: 0;
+  right: 0;
+  background-color: grey;
+  padding: 5px 15px;
   font-family: monospace;
   font-size: 14px;
   color: silver;
   border-radius: 20px 0 0 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 290px; /* Контейнер будет растягиваться в зависимости от содержимого */
-  max-width: 100%;
   gap: 10px;
+  white-space: nowrap;
 }
 
 /* Время в футере */
 .time-container {
   color: silver;
-  padding: 5px 10px;
-  border-radius: 5px;
   font-size: 16px;
 }
 
-/* Стили для абзаца в футере */
-.footer-info p {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  silver-space: nowrap; /* Не допускаем перенос строк */
+/* Мигание текста */
+.blinking-text {
+  animation: blink 1s step-start infinite;
+  color: silver;
 }
 
-/* Стили для бегущей строки */
-marquee {
-  display: inline-block;
-  width: 30%; /* Установить фиксированную ширину для marquee */
-  margin: 0;
-  padding: 0;
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Стили для ссылки на донаты */
-.footer-info a {
-  text-decoration: none; /* Подчеркивание ссылки */
+.highlight {
+  background-color: #800080;
   color: #E6E6FA;
+  border-radius: 4px;
+  padding: 0 4px;
+  text-decoration: none;
 }
 
-.footer-info a:hover {
-  text-decoration: none; /* Подчеркивание при наведении */
+.highlight:hover {
   color: #E6E6FA;
 }
 
 /* Респонсивные стили для мобильных устройств */
 @media (max-width: 768px) {
-  body {
+  .footer-info {
     padding: 10px;
-  }
-  .main-content,
-  .custom-audio-player {
-    padding: 10px;
-    width: 100%;
-  }
-  .time-display {
     font-size: 12px;
   }
-}
-
-.highlight {
-  background-color: #800080; /* Основной фиолетовый */
-  color: #E6E6FA; /* Сиреневый */
-  border-radius: 4px; /* Скругление углов */
-  padding: 0 4px;  /* Небольшие отступы */
 }

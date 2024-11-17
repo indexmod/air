@@ -179,7 +179,36 @@ updateTime(); // Начальный запуск для отображения �
   <main>
     <div class="main-content">
       <h1>Поют дети</h1>
-      <marquee behavior="scroll" direction="left" scrollamount="5" width="100%"><style>
+      <br>
+      <style>
+/* Контейнер для текста с анимацией */
+.marquee-container {
+  width: 100%; /* Контейнер на всю ширину */
+  overflow: hidden; /* Скрывает часть текста, выходящую за пределы */
+  white-space: nowrap; /* Запрещает перенос строк */
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%; /* Начало текста с правой стороны */
+  animation: marquee 400s linear infinite; /* Задаём анимацию с определённой длительностью */
+}
+
+/* Анимация прокрутки */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Начинаем с правой стороны */
+  }
+  100% {
+    transform: translateX(-100%); /* Двигаем текст до полной левой стороны */
+  }
+}
+</style>
+
+<p>
+  <div class="marquee-container">
+    <div class="marquee-text">
+      <style>
 /* Стили для расписания */
 .schedule-row {
   display: flex; /* Используем Flexbox для расположения элементов в строку */
@@ -209,7 +238,7 @@ updateTime(); // Начальный запуск для отображения �
 
 .highlight-location {
   background-color: yellow;
-  color: orange;
+  color: black;
   border-radius: 4px;
   padding: 0 4px;
 }
@@ -436,7 +465,10 @@ updateTime(); // Начальный запуск для отображения �
     
   </div>
 </div>
-</marquee>
+
+    </div>
+  </div>
+</p>
 
       <br>
       <!-- Аудио элемент с поддержкой mp3 и m4a -->
@@ -472,15 +504,13 @@ updateTime(); // Начальный запуск для отображения �
     </div>
   </main>
 
-  <!-- Контейнер для информации в правом нижнем углу -->
-
+  <!-- Футер с информацией -->
   <div class="footer-info">
-    <p>
-      <span id="footer-time-wrapper"></span>
-      <marquee behavior="scroll" direction="left" scrollamount="1">Идет настройка радио "Эфир" by Indexmod</marquee>
-      <span class="highlight"><a href="/donations" target="_blank">Донаты</a></span>
-    </p>
+    <span id="footer-time-wrapper" class="time-container"></span>
+    <span class="blinking-text">Слушай Эфир</span>
+    <a href="/donations" target="_blank" class="highlight">Донаты</a>
   </div>
+
 
 
 </body>

@@ -13,6 +13,7 @@
   <main>
     <div class="main-content">
       <h1>{{ page.title }}</h1>
+      <br>
       {% include monitor.html %}
       <br>
       {% include audio.html %}
@@ -23,15 +24,13 @@
     </div>
   </main>
 
-  <!-- Контейнер для информации в правом нижнем углу -->
-
+  <!-- Футер с информацией -->
   <div class="footer-info">
-    <p>
-      <span id="footer-time-wrapper"></span>
-      <marquee behavior="scroll" direction="left" scrollamount="1">Идет настройка радио "{{ site.title }}" by Indexmod</marquee>
-      <span class="highlight"><a href="/donations" target="_blank">Донаты</a></span>
-    </p>
+    <span id="footer-time-wrapper" class="time-container"></span>
+    <span class="blinking-text">Слушай Эфир</span>
+    <a href="/donations" target="_blank" class="highlight">Донаты</a>
   </div>
+
 
 
 </body>
