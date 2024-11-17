@@ -176,54 +176,13 @@ updateTime(); // Начальный запуск для отображения �
 
 </head>
 <body>
-  <main>
-    <div class="main-content">
-      <h1>В гостях редакции Эфира</h1>
-      <br>
+  <!-- Верхний блок с ротацией информации -->
+  <div class="header-info">
+    <div class="rotating-text-container">
       <style>
-/* Контейнер для текста с анимацией */
-.marquee-container {
-  width: 100%; /* Контейнер на всю ширину */
-  overflow: hidden; /* Скрывает часть текста, выходящую за пределы */
-  white-space: nowrap; /* Запрещает перенос строк */
-}
-
-.marquee-text {
-  display: inline-block;
-  padding-left: 100%; /* Начало текста с правой стороны */
-  animation: marquee 400s linear infinite; /* Задаём анимацию с определённой длительностью */
-}
-
-/* Анимация прокрутки */
-@keyframes marquee {
-  0% {
-    transform: translateX(100%); /* Начинаем с правой стороны */
-  }
-  100% {
-    transform: translateX(-100%); /* Двигаем текст до полной левой стороны */
-  }
-}
-</style>
-
-<p>
-  <div class="marquee-container">
-    <div class="marquee-text">
-      <style>
-/* Стили для расписания */
-.schedule-row {
-  display: flex; /* Используем Flexbox для расположения элементов в строку */
-  flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
-  gap: 10px; /* Отступ между элементами */
-  align-items: center; /* Выравнивание элементов по вертикали */
-}
-
-.schedule-item {
-  display: flex;
-  gap: 5px; /* Отступ между частями элемента */
-}
-
+/* Стили для элементов расписания */
 .highlight-time {
-  background-color: black;
+  background-color: #1c1c1c;
   color: silver;
   border-radius: 4px;
   padding: 0 4px;
@@ -242,234 +201,250 @@ updateTime(); // Начальный запуск для отображения �
   border-radius: 4px;
   padding: 0 4px;
 }
+
+/* Стили для списка расписания */
+.schedule-list {
+  list-style-type: none; /* Убираем маркеры списка */
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px; /* Отступ между элементами списка */
+}
 </style>
 
-<div class="schedule">
-  <div class="schedule-row">
+<!-- Список расписания -->
+<ul class="schedule-list">
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">00:00</span>
-          <span class="highlight-section">Час быка</span>
-          <span class="highlight-location">Москва</span>
-          Полуночное шоу
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">00:00</span>
+        <span class="highlight-section">Час быка</span>
+        <span class="highlight-location">Москва</span>
+        Полуночное шоу
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">01:00</span>
-          <span class="highlight-section">Час быка</span>
-          <span class="highlight-location">Москва</span>
-          Программа про космос
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">02:00</span>
-          <span class="highlight-section">АСМР</span>
-          <span class="highlight-location">Ереван</span>
-          АСМР-продолжение
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">01:00</span>
+        <span class="highlight-section">Час быка</span>
+        <span class="highlight-location">Москва</span>
+        Программа про космос
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">03:00</span>
-          <span class="highlight-section">Час быка</span>
-          <span class="highlight-location">Москва</span>
-          В гостях редакции Эфира
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">04:00</span>
-          <span class="highlight-section">Рехаб</span>
-          <span class="highlight-location">Москва</span>
-          Аудио-терапия
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">02:00</span>
+        <span class="highlight-section">АСМР</span>
+        <span class="highlight-location">Ереван</span>
+        АСМР-продолжение
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">05:00</span>
-          <span class="highlight-section">Хор</span>
-          <span class="highlight-location">Москва</span>
-          Поют дети
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">06:00</span>
-          <span class="highlight-section">Молния</span>
-          <span class="highlight-location">Лондон</span>
-          Что почем - крипта и все остальное
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">03:00</span>
+        <span class="highlight-section">Час быка</span>
+        <span class="highlight-location">Москва</span>
+        В гостях редакции Эфира
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">07:00</span>
-          <span class="highlight-section">Огоньки</span>
-          <span class="highlight-location">Нью-Йорк</span>
-          Спетни под музыку
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">08:00</span>
-          <span class="highlight-section">Математика</span>
-          <span class="highlight-location">Москва</span>
-          Уроки с Сашей
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">04:00</span>
+        <span class="highlight-section">Рехаб</span>
+        <span class="highlight-location">Москва</span>
+        Аудио-терапия
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">09:00</span>
-          <span class="highlight-section">Youtube Reupload</span>
-          <span class="highlight-location">Нью-Йорк</span>
-          Трудная проблема сознания
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">10:00</span>
-          <span class="highlight-section">Copy that!</span>
-          <span class="highlight-location">Тбилиси</span>
-          Евгения Лягушина
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">05:00</span>
+        <span class="highlight-section">Хор</span>
+        <span class="highlight-location">Москва</span>
+        Поют дети
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">11:00</span>
-          <span class="highlight-section">Ой, как удобно!</span>
-          <span class="highlight-location">Амстердам</span>
-          Раскрываем характеры с Светой Польской
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">12:00</span>
-          <span class="highlight-section">В гостях у голого художника</span>
-          <span class="highlight-location">Владимир</span>
-          Интервью с Анатолием Беланом
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">06:00</span>
+        <span class="highlight-section">Молния</span>
+        <span class="highlight-location">Лондон</span>
+        Что почем - крипта и все остальное
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">13:00</span>
-          <span class="highlight-section">Элексир</span>
-          <span class="highlight-location">Париж</span>
-          Психоролия с Аленой Павловой
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">14:00</span>
-          <span class="highlight-section">Лампа Алладина</span>
-          <span class="highlight-location">Санкт-Петербург</span>
-          Кирилл Акулиничев. Абстракт-Сити
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">07:00</span>
+        <span class="highlight-section">Огоньки</span>
+        <span class="highlight-location">Нью-Йорк</span>
+        Спетни под музыку
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">15:00</span>
-          <span class="highlight-section">Зина</span>
-          <span class="highlight-location">Москва</span>
-          Новости магазинов
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">16:00</span>
-          <span class="highlight-section">Мама мы все тяжело больны</span>
-          <span class="highlight-location">Москва</span>
-          О насущном с гостем студии
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">08:00</span>
+        <span class="highlight-section">Математика</span>
+        <span class="highlight-location">Москва</span>
+        Уроки с Сашей
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">17:00</span>
-          <span class="highlight-section">Чтобы это ни значило</span>
-          <span class="highlight-location">Берлин</span>
-          Все про анимацию
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">18:00</span>
-          <span class="highlight-section">По ту сторону</span>
-          <span class="highlight-location">Ницца</span>
-          Рассказы Анны
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">09:00</span>
+        <span class="highlight-section">Youtube Reupload</span>
+        <span class="highlight-location">Нью-Йорк</span>
+        Трудная проблема сознания
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">19:00</span>
-          <span class="highlight-section">Молния</span>
-          <span class="highlight-location">Бали</span>
-          Интервью с Умой
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">20:00</span>
-          <span class="highlight-section">Шепот</span>
-          <span class="highlight-location">Москва</span>
-          Невнятный шепот Андрея
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">10:00</span>
+        <span class="highlight-section">Copy that!</span>
+        <span class="highlight-location">Тбилиси</span>
+        Евгения Лягушина
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">21:00</span>
-          <span class="highlight-section">АСМР</span>
-          <span class="highlight-location">Москва</span>
-          Асмр-спектакль
-        </div>
-      
+  
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">22:00</span>
-          <span class="highlight-section">Струны</span>
-          <span class="highlight-location">Москва</span>
-          Играет и поет Олег
-        </div>
-      
+      <li class="schedule-item">
+        <span class="highlight-time">11:00</span>
+        <span class="highlight-section">Ой, как удобно!</span>
+        <span class="highlight-location">Амстердам</span>
+        Раскрываем характеры с Светой Польской
+      </li>
     
-      
-        <div class="schedule-item">
-          <span class="highlight-time">23:00</span>
-          <span class="highlight-section">Час быка</span>
-          <span class="highlight-location">Москва</span>
-          Полуночное шоу
-        </div>
-      
+  
     
-  </div>
-</div>
+      <li class="schedule-item">
+        <span class="highlight-time">12:00</span>
+        <span class="highlight-section">В гостях у голого художника</span>
+        <span class="highlight-location">Владимир</span>
+        Интервью с Анатолием Беланом
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">13:00</span>
+        <span class="highlight-section">Элексир</span>
+        <span class="highlight-location">Париж</span>
+        Психоролия с Аленой Павловой
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">14:00</span>
+        <span class="highlight-section">Лампа Алладина</span>
+        <span class="highlight-location">Санкт-Петербург</span>
+        Кирилл Акулиничев. Абстракт-Сити
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">15:00</span>
+        <span class="highlight-section">Зина</span>
+        <span class="highlight-location">Москва</span>
+        Новости магазинов
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">16:00</span>
+        <span class="highlight-section">Мама мы все тяжело больны</span>
+        <span class="highlight-location">Москва</span>
+        О насущном с гостем студии
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">17:00</span>
+        <span class="highlight-section">Чтобы это ни значило</span>
+        <span class="highlight-location">Берлин</span>
+        Все про анимацию
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">18:00</span>
+        <span class="highlight-section">По ту сторону</span>
+        <span class="highlight-location">Ницца</span>
+        Рассказы Анны
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">19:00</span>
+        <span class="highlight-section">Молния</span>
+        <span class="highlight-location">Бали</span>
+        Интервью с Умой
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">20:00</span>
+        <span class="highlight-section">Шепот</span>
+        <span class="highlight-location">Москва</span>
+        Невнятный шепот Андрея
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">21:00</span>
+        <span class="highlight-section">АСМР</span>
+        <span class="highlight-location">Москва</span>
+        Асмр-спектакль
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">22:00</span>
+        <span class="highlight-section">Струны</span>
+        <span class="highlight-location">Москва</span>
+        Играет и поет Олег
+      </li>
+    
+  
+    
+      <li class="schedule-item">
+        <span class="highlight-time">23:00</span>
+        <span class="highlight-section">Час быка</span>
+        <span class="highlight-location">Москва</span>
+        Полуночное шоу
+      </li>
+    
+  
+</ul>
 
     </div>
   </div>
-</p>
 
+  <main>
+    <div class="main-content">
+      <h1>В гостях редакции Эфира</h1>
+      <br>
       <br>
       <!-- Аудио элемент с поддержкой mp3 и m4a -->
 <audio id="audio-player" autoplay>
@@ -496,22 +471,19 @@ updateTime(); // Начальный запуск для отображения �
   </div>
 </div>
 
-        <br>
-          <br>
-            <br>
-      <p>
-</p>
+      <br><br><br>
+      
+
     </div>
   </main>
 
   <!-- Футер с информацией -->
   <div class="footer-info">
     <span id="footer-time-wrapper" class="time-container"></span>
-    <span class="blinking-text">Слушай Эфир</span>
+    <span class="blinking-text">Идет настройка</span>
     <a href="/donations" target="_blank" class="highlight">Донаты</a>
   </div>
 
-
-
+  <script src="/assets/rotating-text.js"></script>
 </body>
 </html>

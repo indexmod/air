@@ -13,7 +13,7 @@ html {
 /* Основной стиль для body */
 body {
   margin: 0;
-  padding: 5px; /* Отступ вокруг страницы */
+  padding: 10px; /* Отступ вокруг страницы */
   background: #1c1c1c;
   color: silver;
   font-family: monospace;
@@ -89,8 +89,8 @@ body {
 .progress-container {
   background-color: #555;
   border-radius: 5px;
-  width: 100%;
-  height: 3px;
+  width: 80%;
+  height: 10px;
   margin-top: 10px;
 }
 
@@ -101,12 +101,11 @@ body {
   transition: width 0.1s;
 }
 
-
 .lime-circle {
   color: lime; /* Цвет лайм */
-  font-size: 1.3em; /* Размер */
-  margin-right: 5px; /* Отступ справа */
-  vertical-align: -1px; /* Поднимаем кружок на 2px */
+  font-size: 0.9em; /* Размер */
+  margin-right: 0px; /* Отступ справа */
+  vertical-align: 2px; /* Поднимаем кружок на 2px */
 }
 
 /* Стили футера */
@@ -114,12 +113,13 @@ body {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: grey;
+  background-color: black;
   padding: 5px 15px;
   font-family: monospace;
   font-size: 14px;
   color: silver;
   border-radius: 20px 0 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -135,7 +135,7 @@ body {
 /* Мигание текста */
 .blinking-text {
   animation: blink 1s step-start infinite;
-  color: silver;
+  color: #1c1c1c;
 }
 
 @keyframes blink {
@@ -147,7 +147,7 @@ body {
 /* Стили для ссылки на донаты */
 .highlight {
   background-color: #800080;
-  color: #E6E6FA;
+  color: black;
   border-radius: 4px;
   padding: 0 4px;
   text-decoration: none;
@@ -158,9 +158,39 @@ body {
 }
 
 /* Респонсивные стили для мобильных устройств */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .footer-info {
     padding: 10px;
     font-size: 12px;
   }
+}
+
+
+/* Верхний блок с информацией */
+.header-info {
+  position: fixed;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto%;
+  padding: 7px 15px;
+  background-color: black;
+  color: grey;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+  font-size: 15px;
+  z-index: 1000;
+}
+
+/* Контейнер для ротации текста */
+.rotating-text-container {
+  overflow: hidden;
+  height: 1.5em; /* Высота строки текста */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

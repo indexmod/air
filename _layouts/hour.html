@@ -10,28 +10,31 @@
     {% include time.html %}
 </head>
 <body>
+  <!-- Верхний блок с ротацией информации -->
+  <div class="header-info">
+    <div class="rotating-text-container">
+      {% include table.html %}
+    </div>
+  </div>
+
   <main>
     <div class="main-content">
       <h1>{{ page.title }}</h1>
       <br>
-      {% include monitor.html %}
       <br>
       {% include audio.html %}
-        <br>
-          <br>
-            <br>
-      <p>{{ content }}</p>
+      <br><br><br>
+      {{ content }}
     </div>
   </main>
 
   <!-- Футер с информацией -->
   <div class="footer-info">
     <span id="footer-time-wrapper" class="time-container"></span>
-    <span class="blinking-text">Слушай Эфир</span>
+    <span class="blinking-text">Идет настройка</span>
     <a href="/donations" target="_blank" class="highlight">Донаты</a>
   </div>
 
-
-
+  <script src="{{ '/assets/rotating-text.js' | relative_url }}"></script>
 </body>
 </html>
