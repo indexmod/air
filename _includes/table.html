@@ -1,9 +1,50 @@
-<div id="schedule-monitor">
-  <ul>
+<style>
+/* Стили для расписания */
+.schedule-row {
+  display: flex; /* Используем Flexbox для расположения элементов в строку */
+  flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
+  gap: 10px; /* Отступ между элементами */
+  align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.schedule-item {
+  display: flex;
+  gap: 5px; /* Отступ между частями элемента */
+}
+
+.highlight-time {
+  background-color: black;
+  color: silver;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.highlight-section {
+  background-color: green;
+  color: lime;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.highlight-location {
+  background-color: yellow;
+  color: orange;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+</style>
+
+<div class="schedule">
+  <div class="schedule-row">
     {% for page in site.hours %}
       {% if page.layout == "hour" %}
-          <highlight-time>{{ page.start_time }}:</highlight-time> <highlight-section>{{ page.section }}:</highlight-section> <highlight-location>{{ page.location }}:<highlight-location> {{ page.title }}
+        <div class="schedule-item">
+          <span class="highlight-time">{{ page.start_time }}</span>
+          <span class="highlight-section">{{ page.section }}</span>
+          <span class="highlight-location">{{ page.location }}</span>
+          {{ page.title }}
+        </div>
       {% endif %}
     {% endfor %}
-  </ul>
+  </div>
 </div>
