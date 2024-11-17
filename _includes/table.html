@@ -2,7 +2,7 @@
   <ul>
     {% for page in site.hours %}
       {% if page.layout == "hour" %}
-          <strong>{{ page.start_time }}:</strong> {{ page.title }}
+          <highlight-time>{{ page.start_time }}:</highlight-time> <highlight-section>{{ page.section }}:</highlight-section> <highlight-location>{{ page.location }}:<highlight-location> {{ page.title }}
       {% endif %}
     {% endfor %}
   </ul>

@@ -1,0 +1,61 @@
+/* Глобальные стили страницы */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Основной стиль для body */
+body {
+  margin: 0;
+  padding: 5px; /* Отступ вокруг страницы */
+  background: blue;
+  color: silver;
+  font-family: monospace;
+  font-size: 15px; /* Установим шрифт моноспейс 15px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+giphy-embed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Центрирование основного контента */
+.main-content,
+.custom-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 5px;
+  box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Респонсивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .main-content,
+  .custom-audio-player {
+    padding: 10px;
+    width: 100%;
+  }
+  .time-display {
+    font-size: 12px;
+  }
+}

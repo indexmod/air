@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 5px; /* Отступ вокруг страницы */
-  background: linear-gradient(to left, #001f3f 0%, #002f5f 100%);
+  background: linear-gradient(to down, grey 0%, silver 100%);
   color: silver;
   font-family: monospace;
   font-size: 15px; /* Установим шрифт моноспейс 15px */
@@ -189,6 +189,27 @@ marquee {
 .highlight {
   background-color: #800080; /* Основной фиолетовый */
   color: #E6E6FA; /* Сиреневый */
+  border-radius: 4px; /* Скругление углов */
+  padding: 0 4px;  /* Небольшие отступы */
+}
+
+.highlight-section {
+  background-color: green; /* Зеленый */
+  color: lime; /* Лайм */
+  border-radius: 4px; /* Скругление углов */
+  padding: 0 4px;  /* Небольшие отступы */
+}
+
+.highlight-time {
+  background-color: black; /* Чёрный */
+  color: silver; /* Серый */
+  border-radius: 4px; /* Скругление углов */
+  padding: 0 4px;  /* Небольшие отступы */
+}
+
+.highlight-location {
+  background-color: yellow; /* Чёрный */
+  color: orange; /* Серый */
   border-radius: 4px; /* Скругление углов */
   padding: 0 4px;  /* Небольшие отступы */
 }
