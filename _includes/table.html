@@ -7,15 +7,6 @@
   padding: 0 4px;
 }
 
-/* Приглушенные стили для выделенных элементов */
-.highlight-section {
-  background-color: #2e8b57; /* Приглушённый тёмно-зелёный цвет */
-  color: #a9dfbf; /* Светлый приглушённый зелёный цвет */
-  border-radius: 4px;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 .highlight-location {
   background-color: #d2b48c; /* Приглушённый оттенок жёлтого (цвет загара) */
   color: #333; /* Тёмно-серый цвет для текста */
@@ -46,7 +37,6 @@
     {% if page.layout == "hour" %}
       <li class="schedule-item">
         <span class="highlight-time">{{ page.start_time }}</span>
-        <span class="highlight-section">{{ page.section }}</span>
         {{ page.title }}
       </li>
     {% endif %}
