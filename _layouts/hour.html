@@ -8,6 +8,7 @@
     {% include next-hour.html %}
     {% include play-audio-js.html %}
     {% include time.html %}
+    {% include likes.html %}
 </head>
 <body>
   <main>
@@ -29,6 +30,14 @@
       {% include audio.html %}
       <br>
       {{ content }}
+      <div>
+  Просмотров: <span id="view-count">0</span>
+</div>
+<div>
+  Лайков: <span id="like-count">0</span>
+  <button onclick="likePage()">👍 Лайк</button>
+</div>
+
     </div>
   </main>
 

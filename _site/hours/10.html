@@ -196,6 +196,35 @@ setInterval(updateTime, 1000);
 updateTime(); // Начальный запуск для отображения времени сразу
 </script>
 
+    <script>
+  // Функция для получения данных о просмотрах и лайках из JSON
+  fetch("/data/views.json")
+    .then(response => response.json())
+    .then(data => {
+      const pageKey = "/hours/10"; // Получаем URL текущей страницы
+      const pageData = data[pageKey] || { views: 0, likes: 0 }; // Если данных нет, используем 0
+
+      // Отображаем количество просмотров и лайков
+      document.getElementById("view-count").textContent = pageData.views;
+      document.getElementById("like-count").textContent = pageData.likes;
+    });
+
+  // Функция для обновления лайков
+  function likePage() {
+    const pageKey = "/hours/10"; // Получаем URL текущей страницы
+
+    // Отправляем запрос на сервер для увеличения лайков (это место нужно будет реализовать на сервере)
+    fetch(`/update-likes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ page: pageKey })
+    }).then(response => response.json())
+      .then(data => {
+        document.getElementById("like-count").textContent = data.likes;
+      });
+  }
+</script>
+
 </head>
 <body>
   <main>
@@ -241,6 +270,14 @@ updateTime(); // Начальный запуск для отображения �
 
       <br>
       
+
+      <div>
+  Просмотров: <span id="view-count">0</span>
+</div>
+<div>
+  Лайков: <span id="like-count">0</span>
+  <button onclick="likePage()">👍 Лайк</button>
+</div>
 
     </div>
   </main>
@@ -334,12 +371,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
       
     
-      
-        <li class="schedule-item">
-          <span class="highlight-time">Далее</span>
-          <span class="highlight-time">19:00</span>
-          <span class="highlight-section">Молния</span>
-        </li>
       
     
       

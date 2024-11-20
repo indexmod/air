@@ -1,0 +1,28 @@
+<script>
+  // Функция для получения данных о просмотрах и лайках из JSON
+  fetch("/data/views.json")
+    .then(response => response.json())
+    .then(data => {
+      const pageKey = "{{ page.url }}"; // Получаем URL текущей страницы
+      const pageData = data[pageKey] || { views: 0, likes: 0 }; // Если данных нет, используем 0
+
+      // Отображаем количество просмотров и лайков
+      document.getElementById("view-count").textContent = pageData.views;
+      document.getElementById("like-count").textContent = pageData.likes;
+    });
+
+  // Функция для обновления лайков
+  function likePage() {
+    const pageKey = "{{ page.url }}"; // Получаем URL текущей страницы
+
+    // Отправляем запрос на сервер для увеличения лайков (это место нужно будет реализовать на сервере)
+    fetch(`/update-likes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ page: pageKey })
+    }).then(response => response.json())
+      .then(data => {
+        document.getElementById("like-count").textContent = data.likes;
+      });
+  }
+</script>
