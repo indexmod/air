@@ -24,12 +24,18 @@ body {
   box-sizing: border-box;
 }
 
+/* ===== Стили заголовков и текста ===== */
 h1, p {
-  text-align: center; /* Выравнивание текста по центру */
-  margin-bottom: 10px; /* Небольшой отступ между элементами */
-  display: flex; /* Центрирование как для flex-контейнера */
-  align-items: center; /* Вертикальное центрирование */
-  justify-content: center; /* Горизонтальное центрирование */
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  display: inline-flex;
+  gap: 8px;
 }
 
 /* ===== Центрирование контента ===== */
@@ -49,7 +55,6 @@ h1, p {
 .highlight-section,
 .highlight-time,
 .highlight-location,
-.highlight-time-container,
 .footer-time-wrapper {
   border-radius: 4px;
   padding: 0 6px;
@@ -57,46 +62,18 @@ h1, p {
 }
 
 .highlight-section {
-  background-color: #10361d; /* Еще темнее приглушённый тёмно-зелёный */
-  color: #3b6e4b; /* Очень тусклый светлый приглушённый зелёный */
+  background-color: #10361d;
+  color: #3b6e4b;
 }
 
 .highlight-time {
-  background-color: #333; /* Еще более темный серый */
-  color: #666; /* Еще более тусклый серебристый */
-}
-
-.highlight-time-container .footer-time-wrapper {
-  background-color: #333; /* Еще более темный серый */
-  color: #666; /* Еще более тусклый серебристый */
+  background-color: #333;
+  color: #666;
 }
 
 .highlight-location {
-  background-color: #7e6a4e; /* Темнее приглушённый оттенок жёлтого */
-  color: #222; /* Очень тусклый тёмно-серый */
-}
-
-p {
-  display: inline-flex; /* Элементы отображаются в одной строке */
-  gap: 8px; /* Пробел между элементами */
-  align-items: center; /* Выравнивание по вертикали */
-  justify-content: center; /* Центрирование по горизонтали */
-}
-
-
-/* ===== Стили для донатов ===== */
-.highlight-donat {
-  background-color: #4b0082; /* Темнее оттенок пурпурного */
-  color: black;
-  border-radius: 4px;
-  padding: 4px 8px;
-  text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.highlight-donat:hover {
-  color: grey; /* Светлый цвет при наведении */
+  background-color: #7e6a4e;
+  color: #222;
 }
 
 /* ===== Кнопка воспроизведения ===== */
@@ -135,7 +112,7 @@ p {
 /* ===== Прогресс-бар ===== */
 .progress-container {
   background-color: #141414;
-  border-radius:  0px;
+  border-radius: 0px;
   width: 80%;
   height: 10px;
   margin-top: 10px;
@@ -157,11 +134,13 @@ p {
   font-family: monospace;
 }
 
+/* ===== Лаймовая точка ===== */
 .lime-circle {
   color: lime;
-  font-size: 0.9em;
-  vertical-align: 2px;
+  font-size: 1.5em; /* Увеличенный размер */
+  vertical-align: middle; /* Корректное выравнивание по вертикали */
 }
+
 
 /* ===== Стили футера ===== */
 .footer-info {
@@ -181,8 +160,6 @@ p {
   white-space: nowrap;
 }
 
-
-
 /* ===== Контейнер для ротации текста ===== */
 .rotating-text-container {
   overflow: hidden;
@@ -194,15 +171,26 @@ p {
 
 /* Стили для элемента списка */
 .schedule-item {
-  display: inline-flex; /* Элементы в одной строке */
-  align-items: center; /* Выравнивание по вертикали */
-  gap: 10px; /* Пробел между элементами */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.highlight-time,
-.highlight-section {
-  padding: 0 6px; /* Отступы внутри элементов */
+/* ===== Стили для донатов ===== */
+.highlight-donat {
+  background-color: #4b0082; /* Темнее оттенок пурпурного */
+  color: black;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+.highlight-donat:hover {
+  color: grey; /* Светлый цвет при наведении */
+}
+
 
 @keyframes blink {
   0%, 100% {
@@ -216,13 +204,11 @@ p {
 /* ===== Респонсивные стили ===== */
 @media (max-width: 600px) {
   body {
-    padding: 5px;
     font-size: 15px;
   }
 
   .main-content,
   .custom-audio-player {
-    padding: 10px;
     max-width: 100%;
   }
 
