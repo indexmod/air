@@ -141,6 +141,25 @@ p {
   vertical-align: middle; /* Корректное выравнивание по вертикали */
 }
 
+button {
+    background: transparent; /* Прозрачный фон */
+    border: none; /* Без рамки */
+    font-size: auto; /* Автоматический размер шрифта */
+    cursor: pointer; /* Курсор в виде руки */
+    opacity: 0.7; /* Прозрачность */
+    padding: 0; /* Убираем отступы */
+    display: inline; /* Чтобы кнопка не растягивалась */
+}
+
+button:focus {
+    outline: none; /* Убираем обводку при нажатии */
+}
+
+button:hover {
+    opacity: 1; /* Сделать кнопку более заметной при наведении */
+}
+
+
 
 /* ===== Стили футера ===== */
 .footer-info {

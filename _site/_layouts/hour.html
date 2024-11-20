@@ -30,15 +30,6 @@
       {% include audio.html %}
       <br>
       {{ content }}
-      <div>
-  Просмотров: <span id="view-count">0</span>
-</div>
-<div>
-  Лайков: <span id="like-count">0</span>
-  <button onclick="likePage()">👍 Лайк</button>
-</div>
-
-    </div>
   </main>
 
   <!-- Футер с информацией -->
@@ -46,6 +37,8 @@
     <div class="rotating-text-container">
       {% include table.html %}
     </div>
+    👁️ <span id="view-count">0</span>
+    <button onclick="likePage()">👍</button> <span id="like-count">0</span>
     <a href="/donations" target="_blank" class="highlight-donat">$</a>
   </div>
 </body>
