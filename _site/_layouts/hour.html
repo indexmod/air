@@ -37,8 +37,11 @@
     <div class="rotating-text-container">
       {% include table.html %}
     </div>
-    👁️ <span id="view-count">0</span>
-    <button onclick="likePage()">👍</button> <span id="like-count">0</span>
+    <div>
+        <span id="view-count-{{ page.permalink }}">0</span> 👁️
+        <button onclick="likePage()">👍</button>
+        <span id="like-count-{{ page.permalink }}">0</span>
+    </div>
     <a href="/donations" target="_blank" class="highlight-donat">$</a>
   </div>
 </body>

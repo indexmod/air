@@ -1,28 +1,20 @@
 <script>
-  // Функция для получения данных о просмотрах и лайках из JSON
-  fetch("/data/views.json")
-    .then(response => response.json())
-    .then(data => {
-      const pageKey = "{{ page.url }}"; // Получаем URL текущей страницы
-      const pageData = data[pageKey] || { views: 0, likes: 0 }; // Если данных нет, используем 0
+  // Получаем permalink страницы, например, "/hours/20/"
+  const permalink = "{{ page.permalink }}";  // Этот код будет подставлен сервером
 
-      // Отображаем количество просмотров и лайков
-      document.getElementById("view-count").textContent = pageData.views;
-      document.getElementById("like-count").textContent = pageData.likes;
+  async function likePage() {
+    const pageId = permalink; // используем permalink как идентификатор страницы
+    const response = await fetch('/api/update-likes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ pageId })
     });
 
-  // Функция для обновления лайков
-  function likePage() {
-    const pageKey = "{{ page.url }}"; // Получаем URL текущей страницы
+    const result = await response.json();
 
-    // Отправляем запрос на сервер для увеличения лайков (это место нужно будет реализовать на сервере)
-    fetch(`/update-likes`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ page: pageKey })
-    }).then(response => response.json())
-      .then(data => {
-        document.getElementById("like-count").textContent = data.likes;
-      });
+    // Обновляем количество лайков на странице
+    document.getElementById(`like-count-${pageId}`).innerText = result.likes;
   }
 </script>
