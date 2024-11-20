@@ -1,44 +1,57 @@
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scheduleItems = document.querySelectorAll(".schedule-item");
+  let currentIndex = 0;
+
+  // Функция для отображения текущего элемента
+  function showCurrentItem() {
+    // Скрываем все элементы и добавляем класс анимации к текущему элементу
+    scheduleItems.forEach((item, index) => {
+      if (index === currentIndex) {
+        item.style.display = "flex";
+        item.classList.add("fade-in");
+      } else {
+        item.style.display = "none";
+        item.classList.remove("fade-in");
+      }
+    });
+
+    // Переходим к следующему элементу
+    currentIndex = (currentIndex + 1) % scheduleItems.length;
+  }
+
+  // Запускаем анимацию через каждые 5 секунд
+  if (scheduleItems.length > 0) {
+    showCurrentItem();
+    setInterval(showCurrentItem, 5000);
+  }
+});
+</script>
+
+<!-- Стили для плавной смены -->
 <style>
-/* Стили для элементов расписания */
-.highlight-time {
-  background-color: grey;
-  color: black;
-  border-radius: 4px;
-  padding: 0 4px;
-}
-
-.highlight-location {
-  background-color: #d2b48c; /* Приглушённый оттенок жёлтого (цвет загара) */
-  color: #333; /* Тёмно-серый цвет для текста */
-  border-radius: 4px;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Стили для списка расписания */
-.schedule-list {
-  list-style-type: none; /* Убираем маркеры списка */
-  padding: 0;
-  margin: 0;
-}
-
 .schedule-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 5px; /* Отступ между элементами списка */
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.schedule-item.fade-in {
+  opacity: 1;
 }
 </style>
 
 <!-- Список расписания -->
-<ul class="schedule-list">
-  {% for page in site.hours %}
-    {% if page.layout == "hour" %}
-      <li class="schedule-item">
-        <span class="highlight-time">{{ page.start_time }}</span>
-        {{ page.title }}
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+<div class="rotating-text-container">
+  <ul class="schedule-list">
+    {% assign current_time = site.time | date: "%H:%M" %}
+    {% for page in site.hours %}
+      {% if page.layout == "hour" and page.start_time > current_time %}
+        <li class="schedule-item">
+          <span class="highlight-time">{{ page.start_time }}</span>
+          <span class="highlight-section">{{ page.section }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

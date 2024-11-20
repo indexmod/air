@@ -10,23 +10,16 @@
     {% include time.html %}
 </head>
 <body>
-  <!-- Верхний блок с ротацией информации -->
-  <div class="header-info">
-    <div class="rotating-text-container">
-      {% include table.html %}
-    </div>
-  </div>
-
   <main>
     <div class="main-content">
-      <p><span class="highlight-section">{{ page.section }}</span>
-</p>
-<br>
+      <p><span class="highlight-section">{{ page.section }}</span></p>
+      <br>
       <h1>{{ page.title }}</h1>
       <br>
-      <p><span class="highlight-location">{{ page.author }}</span> <span class="highlight-location">{{ page.location }}</span>
-</p>
-
+      <p>
+        <span class="highlight-location">{{ page.author }}</span>
+        <span class="highlight-location">{{ page.location }}</span>
+      </p>
       <br>
       {% include audio.html %}
       <br><br><br>
@@ -36,11 +29,11 @@
 
   <!-- Футер с информацией -->
   <div class="footer-info">
+    <div class="rotating-text-container">
+      {% include table.html %}
+    </div>
     <span id="footer-time-wrapper" class="time-container"></span>
-    <span class="blinking-text">Идет настройка</span>
-    <a href="/donations" target="_blank" class="highlight">Донаты</a>
+    <a href="/donations" target="_blank" class="highlight-donat">Донаты</a>
   </div>
-
-  <script src="{{ '/assets/rotating-text.js' | relative_url }}"></script>
 </body>
 </html>

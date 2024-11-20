@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Полуночное шоу</title>
+    <title>Видео-рехаб</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -176,261 +176,16 @@ updateTime(); // Начальный запуск для отображения �
 
 </head>
 <body>
-  <!-- Верхний блок с ротацией информации -->
-  <div class="header-info">
-    <div class="rotating-text-container">
-      <style>
-/* Стили для элементов расписания */
-.highlight-time {
-  background-color: grey;
-  color: black;
-  border-radius: 4px;
-  padding: 0 4px;
-}
-
-/* Приглушенные стили для выделенных элементов */
-.highlight-section {
-  background-color: #2e8b57; /* Приглушённый тёмно-зелёный цвет */
-  color: #a9dfbf; /* Светлый приглушённый зелёный цвет */
-  border-radius: 4px;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.highlight-location {
-  background-color: #d2b48c; /* Приглушённый оттенок жёлтого (цвет загара) */
-  color: #333; /* Тёмно-серый цвет для текста */
-  border-radius: 4px;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Стили для списка расписания */
-.schedule-list {
-  list-style-type: none; /* Убираем маркеры списка */
-  padding: 0;
-  margin: 0;
-}
-
-.schedule-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 5px; /* Отступ между элементами списка */
-}
-</style>
-
-<!-- Список расписания -->
-<ul class="schedule-list">
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">00:00</span>
-        <span class="highlight-section">Час быка</span>
-        Полуночное шоу
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">01:00</span>
-        <span class="highlight-section">Час быка</span>
-        Программа про космос
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">02:00</span>
-        <span class="highlight-section">АСМР</span>
-        АСМР-продолжение
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">03:00</span>
-        <span class="highlight-section">Час быка</span>
-        В гостях редакции Эфира
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">04:00</span>
-        <span class="highlight-section">Рехаб</span>
-        Аудио-терапия
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">05:00</span>
-        <span class="highlight-section">Хор</span>
-        Поют дети
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">06:00</span>
-        <span class="highlight-section">Молния</span>
-        Что почем - крипта и все остальное
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">07:00</span>
-        <span class="highlight-section">Огоньки</span>
-        Спетни под музыку
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">08:00</span>
-        <span class="highlight-section">Математика</span>
-        Уроки с Сашей
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">09:00</span>
-        <span class="highlight-section">Youtube Reupload</span>
-        Трудная проблема сознания
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">10:00</span>
-        <span class="highlight-section">Copy that!</span>
-        Евгения Лягушина
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">11:00</span>
-        <span class="highlight-section">Ой, как удобно!</span>
-        Раскрываем характеры с Светой Польской
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">12:00</span>
-        <span class="highlight-section">В гостях у голого художника</span>
-        Интервью с Анатолием Беланом
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">13:00</span>
-        <span class="highlight-section">Элексир</span>
-        Психоролия с Аленой Павловой
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">14:00</span>
-        <span class="highlight-section">Лампа Алладина</span>
-        Кирилл Акулиничев. Абстракт-Сити
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">15:00</span>
-        <span class="highlight-section">Зина</span>
-        Новости магазинов
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">16:00</span>
-        <span class="highlight-section">Мама мы все тяжело больны</span>
-        О насущном с гостем студии
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">17:00</span>
-        <span class="highlight-section">Чтобы это ни значило</span>
-        Все про анимацию
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">18:00</span>
-        <span class="highlight-section">По ту сторону</span>
-        Рассказы Анны
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">19:00</span>
-        <span class="highlight-section">Молния</span>
-        Интервью с Умой
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">20:00</span>
-        <span class="highlight-section">Шепот</span>
-        Невнятный шепот Андрея
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">21:00</span>
-        <span class="highlight-section">АСМР</span>
-        Асмр-спектакль
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">22:00</span>
-        <span class="highlight-section">Струны</span>
-        Играет и поет Олег
-      </li>
-    
-  
-    
-      <li class="schedule-item">
-        <span class="highlight-time">23:00</span>
-        <span class="highlight-section">Час быка</span>
-        Полуночное шоу
-      </li>
-    
-  
-</ul>
-
-    </div>
-  </div>
-
   <main>
     <div class="main-content">
-      <p><span class="highlight-section">Час быка</span>
-</p>
-<br>
-      <h1>Полуночное шоу</h1>
+      <p><span class="highlight-section">Час быка</span></p>
       <br>
-      <p><span class="highlight-location">Андрей День</span> <span class="highlight-location">Москва</span>
-</p>
-
+      <h1>Видео-рехаб</h1>
+      <br>
+      <p>
+        <span class="highlight-location">Томми Блэкборн</span>
+        <span class="highlight-location">Даллас</span>
+      </p>
       <br>
       <!-- Аудио элемент с поддержкой mp3 и m4a -->
 <audio id="audio-player" autoplay>
@@ -444,13 +199,13 @@ updateTime(); // Начальный запуск для отображения �
   <!-- Кнопка воспроизведения -->
   <button id="play-pause-btn" class="paused"></button>
 
-  <!-- Контейнер для времени -->
+  <!-- Контейнер для времени скрыт временно
   <div class="time-display">
     <span id="current-time">0:00</span>
     <span style="color: white;"> / </span>
     <span id="duration">0:00</span>
   </div>
-
+-->
   <!-- Прогресс-бар -->
   <div class="progress-container">
     <div class="progress-bar" id="progress-bar"></div>
@@ -458,18 +213,181 @@ updateTime(); // Начальный запуск для отображения �
 </div>
 
       <br><br><br>
-      <p>Здесь будет ежедневное вечернее шоу из двух актов 1-й до полуночи и 2-й после</p>
+      <p>Томми Блекборн, также известный как DJ Tommyboy из Далласа, — это диджей и видео-художник, который специализируется на создании миксов в стиле ретро и VHS-эстетики.</p>
 
     </div>
   </main>
 
   <!-- Футер с информацией -->
   <div class="footer-info">
-    <span id="footer-time-wrapper" class="time-container"></span>
-    <span class="blinking-text">Идет настройка</span>
-    <a href="/donations" target="_blank" class="highlight">Донаты</a>
-  </div>
+    <div class="rotating-text-container">
+      <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scheduleItems = document.querySelectorAll(".schedule-item");
+  let currentIndex = 0;
 
-  <script src="/assets/rotating-text.js"></script>
+  // Функция для отображения текущего элемента
+  function showCurrentItem() {
+    // Скрываем все элементы и добавляем класс анимации к текущему элементу
+    scheduleItems.forEach((item, index) => {
+      if (index === currentIndex) {
+        item.style.display = "flex";
+        item.classList.add("fade-in");
+      } else {
+        item.style.display = "none";
+        item.classList.remove("fade-in");
+      }
+    });
+
+    // Переходим к следующему элементу
+    currentIndex = (currentIndex + 1) % scheduleItems.length;
+  }
+
+  // Запускаем анимацию через каждые 5 секунд
+  if (scheduleItems.length > 0) {
+    showCurrentItem();
+    setInterval(showCurrentItem, 5000);
+  }
+});
+</script>
+
+<!-- Стили для плавной смены -->
+<style>
+.schedule-item {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.schedule-item.fade-in {
+  opacity: 1;
+}
+</style>
+
+<!-- Список расписания -->
+<div class="rotating-text-container">
+  <ul class="schedule-list">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">11:00</span>
+          <span class="highlight-section">Ой, как удобно!</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">12:00</span>
+          <span class="highlight-section">У голого художника</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">13:00</span>
+          <span class="highlight-section">Элексир</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">14:00</span>
+          <span class="highlight-section">Лампа Алладина</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">15:00</span>
+          <span class="highlight-section">Зина</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">16:00</span>
+          <span class="highlight-section">Мама мы все</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">17:00</span>
+          <span class="highlight-section">Чтобы это ни значило</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">18:00</span>
+          <span class="highlight-section">По ту сторону</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">19:00</span>
+          <span class="highlight-section">Молния</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">20:00</span>
+          <span class="highlight-section">АСМР</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">21:00</span>
+          <span class="highlight-section">АСМР</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">22:00</span>
+          <span class="highlight-section">Струны</span>
+        </li>
+      
+    
+      
+        <li class="schedule-item">
+          <span class="highlight-time">23:00</span>
+          <span class="highlight-section">Час быка</span>
+        </li>
+      
+    
+  </ul>
+</div>
+
+    </div>
+    <span id="footer-time-wrapper" class="time-container"></span>
+    <a href="/donations" target="_blank" class="highlight-donat">Донаты</a>
+  </div>
 </body>
 </html>

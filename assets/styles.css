@@ -1,4 +1,4 @@
-/* Глобальные стили страницы */
+/* ===== Глобальные стили ===== */
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -10,7 +10,6 @@ html {
   padding: 0;
 }
 
-/* Основной стиль для body */
 body {
   margin: 0;
   padding: 5px;
@@ -25,7 +24,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Центрирование основного контента */
+/* ===== Центрирование контента ===== */
 .main-content,
 .custom-audio-player {
   display: flex;
@@ -34,81 +33,86 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 600px;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
-  justify-content: left;
 }
 
-/* Приглушенные стили для выделенных элементов */
-.highlight-section {
-  background-color: #2e8b57; /* Приглушённый тёмно-зелёный цвет */
-  color: #a9dfbf; /* Светлый приглушённый зелёный цвет */
+/* ===== Унифицированные стили для выделений ===== */
+.highlight-section,
+.highlight-time,
+.highlight-location {
   border-radius: 4px;
   padding: 0 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-section {
+  background-color: #10361d; /* Еще темнее приглушённый тёмно-зелёный */
+  color: #3b6e4b; /* Очень тусклый светлый приглушённый зелёный */
+}
+
+.highlight-time {
+  background-color: #333; /* Еще более темный серый */
+  color: #666; /* Еще более тусклый серебристый */
 }
 
 .highlight-location {
-  background-color: #d2b48c; /* Приглушённый оттенок жёлтого (цвет загара) */
-  color: #333; /* Тёмно-серый цвет для текста */
-  border-radius: 4px;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #7e6a4e; /* Темнее приглушённый оттенок жёлтого */
+  color: #222; /* Очень тусклый тёмно-серый */
 }
 
-/* Кнопка воспроизведения */
+/* ===== Стили для донатов ===== */
+.highlight-donat {
+  background-color: #4b0082; /* Темнее оттенок пурпурного */
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-donat:hover {
+  color: #E6E6FA; /* Светлый цвет при наведении */
+}
+
+/* ===== Кнопка воспроизведения ===== */
 #play-pause-btn {
   background: none;
   color: #d3d3d3;
   border: none;
-  padding: 0;
   font-size: 80px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: none;
   width: 80px;
   height: 80px;
   touch-action: manipulation;
   user-select: none;
 }
 
-/* Стили для символа плей (треугольник) */
 #play-pause-btn::before {
   content: "▲";
-  display: inline-block;
   font-size: 70px;
-  color: #d3d3d3;
   transform: rotate(90deg);
 }
 
-/* Состояние воспроизведения (пауза) */
 #play-pause-btn.playing::before {
   content: "■";
   font-size: 60px;
 }
 
-/* Состояние паузы (плей) */
 #play-pause-btn.paused::before {
   content: "▲";
   font-size: 70px;
   transform: rotate(90deg);
 }
 
-/* Время воспроизведения */
-.time-display {
-  display: flex;
-  gap: 5px;
-  font-size: 13px;
-  color: #d3d3d3;
-  font-family: monospace;
-}
-
-/* Прогресс-бар */
+/* ===== Прогресс-бар ===== */
 .progress-container {
   background-color: #555;
-  border-radius: 5px;
+  border-radius:  0px;
   width: 80%;
   height: 10px;
   margin-top: 10px;
@@ -121,38 +125,80 @@ body {
   transition: width 0.1s;
 }
 
+/* ===== Время ===== */
+.time-display {
+  display: flex;
+  gap: 5px;
+  font-size: 13px;
+  color: #d3d3d3;
+  font-family: monospace;
+}
+
 .lime-circle {
   color: lime;
   font-size: 0.9em;
-  margin-right: 0px;
   vertical-align: 2px;
 }
 
-/* Стили футера */
+/* ===== Стили футера ===== */
 .footer-info {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: black;
-  padding: 8px 15px;
+  background-color: transparent;
+  padding: 12px 20px;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 18px;
   color: #d3d3d3;
-  border-radius: 20px 0 0 0;
+  border-radius: 15px 0 0 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   white-space: nowrap;
 }
 
-/* Время в футере */
 .time-container {
-  color: #d3d3d3;
-  font-size: 14px;
+  font-size: 18px;
 }
 
-/* Мигание текста */
+.highlight {
+  background-color: #9400D3;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight:hover {
+  color: #E6E6FA;
+}
+
+/* ===== Контейнер для ротации текста ===== */
+.rotating-text-container {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Стили для элемента списка */
+.schedule-item {
+  display: inline-flex; /* Элементы в одной строке */
+  align-items: center; /* Выравнивание по вертикали */
+  gap: 10px; /* Пробел между элементами */
+}
+
+.highlight-time,
+.highlight-section {
+  padding: 0 6px; /* Отступы внутри элементов */
+}
+
+
+/* ===== Мигание текста ===== */
 .blinking-text {
   animation: blink 1.5s step-start infinite;
   color: #1c1c1c;
@@ -167,60 +213,16 @@ body {
   }
 }
 
-/* Стили для ссылки на донаты */
-.highlight {
-  background-color: #9400D3;
-  color: #fff;
-  border-radius: 4px;
-  padding: 0 6px;
-  text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.highlight:hover {
-  color: #E6E6FA;
-}
-
-/* Верхний блок с информацией */
-.header-info {
-  position: fixed;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  height: auto;
-  padding: 7px 15px;
-  background-color: black;
-  color: grey;
-  border-radius: 0 0 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  font-family: monospace;
-  font-size: 14px;
-  z-index: 1000;
-}
-
-/* Контейнер для ротации текста */
-.rotating-text-container {
-  overflow: hidden;
-  height: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Респонсивные стили для мобильных устройств */
+/* ===== Респонсивные стили ===== */
 @media (max-width: 600px) {
   body {
     padding: 5px;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .main-content,
   .custom-audio-player {
-    padding: 5px;
+    padding: 10px;
     max-width: 100%;
   }
 
@@ -242,20 +244,10 @@ body {
     font-size: 11px;
     padding: 8px;
   }
-
-  .header-info {
-    font-size: 13px;
-    padding: 5px 10px;
-  }
 }
 
 @media (max-width: 480px) {
   .progress-container {
     width: 95%;
-  }
-
-  .header-info {
-    top: 5px;
-    font-size: 12px;
   }
 }
