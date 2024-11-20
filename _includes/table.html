@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {% for page in site.hours %}
       {% if page.layout == "hour" and page.start_time > current_time %}
         <li class="schedule-item">
+          <span class="highlight-time">Далее →</span>
           <span class="highlight-time">{{ page.start_time }}</span>
           <span class="highlight-section">{{ page.section }}</span>
         </li>

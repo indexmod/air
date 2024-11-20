@@ -24,6 +24,14 @@ body {
   box-sizing: border-box;
 }
 
+h1, p {
+  text-align: center; /* Выравнивание текста по центру */
+  margin-bottom: 10px; /* Небольшой отступ между элементами */
+  display: flex; /* Центрирование как для flex-контейнера */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+}
+
 /* ===== Центрирование контента ===== */
 .main-content,
 .custom-audio-player {
@@ -60,6 +68,14 @@ body {
   background-color: #7e6a4e; /* Темнее приглушённый оттенок жёлтого */
   color: #222; /* Очень тусклый тёмно-серый */
 }
+
+p {
+  display: inline-flex; /* Элементы отображаются в одной строке */
+  gap: 8px; /* Пробел между элементами */
+  align-items: center; /* Выравнивание по вертикали */
+  justify-content: center; /* Центрирование по горизонтали */
+}
+
 
 /* ===== Стили для донатов ===== */
 .highlight-donat {
@@ -145,7 +161,7 @@ body {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: transparent;
+  background-color: #1c1c1c;
   padding: 12px 20px;
   font-family: monospace;
   font-size: 18px;
