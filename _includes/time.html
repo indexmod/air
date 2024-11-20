@@ -8,7 +8,7 @@ function updateTime() {
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
     // Добавляем кружок перед временем
-    footerTimeWrapper.innerHTML = `<span class="lime-circle">●</span> ${hours}:${minutes}:${seconds}`;
+    footerTimeWrapper.innerHTML = `${hours}:${minutes}:${seconds}`;
 }
 
 // Обновляем время каждую секунду

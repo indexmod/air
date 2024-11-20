@@ -48,7 +48,9 @@ h1, p {
 /* ===== Унифицированные стили для выделений ===== */
 .highlight-section,
 .highlight-time,
-.highlight-location {
+.highlight-location,
+.highlight-time-container,
+.footer-time-wrapper {
   border-radius: 4px;
   padding: 0 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -60,6 +62,11 @@ h1, p {
 }
 
 .highlight-time {
+  background-color: #333; /* Еще более темный серый */
+  color: #666; /* Еще более тусклый серебристый */
+}
+
+.highlight-time-container .footer-time-wrapper {
   background-color: #333; /* Еще более темный серый */
   color: #666; /* Еще более тусклый серебристый */
 }
@@ -174,9 +181,7 @@ p {
   white-space: nowrap;
 }
 
-.time-container {
-  font-size: 18px;
-}
+
 
 /* ===== Контейнер для ротации текста ===== */
 .rotating-text-container {

@@ -7,35 +7,66 @@
       const durationDisplay = document.getElementById("duration");
 
       const permalink = "{{ page.permalink }}";
-      const source = audioPlayer.querySelector("source");
-      source.src = `/assets/audio${permalink}.mp3`;
-      audioPlayer.load();
 
+      // Пробуем сначала использовать mp3, если файл не существует, пробуем m4a
+      const source = audioPlayer.querySelector("source");
+
+      // Функция для проверки доступности файла (через fetch)
+      const checkFileExists = async (url) => {
+          try {
+              const response = await fetch(url, { method: "HEAD" });
+              return response.ok;
+          } catch (error) {
+              console.error("Ошибка при проверке файла:", error);
+              return false;
+          }
+      };
+
+      const trySetSource = async () => {
+          // Попробуем mp3
+          const mp3Url = `/assets/audio${permalink}.mp3`;
+          const m4aUrl = `/assets/audio${permalink}.m4a`;
+
+          // Проверим сначала mp3
+          const mp3Exists = await checkFileExists(mp3Url);
+          if (mp3Exists) {
+              source.src = mp3Url;
+          } else {
+              // Если mp3 не существует, пробуем m4a
+              const m4aExists = await checkFileExists(m4aUrl);
+              if (m4aExists) {
+                  source.src = m4aUrl;
+              } else {
+                  console.error("Файлы не найдены.");
+                  return;
+              }
+          }
+
+          audioPlayer.load();
+      };
+
+      // Вызываем функцию для установки источника
+      trySetSource();
+
+      // Оставшаяся часть кода для управления воспроизведением и прогресс-баром остается без изменений.
       let autoPlayDisabled = true;
       let isUserInteraction = false;
 
-      // Устанавливаем начальное время воспроизведения и обновляем прогресс-бар
       audioPlayer.addEventListener("loadedmetadata", () => {
           const currentMinute = new Date().getMinutes();
           const currentSecond = new Date().getSeconds();
 
           if (currentMinute === 0 && currentSecond < 10) {
-              // Начало часа — воспроизводим с начала
               audioPlayer.currentTime = 0;
           } else {
-              // Воспроизводим с текущей минуты
               audioPlayer.currentTime = currentMinute * 60;
           }
 
-          // Обновляем прогресс-бар и отображение времени
           updateProgressBar();
           durationDisplay.textContent = formatTime(audioPlayer.duration);
-
-          // Попытка автозапуска
           attemptAutoPlay();
       });
 
-      // Попытка автозапуска
       function attemptAutoPlay() {
           audioPlayer.play().then(() => {
               console.log("Автозапуск успешно выполнен");
@@ -45,12 +76,10 @@
           }).catch(error => {
               console.error("Автозапуск блокирован:", error);
               autoPlayDisabled = true;
-              // Попробуем снова при взаимодействии с пользователем
               enableAutoPlayOnInteraction();
           });
       }
 
-      // Включаем автозапуск при взаимодействии пользователя
       function enableAutoPlayOnInteraction() {
           const interactionHandler = () => {
               if (autoPlayDisabled) {
@@ -68,7 +97,6 @@
           document.addEventListener("scroll", interactionHandler);
       }
 
-      // Функция переключения воспроизведения
       function togglePlayPause() {
           if (audioPlayer.paused) {
               audioPlayer.play().then(() => {
@@ -84,7 +112,6 @@
           }
       }
 
-      // Обработчики событий
       playPauseBtn.addEventListener("click", () => {
           isUserInteraction = true;
           togglePlayPause();
@@ -98,7 +125,6 @@
           }
       });
 
-      // Обновление прогресс-бара
       function updateProgressBar() {
           if (audioPlayer.duration) {
               const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -107,17 +133,13 @@
           }
       }
 
-      // Обновляем прогресс-бар сразу после установки currentTime
       audioPlayer.addEventListener("loadedmetadata", updateProgressBar);
-
-      // Обновляем прогресс-бар при изменении времени
       audioPlayer.addEventListener("timeupdate", updateProgressBar);
 
-      // Форматирование времени
       function formatTime(seconds) {
           const mins = Math.floor(seconds / 60);
           const secs = Math.floor(seconds % 60);
           return `${mins}:${secs < 10 ? '0' + secs : secs}`;
       }
   });
-</script>
+  </script>
