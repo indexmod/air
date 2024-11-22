@@ -30,17 +30,17 @@
       {% include audio.html %}
       <br>
       {{ content }}
+      <div>
+          <span id="view-count-{{ page.permalink }}">0</span> 👁️
+          <button onclick="likePage()">👍</button>
+          <span id="like-count-{{ page.permalink }}">0</span>
+      </div>
   </main>
 
   <!-- Футер с информацией -->
   <div class="footer-info">
     <div class="rotating-text-container">
       {% include table.html %}
-    </div>
-    <div>
-        <span id="view-count-{{ page.permalink }}">0</span> 👁️
-        <button onclick="likePage()">👍</button>
-        <span id="like-count-{{ page.permalink }}">0</span>
     </div>
     <a href="/donations" target="_blank" class="highlight-donat">$</a>
   </div>
