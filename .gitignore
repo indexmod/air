@@ -1,9 +1,3 @@
-firebase-config.json
-.vercel
-
-# Игнорировать временные файлы системы
-.DS_Store
-
-# Игнорировать папки сборки и зависимости
-_site/
 node_modules/
+_site/
+.DS_Store
