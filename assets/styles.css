@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* ===== Глобальные стили ===== */
 html {
   box-sizing: border-box;
@@ -15,7 +18,7 @@ body {
   padding: 5px;
   background: #1c1c1c;
   color: grey;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -23,10 +26,19 @@ body {
   height: 100vh;
 }
 
+#header-time-wrapper {
+    font-size: 20px; /* Увеличенный размер шрифта */
+    color: #696969; /* Еще более темный, менее яркий цвет текста */
+    font-weight: 700; /* Средний вес шрифта */
+    margin-bottom: 10px; /* Отступ снизу */
+    display: inline-block; /* Для корректного позиционирования */
+}
+
 /* ===== Стили заголовков и текста ===== */
-h1, p {
+h1 {
   text-align: center;
   margin-bottom: 10px;
+  font-family: "Old Standard TT", serif; /* Заголовки с Old Standard TT */
 }
 
 p {
@@ -34,11 +46,12 @@ p {
   text-align: center;
   line-height: 1.5;
   gap: 8px;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 /* ===== Стили для ссылок ===== */
 a {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
   font-size: 20px;
   color: grey;
   text-decoration: none;
@@ -65,6 +78,7 @@ a:hover {
   max-width: 600px;
   padding: 10px;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 /* ===== Унифицированные стили для выделений ===== */
@@ -75,6 +89,7 @@ a:hover {
   border-radius: 4px;
   padding: 0 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 .highlight-section {
@@ -101,6 +116,7 @@ a:hover {
   text-decoration: none;
   font-size: 18px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 .highlight-donat:hover {
@@ -121,6 +137,7 @@ a:hover {
   height: 80px;
   touch-action: manipulation;
   user-select: none;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 #play-pause-btn::before {
@@ -162,7 +179,7 @@ a:hover {
   gap: 5px;
   font-size: 30px;
   color: #d3d3d3;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 /* ===== Лаймовая точка ===== */
@@ -179,7 +196,7 @@ a:hover {
   right: 0;
   background-color: #1c1c1c;
   padding: 12px 20px;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
   font-size: 18px;
   color: grey;
   border-radius: 15px 0 0 0;
@@ -196,6 +213,7 @@ a:hover {
   display: flex;
   align-items: center;
   font-size: 18px;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
 /* Стили для элемента списка */
@@ -203,51 +221,24 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
 }
 
-/* ===== Анимация мигания ===== */
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+
+.old-standard-tt-regular {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* ===== Респонсивные стили ===== */
-@media (max-width: 600px) {
-  body {
-    font-size: 15px;
-  }
-
-  .main-content,
-  .custom-audio-player {
-    max-width: 100%;
-  }
-
-  #play-pause-btn {
-    font-size: 70px;
-    width: 70px;
-    height: 70px;
-  }
-
-  .time-display {
-    font-size: 12px;
-  }
-
-  .progress-container {
-    width: 90%;
-  }
-
-  .footer-info {
-    font-size: 11px;
-    padding: 8px;
-  }
+.old-standard-tt-bold {
+  font-family: "Old Standard TT", serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
-@media (max-width: 480px) {
-  .progress-container {
-    width: 95%;
-  }
+.old-standard-tt-regular-italic {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  font-style: italic;
 }

@@ -1,17 +1,19 @@
 <script>
-// Функция для обновления времени
-function updateTime() {
-    const footerTimeWrapper = document.getElementById('footer-time-wrapper');
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
+    // Функция для обновления времени
+    function updateTime() {
+        const timeWrapper = document.getElementById('header-time-wrapper'); // Обновлен ID элемента
+        if (timeWrapper) { // Проверяем, существует ли элемент
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    // Добавляем кружок перед временем
-    footerTimeWrapper.innerHTML = `${hours}:${minutes}:${seconds}`;
-}
+            // Формируем строку времени
+            timeWrapper.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+    }
 
-// Обновляем время каждую секунду
-setInterval(updateTime, 1000);
-updateTime(); // Начальный запуск для отображения времени сразу
+    // Запускаем обновление времени каждую секунду
+    setInterval(updateTime, 1000);
+    updateTime(); // Немедленный запуск для отображения времени сразу
 </script>
