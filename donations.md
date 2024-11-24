@@ -20,6 +20,7 @@ permalink: donations
 5. [PayPal](https://www.paypal.com)   
 6. [💸 Перевести 0.1 ETH](ethereum:0xf945F3471cf40D6F5782Ec458445E87ee734Ab24?value=100000000000000000)
 7. [Patreon](https://www.patreon.com)  
+8. [Ko-fi.com](https://ko-fi.com/indexmod)
 
 ---
 
