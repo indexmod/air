@@ -74,7 +74,6 @@ a:hover {
 .footer-time-wrapper {
   border-radius: 4px;
   padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .highlight-section {
@@ -145,7 +144,7 @@ a:hover {
 .time-display {
   display: flex;
   gap: 5px;
-  font-size: 13px;
+  font-size: 30px;
   color: #d3d3d3;
   font-family: monospace;
 }
@@ -157,44 +156,19 @@ a:hover {
   vertical-align: middle;
 }
 
-.like-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.like-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff4747;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.like-button:hover {
-  background-color: #ff2e2e;
-}
-
 /* ===== Стили футера ===== */
 .footer-info {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: #1c1c1c;
+  background-color: silver;
   padding: 12px 20px;
   font-family: monospace;
   font-size: 18px;
   color: grey;
-  border-radius: 15px 0 0 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
   white-space: nowrap;
 }
 
@@ -211,7 +185,7 @@ a:hover {
 .schedule-item {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* ===== Стили для донатов ===== */
@@ -222,7 +196,6 @@ a:hover {
   padding: 4px 8px;
   text-decoration: none;
   font-size: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-donat:hover {
@@ -434,29 +407,6 @@ a:hover {
   vertical-align: middle;
 }
 
-.like-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.like-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff4747;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.like-button:hover {
-  background-color: #ff2e2e;
-}
-
 /* ===== Стили футера ===== */
 .footer-info {
   position: fixed;
@@ -467,8 +417,6 @@ a:hover {
   font-family: monospace;
   font-size: 18px;
   color: grey;
-  border-radius: 15px 0 0 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 15px;
@@ -495,11 +443,10 @@ a:hover {
 .highlight-donat {
   background-color: #4b0082;
   color: black;
-  border-radius: 4px;
-  padding: 4px 8px;
+  border-radius: 20px;
+  padding: 2px 8px;
   text-decoration: none;
   font-size: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-donat:hover {
@@ -771,16 +718,6 @@ a:hover {
 
 .highlight-donat:hover {
   color: grey;
-}
-
-/* ===== Анимация мигания ===== */
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
 }
 
 /* ===== Респонсивные стили ===== */
