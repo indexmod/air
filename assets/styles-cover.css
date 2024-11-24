@@ -55,20 +55,21 @@ html {
 
 @keyframes soft-noise {
   0% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
   }
   100% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
 
+/* Центрирование основного контента */
 body {
   position: relative;
   margin: 0;
-  padding: 5px;
+  padding: 0;
   background: blue;
   color: silver;
   font-family: monospace;
@@ -79,6 +80,7 @@ body {
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
+  text-align: center;
 }
 
 body::before,
@@ -92,14 +94,15 @@ body::after {
   background: blue;
   z-index: 1;
   mix-blend-mode: lighten;
-  animation: subtle-glitch 0.8s infinite linear alternate;
+  animation: subtle-glitch 0.5s infinite linear alternate;
 }
 
 body::after {
-  background: rgba(255, 255, 255, 0.1);
-  animation: subtle-glitch 0.6s infinite linear alternate-reverse;
+  background: rgba(255, 255, 255, 0.15);
+  animation: subtle-glitch 0.4s infinite linear alternate-reverse;
 }
 
+/* Эффект шума */
 .soft-noise {
   position: absolute;
   top: 0;
@@ -108,34 +111,35 @@ body::after {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.1) 0px,
-    rgba(255, 255, 255, 0.1) 2px,
-    rgba(0, 0, 0, 0.1) 4px
+    rgba(255, 255, 255, 0.15) 0px,
+    rgba(255, 255, 255, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
   );
   z-index: 2;
   pointer-events: none;
-  animation: soft-noise 0.3s infinite;
-  opacity: 0.3;
+  animation: soft-noise 0.2s infinite;
+  opacity: 0.4;
 }
 
-img {
+/* Центрирование содержимого в main */
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-/* Центрирование основного контента */
-.main-content,
-.custom-audio-player {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 5px;
+  height: 100vh;
   box-sizing: border-box;
+}
+
+main img {
+  margin-bottom: 15px;
+}
+
+/* Стили для изображений */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Респонсивные стили для мобильных устройств */
