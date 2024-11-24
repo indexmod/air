@@ -195,7 +195,9 @@ a:hover {
   color: lime;
   font-size: 1.5em;
   vertical-align: middle;
+  text-shadow: 0 0 10px lime, 0 0 20px lime, 0 0 30px lime;  /* Сияние для текста */
 }
+
 
 /* ===== Стили футера ===== */
 .footer-info {
