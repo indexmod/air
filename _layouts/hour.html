@@ -8,7 +8,6 @@
     {% include next-hour.html %}
     {% include play-audio-js.html %}
     {% include time.html %}
-    {% include fbase.html %}
 </head>
 <body>
   <main>
@@ -30,13 +29,8 @@
       {% include audio.html %}
       <br>
       {{ content }}
-      <div>
-          <span id="view-count-{{ page.permalink }}">0</span> 👁️
-          <button onclick="likePage()">👍</button>
-          <span id="like-count-{{ page.permalink }}">0</span>
-      </div>
+      <body>
   </main>
-
   <!-- Футер с информацией -->
   <div class="footer-info">
     <div class="rotating-text-container">

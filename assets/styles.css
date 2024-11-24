@@ -21,21 +21,37 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  box-sizing: border-box;
 }
 
 /* ===== Стили заголовков и текста ===== */
 h1, p {
   text-align: center;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 p {
-  display: inline-flex;
+  display: inline; /* Сохраняет текст и ссылку в одном потоке */
+  text-align: center;
+  line-height: 1.5;
   gap: 8px;
+}
+
+/* ===== Стили для ссылок ===== */
+a {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color: grey;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #4b0082;
+  color: grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Центрирование контента ===== */
@@ -137,29 +153,32 @@ p {
 /* ===== Лаймовая точка ===== */
 .lime-circle {
   color: lime;
-  font-size: 1.5em; /* Увеличенный размер */
-  vertical-align: middle; /* Корректное выравнивание по вертикали */
+  font-size: 1.5em;
+  vertical-align: middle;
 }
 
-button {
-    background: transparent; /* Прозрачный фон */
-    border: none; /* Без рамки */
-    font-size: auto; /* Автоматический размер шрифта */
-    cursor: pointer; /* Курсор в виде руки */
-    opacity: 0.7; /* Прозрачность */
-    padding: 0; /* Убираем отступы */
-    display: inline; /* Чтобы кнопка не растягивалась */
+.like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-button:focus {
-    outline: none; /* Убираем обводку при нажатии */
+.like-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4747;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-    opacity: 1; /* Сделать кнопку более заметной при наведении */
+.like-button:hover {
+  background-color: #ff2e2e;
 }
-
-
 
 /* ===== Стили футера ===== */
 .footer-info {
@@ -197,7 +216,7 @@ button:hover {
 
 /* ===== Стили для донатов ===== */
 .highlight-donat {
-  background-color: #4b0082; /* Темнее оттенок пурпурного */
+  background-color: #4b0082;
   color: black;
   border-radius: 4px;
   padding: 4px 8px;
@@ -207,10 +226,10 @@ button:hover {
 }
 
 .highlight-donat:hover {
-  color: grey; /* Светлый цвет при наведении */
+  color: grey;
 }
 
-
+/* ===== Анимация мигания ===== */
 @keyframes blink {
   0%, 100% {
     opacity: 1;
@@ -247,6 +266,559 @@ button:hover {
 
   .footer-info {
     font-size: 11px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-container {
+    width: 95%;
+  }
+}
+/* ===== Глобальные стили ===== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 5px;
+  background: #1c1c1c;
+  color: grey;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ===== Стили заголовков и текста ===== */
+h1, p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  display: inline; /* Сохраняет текст и ссылку в одном потоке */
+  text-align: center;
+  line-height: 1.5;
+  gap: 8px;
+}
+
+/* ===== Стили для ссылок ===== */
+a {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color: grey;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #4b0082;
+  color: grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Центрирование контента ===== */
+.main-content,
+.custom-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ===== Унифицированные стили для выделений ===== */
+.highlight-section,
+.highlight-time,
+.highlight-location,
+.footer-time-wrapper {
+  border-radius: 4px;
+  padding: 0 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-section {
+  background-color: #10361d;
+  color: #3b6e4b;
+}
+
+.highlight-time {
+  background-color: #333;
+  color: #666;
+}
+
+.highlight-location {
+  background-color: #7e6a4e;
+  color: #222;
+}
+
+/* ===== Кнопка воспроизведения ===== */
+#play-pause-btn {
+  background: none;
+  color: #2a2a2a;
+  border: none;
+  font-size: 80px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+#play-pause-btn::before {
+  content: "▲";
+  font-size: 70px;
+  transform: rotate(90deg);
+}
+
+#play-pause-btn.playing::before {
+  content: "■";
+  font-size: 60px;
+}
+
+#play-pause-btn.paused::before {
+  content: "▲";
+  font-size: 70px;
+  transform: rotate(90deg);
+}
+
+/* ===== Прогресс-бар ===== */
+.progress-container {
+  background-color: #141414;
+  border-radius: 0px;
+  width: 80%;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background-color: #2a2a2a;
+  height: 100%;
+  width: 0;
+  transition: width 0.1s;
+}
+
+/* ===== Время ===== */
+.time-display {
+  display: flex;
+  gap: 5px;
+  font-size: 13px;
+  color: #d3d3d3;
+  font-family: monospace;
+}
+
+/* ===== Лаймовая точка ===== */
+.lime-circle {
+  color: lime;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.like-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4747;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.like-button:hover {
+  background-color: #ff2e2e;
+}
+
+/* ===== Стили футера ===== */
+.footer-info {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #1c1c1c;
+  padding: 12px 20px;
+  font-family: monospace;
+  font-size: 18px;
+  color: grey;
+  border-radius: 15px 0 0 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap;
+}
+
+/* ===== Контейнер для ротации текста ===== */
+.rotating-text-container {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Стили для элемента списка */
+.schedule-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Стили для донатов ===== */
+.highlight-donat {
+  background-color: #4b0082;
+  color: black;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-donat:hover {
+  color: grey;
+}
+
+/* ===== Анимация мигания ===== */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ===== Респонсивные стили ===== */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-content,
+  .custom-audio-player {
+    max-width: 100%;
+  }
+
+  #play-pause-btn {
+    font-size: 70px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .time-display {
+    font-size: 12px;
+  }
+
+  .progress-container {
+    width: 90%;
+  }
+
+  .footer-info {
+    font-size: 11px;/* ===== Глобальные стили ===== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 5px;
+  background: #1c1c1c;
+  color: grey;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ===== Стили заголовков и текста ===== */
+h1, p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  display: inline; /* Сохраняет текст и ссылку в одном потоке */
+  text-align: center;
+  line-height: 1.5;
+  gap: 8px;
+}
+
+/* ===== Стили для ссылок ===== */
+a {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color: grey;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #4b0082;
+  color: grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Центрирование контента ===== */
+.main-content,
+.custom-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ===== Унифицированные стили для выделений ===== */
+.highlight-section,
+.highlight-time,
+.highlight-location,
+.footer-time-wrapper {
+  border-radius: 4px;
+  padding: 0 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-section {
+  background-color: #10361d;
+  color: #3b6e4b;
+}
+
+.highlight-time {
+  background-color: #333;
+  color: #666;
+}
+
+.highlight-location {
+  background-color: #7e6a4e;
+  color: #222;
+}
+
+/* ===== Кнопка воспроизведения ===== */
+#play-pause-btn {
+  background: none;
+  color: #2a2a2a;
+  border: none;
+  font-size: 80px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+#play-pause-btn::before {
+  content: "▲";
+  font-size: 70px;
+  transform: rotate(90deg);
+}
+
+#play-pause-btn.playing::before {
+  content: "■";
+  font-size: 60px;
+}
+
+#play-pause-btn.paused::before {
+  content: "▲";
+  font-size: 70px;
+  transform: rotate(90deg);
+}
+
+/* ===== Прогресс-бар ===== */
+.progress-container {
+  background-color: #141414;
+  border-radius: 0px;
+  width: 80%;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background-color: #2a2a2a;
+  height: 100%;
+  width: 0;
+  transition: width 0.1s;
+}
+
+/* ===== Время ===== */
+.time-display {
+  display: flex;
+  gap: 5px;
+  font-size: 13px;
+  color: #d3d3d3;
+  font-family: monospace;
+}
+
+/* ===== Лаймовая точка ===== */
+.lime-circle {
+  color: lime;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.like-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4747;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.like-button:hover {
+  background-color: #ff2e2e;
+}
+
+/* ===== Стили футера ===== */
+.footer-info {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #1c1c1c;
+  padding: 12px 20px;
+  font-family: monospace;
+  font-size: 18px;
+  color: grey;
+  border-radius: 15px 0 0 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap;
+}
+
+/* ===== Контейнер для ротации текста ===== */
+.rotating-text-container {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Стили для элемента списка */
+.schedule-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Стили для донатов ===== */
+.highlight-donat {
+  background-color: #4b0082;
+  color: black;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-donat:hover {
+  color: grey;
+}
+
+/* ===== Анимация мигания ===== */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ===== Респонсивные стили ===== */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-content,
+  .custom-audio-player {
+    max-width: 100%;
+  }
+
+  #play-pause-btn {
+    font-size: 70px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .time-display {
+    font-size: 12px;
+  }
+
+  .progress-container {
+    width: 90%;
+  }
+
+  .footer-info {
+    font-size: 11px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-container {
+    width: 95%;
+  }
+}
     padding: 8px;
   }
 }

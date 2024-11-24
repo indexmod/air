@@ -31,3 +31,6 @@ timezone: "Europe/Moscow"  # Укажите ваш часовой пояс
 markdown: kramdown
 kramdown:
   input: GFM
+
+supabase_url: "https://ysoyybfvdpfcbjvbnocc.supabase.co"
+supabase_key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlzb3l5YmZ2ZHBmY2JqdmJub2NjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIzODQ3MzYsImV4cCI6MjA0Nzk2MDczNn0.2lVwjfYdRqKNz1tfuIA3hcRTyml3OIohKuC6AL677MM"

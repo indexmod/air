@@ -12,53 +12,73 @@ html {
 
 @keyframes subtle-glitch {
   0% {
-    clip-path: inset(0 0 95% 0);
+    clip-path: inset(0 0 80% 0);
     transform: translate(0, 0);
   }
   10% {
-    clip-path: inset(10% 0 85% 0);
-    transform: translate(-2px, -1px);
+    clip-path: inset(5% 0 75% 0);
+    transform: translate(-4px, -2px);
   }
   20% {
-    clip-path: inset(30% 0 65% 0);
-    transform: translate(2px, 1px);
+    clip-path: inset(25% 0 55% 0);
+    transform: translate(4px, 2px);
   }
   30% {
-    clip-path: inset(50% 0 45% 0);
-    transform: translate(-2px, 0);
+    clip-path: inset(45% 0 35% 0);
+    transform: translate(-6px, 0);
   }
-  40%, 100% {
-    clip-path: inset(0 0 95% 0);
+  40% {
+    clip-path: inset(65% 0 15% 0);
+    transform: translate(6px, -1px);
+  }
+  50% {
+    clip-path: inset(0 0 80% 0);
+    transform: translate(0, 0);
+  }
+  60% {
+    clip-path: inset(15% 0 70% 0);
+    transform: translate(-3px, -1px);
+  }
+  70% {
+    clip-path: inset(35% 0 50% 0);
+    transform: translate(3px, 1px);
+  }
+  80% {
+    clip-path: inset(55% 0 30% 0);
+    transform: translate(-5px, 0);
+  }
+  100% {
+    clip-path: inset(0 0 80% 0);
     transform: translate(0, 0);
   }
 }
 
 @keyframes soft-noise {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   50% {
-    opacity: 0.15;
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
 }
 
 body {
+  position: relative;
   margin: 0;
-  padding: 5px; /* Отступ вокруг страницы */
+  padding: 5px;
   background: blue;
   color: silver;
   font-family: monospace;
-  font-size: 15px; /* Установим шрифт моноспейс 15px */
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
   box-sizing: border-box;
-  overflow: hidden; /* Убираем прокрутку */
-  position: relative;
 }
 
 body::before,
@@ -71,13 +91,13 @@ body::after {
   height: 100%;
   background: blue;
   z-index: 1;
-  mix-blend-mode: lighten; /* Смягчение цвета */
-  animation: subtle-glitch 1.5s infinite linear alternate;
+  mix-blend-mode: lighten;
+  animation: subtle-glitch 0.8s infinite linear alternate;
 }
 
 body::after {
-  background: rgba(255, 255, 255, 0.05); /* Лёгкий белый шум */
-  animation: subtle-glitch 2s infinite linear alternate-reverse;
+  background: rgba(255, 255, 255, 0.1);
+  animation: subtle-glitch 0.6s infinite linear alternate-reverse;
 }
 
 .soft-noise {
@@ -88,19 +108,17 @@ body::after {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.02) 0px,
-    rgba(255, 255, 255, 0.02) 2px,
-    rgba(0, 0, 0, 0.02) 4px
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
   );
   z-index: 2;
   pointer-events: none;
-  animation: soft-noise 0.5s infinite;
-  opacity: 0.1; /* Менее заметный эффект */
+  animation: soft-noise 0.3s infinite;
+  opacity: 0.3;
 }
 
-
-
-giphy-embed {
+img {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +135,7 @@ giphy-embed {
   width: 100%;
   max-width: 600px;
   padding: 5px;
-  box-sizing: border-box; /* Учитываем padding в ширине */
+  box-sizing: border-box;
 }
 
 /* Респонсивные стили для мобильных устройств */
