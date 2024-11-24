@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 /* ===== Глобальные стили ===== */
 html {
@@ -18,7 +18,7 @@ body {
   padding: 5px;
   background: #1c1c1c;
   color: grey;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -27,49 +27,51 @@ body {
 }
 
 #header-time-wrapper {
-    font-size: 20px; /* Увеличенный размер шрифта */
-    color: #696969; /* Еще более темный, менее яркий цвет текста */
-    font-weight: 700; /* Средний вес шрифта */
-    margin-bottom: 10px; /* Отступ снизу */
-    display: inline-block; /* Для корректного позиционирования */
+    font-size: 20px;
+    color: #696969;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
 /* ===== Стили заголовков и текста ===== */
 h1 {
   text-align: center;
   margin-bottom: 10px;
-  font-family: "Old Standard TT", serif; /* Заголовки с Old Standard TT */
+  font-family: "Old Standard TT", serif;
 }
 
 p {
-  display: inline; /* Сохраняет текст и ссылку в одном потоке */
+  display: inline;
   text-align: center;
   line-height: 1.5;
   gap: 8px;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
 /* ===== Стили для ссылок ===== */
 a {
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
   font-size: 20px;
   color: grey;
   text-decoration: none;
-  padding: 4px 8px;
   border-radius: 4px;
+  padding: 0 6px;
   background-color: transparent;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Заменено на внутреннюю тень */
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 a:hover {
   background-color: #4b0082;
   color: grey;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Заменено на внутреннюю тень */
 }
 
 /* ===== Центрирование контента ===== */
 .main-content,
 .custom-audio-player {
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +80,7 @@ a:hover {
   max-width: 600px;
   padding: 10px;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
 /* ===== Унифицированные стили для выделений ===== */
@@ -86,16 +88,19 @@ a:hover {
 .highlight-time,
 .highlight-location,
 .footer-time-wrapper {
+  font-size: 20px;
   border-radius: 4px;
   padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Заменено на внутреннюю тень */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
+
 .highlight-section {
-  background-color: #10361d;
-  color: #3b6e4b;
+  background-color: #0a2b16;  /* Более темный фон */
+  color: #2e5c3c;  /* Более темный цвет текста */
 }
+
 
 .highlight-time {
   background-color: #333;
@@ -103,20 +108,23 @@ a:hover {
 }
 
 .highlight-location {
-  background-color: #7e6a4e;
-  color: #222;
+  background-color: #4f3b28;  /* Темный фон */
+  color: #111;  /* Очень темный цвет текста */
 }
+
 
 /* ===== Стили для донатов ===== */
 .highlight-donat {
-  background-color: #4b0082;
-  color: black;
+  font-size: 20px;
   border-radius: 4px;
-  padding: 4px 8px;
-  text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  padding: 0 6px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Заменено на внутреннюю тень */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
+}
+
+.highlight-donat {
+  background-color: #4b0082;
+  color: #222;
 }
 
 .highlight-donat:hover {
@@ -137,7 +145,7 @@ a:hover {
   height: 80px;
   touch-action: manipulation;
   user-select: none;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
 #play-pause-btn::before {
@@ -179,7 +187,7 @@ a:hover {
   gap: 5px;
   font-size: 30px;
   color: #d3d3d3;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
 /* ===== Лаймовая точка ===== */
@@ -196,7 +204,7 @@ a:hover {
   right: 0;
   background-color: #1c1c1c;
   padding: 12px 20px;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
   font-size: 18px;
   color: grey;
   border-radius: 15px 0 0 0;
@@ -213,7 +221,7 @@ a:hover {
   display: flex;
   align-items: center;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
 
 /* Стили для элемента списка */
@@ -221,9 +229,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Roboto', sans-serif; /* Заменено на Roboto */
+  font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
 }
-
 
 .old-standard-tt-regular {
   font-family: "Old Standard TT", serif;
