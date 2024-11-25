@@ -206,7 +206,7 @@ a:hover {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: #1c1c1c;
+  background-color: transparent;
   padding: 12px 20px;
   font-family: 'Roboto Mono', monospace; /* Заменено на Roboto Mono */
   font-size: 18px;
