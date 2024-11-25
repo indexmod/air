@@ -18,13 +18,11 @@
   <main>
     <div class="main-content">
 
-
+      <span class="highlight-section">{{ page.section }}</span>
       <h1>{{ page.title }}</h1>
-      <p><span class="highlight-section">{{ page.section }}</span></p>
-      <p>
-        <span class="highlight-location">{{ page.author }}</span>
-        <span class="highlight-location">{{ page.location }}</span>
-      </p>
+        <p><span class="highlight-location">{{ page.author }}</span>
+        <span class="highlight-location">{{ page.location }}</span></p>
+
       {% include audio.html %}
       <br>
       {{ content }}
@@ -35,7 +33,7 @@
     <div class="rotating-text-container">
       {% include table.html %}
     </div>
-    <a href="/donations" target="_blank" class="highlight-donat">+</a>
+    <a href="/donations" target="_blank" class="no-underline">+</a>
   </div>
 </body>
 </html>
