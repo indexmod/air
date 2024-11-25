@@ -18,15 +18,13 @@
   <main>
     <div class="main-content">
 
-<span class="highlight-section">{{ page.section }}</span>
-      <br>
+
       <h1>{{ page.title }}</h1>
-      <br>
+      <p><span class="highlight-section">{{ page.section }}</span></p>
       <p>
         <span class="highlight-location">{{ page.author }}</span>
         <span class="highlight-location">{{ page.location }}</span>
       </p>
-      <br>
       {% include audio.html %}
       <br>
       {{ content }}
