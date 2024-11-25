@@ -10,13 +10,14 @@
     {% include time.html %}
 </head>
 <body>
+  <div class="top-left-container">
+    <span class="site-title">{{ site.title }}</span>
+    <span class="lime-circle">●</span>
+    <span id="header-time-wrapper" class="time-container"></span>
+  </div>
   <main>
     <div class="main-content">
 
-<span class="lime-circle">●</span>
-<br>
-<span id="header-time-wrapper" class="time-container"></span>
-<br>
 <span class="highlight-section">{{ page.section }}</span>
       <br>
       <h1>{{ page.title }}</h1>
