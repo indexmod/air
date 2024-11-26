@@ -23,32 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Запускаем анимацию через каждые 5 секунд
   if (scheduleItems.length > 0) {
     showCurrentItem();
-    setInterval(showCurrentItem, 5000);
+    setInterval(showCurrentItem, 1000);
   }
 });
 </script>
 
-<!-- Стили для плавной смены -->
-<style>
-.schedule-item {
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
 
-.schedule-item.fade-in {
-  opacity: 1;
-}
-</style>
 
 <!-- Список расписания -->
 <div class="rotating-text-container">
   <ul class="schedule-list">
-    {% assign current_time = site.time | date: "%H:%M" %}
     {% for page in site.hours %}
-      {% if page.layout == "hour" and page.start_time > current_time %}
+      {% if page.layout == "hour" %}
         <li class="schedule-item">
-          <span class="highlight-time">Далее</span>
           <span class="highlight-time">{{ page.start_time }}</span>
           <span class="highlight-section">{{ page.section }}</span>
         </li>
