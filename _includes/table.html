@@ -23,10 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Запускаем анимацию через каждые 5 секунд
   if (scheduleItems.length > 0) {
     showCurrentItem();
-    setInterval(showCurrentItem, 1000);
+    setInterval(showCurrentItem, 5000);
   }
 });
 </script>
+
+<style>
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
 
 <!-- Список расписания -->
 <div class="rotating-text-container">
