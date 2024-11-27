@@ -28,14 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-
 <!-- Список расписания -->
 <div class="rotating-text-container">
   <ul class="schedule-list">
-    {% for page in site.hours %}
-      {% if page.layout == "hour" %}
+    {% assign current_hour = site.time | date: "%H" | plus: 0 %}
+
+    <!-- Первая группа: от текущего часа + 1 до 23 -->
+    {% assign later_hours = site.hours | where: "layout", "hour" | sort: "start_time" %}
+    {% for page in later_hours %}
+      {% assign page_hour = page.start_time | split: ":" | first | plus: 0 %}
+      {% if page_hour > current_hour %}
         <li class="schedule-item">
+          <span class="highlight-time">Далее</span>
+          <span class="highlight-time">{{ page.start_time }}</span>
+          <span class="highlight-section">{{ page.section }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    <!-- Вторая группа: от 00 до текущего часа -->
+    {% for page in later_hours %}
+      {% assign page_hour = page.start_time | split: ":" | first | plus: 0 %}
+      {% if page_hour <= current_hour %}
+        <li class="schedule-item">
+          <span class="highlight-time">Завтра</span>
           <span class="highlight-time">{{ page.start_time }}</span>
           <span class="highlight-section">{{ page.section }}</span>
         </li>
