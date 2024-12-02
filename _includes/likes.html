@@ -1,0 +1,47 @@
+<div id="like-container">
+  <button id="like-button">❤️ Like</button>
+  <p>Total Likes: <span id="like-count">0</span></p>
+</div>
+
+<script>
+  const googleScriptURL = "https://script.google.com/macros/s/AKfycbwcM76vD_4V3Y2SyJRsg7JjopzPjfei2hVrPprEBNyFObMdldl-2v2wGK0iTXtmDCs9/exec"; // URL вашего Apps Script
+  const pageName = window.location.pathname.replace(/^\/|\/$/g, ""); // Убираем начальный и конечный слэши
+  const likeCountElement = document.getElementById("like-count");
+  const likeButton = document.getElementById("like-button");
+
+  // Функция получения количества лайков
+  async function getLikes() {
+    try {
+      const response = await fetch(`${googleScriptURL}?page=${encodeURIComponent(pageName)}`);
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+      const data = await response.json();
+      likeCountElement.textContent = data.likes || 0;
+    } catch (error) {
+      console.error("Failed to fetch likes:", error);
+      likeCountElement.textContent = "Error";
+    }
+  }
+
+  // Функция добавления лайка
+  async function addLike() {
+    try {
+      const response = await fetch(googleScriptURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({ page: pageName })
+      });
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+      getLikes();
+    } catch (error) {
+      console.error("Failed to add like:", error);
+    }
+  }
+
+  // Добавляем обработчик событий
+  likeButton.addEventListener("click", addLike);
+
+  // Получаем текущее количество лайков при загрузке страницы
+  getLikes();
+</script>
