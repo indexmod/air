@@ -1,0 +1,33 @@
+{
+  "rules": [
+    {
+      "class": "header",
+      "style": {
+        "background-color": "#ffffff",
+        "font-family": "Arial, sans-serif",
+        "font-size": "24px",
+        "color": "#000000"
+      }
+    },
+    {
+      "class": "paragraph",
+      "style": {
+        "font-family": "Georgia, serif",
+        "font-size": "18px",
+        "line-height": "1.5",
+        "color": "#333333"
+      }
+    },
+    {
+      "class": "image",
+      "style": {
+        "width": "100%",
+        "border": "none"
+      }
+    }
+  ],
+  "ad_placement": {
+    "type": "default",
+    "frequency": "1"
+  }
+}
