@@ -10,6 +10,16 @@
 <meta property="og:audio" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours' }}.m4a">
 <meta property="og:site_name" content="{{ site.title }}">
 
+<!-- Add Instant Article meta tags -->
+<meta property="ia:markup_url" content="{{ site.url }}{{ page.url }}" />
+<meta property="ia:markup_url_dev" content="{{ site.url }}/dev{{ page.url }}" />
+<meta property="ia:rules_url" content="{{ site.url }}/rules" />
+<meta property="ia:rules_url_dev" content="{{ site.url }}/dev/rules" />
+
+<!-- Open Graph: Image Alt -->
+<meta property="og:image:alt" content="{{ page.title | escape }}" />
+
+
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:title" content="{{ page.title | escape }}">
 <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
