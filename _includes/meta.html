@@ -1,7 +1,8 @@
 <!-- Open Graph Meta Tags -->
 <meta property="fb:app_id" content="1241631050257914" />
 <meta property="og:title" content="{{ page.title | escape }}">
-<meta property="og:description" content="Сейчас: {{page.start_time}} {{ page.section | escape }}">
+<meta property="og:description" content="Москва: {{ page.start_time | date_add: 3, 'hour' }},
+    London: {{ page.start_time }}">
 <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours' }}.png">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:type" content="music.song">
