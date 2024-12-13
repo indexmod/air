@@ -51,10 +51,10 @@ body {
 
 /* Стили для лаймовой точки */
 .lime-circle {
-  color: lime;
+  color: red;
   font-size: 1em; /* Увеличен размер */
   vertical-align: middle;
-  text-shadow: 0 0 10px lime, 0 0 20px lime, 0 0 30px lime; /* Сияние для текста */
+  text-shadow: 0 0 10px lime, 0 0 20px lime, 0 0 30px red; /* Сияние для текста */
 }
 
 /* Стили для времени в верхнем левом контейнере */
