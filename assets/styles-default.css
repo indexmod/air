@@ -1,0 +1,138 @@
+/* Базовые стили страницы */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Основной стиль body */
+body {
+  margin: 0;
+  padding: 60px 80px; /* Увеличенные поля сверху, снизу и по бокам */
+  background: linear-gradient(to left, #001f3f 0%, #002f5f 100%);
+  color: white;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh; /* Минимальная высота для прокрутки */
+  overflow-x: hidden; /* Скрыть горизонтальный скроллинг */
+  text-align: left; /* Выравнивание текста по левому краю */
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  font-family: monospace;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: left; /* Заголовки также по левому краю */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 35px;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-top: 30px;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: left; /* Текст абзацев выравниваем по левому краю */
+}
+
+/* Ссылки */
+a {
+  color: #66ccff; /* Голубой цвет ссылки */
+  text-decoration: none;
+  text-align: left; /* Ссылки тоже по левому краю */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.highlight {
+  background-color: #800080; /* Основной фиолетовый */
+  color: #E6E6FA; /* Сиреневый */
+  border-radius: 4px; /* Скругление углов */
+  padding: 0 4px;  /* Небольшие отступы */
+}
+
+/* Стили для списков */
+ol {
+  padding-left: 20px; /* Отступ слева для списка */
+  list-style-position: inside; /* Нумерация внутри блока */
+  text-align: left; /* Список выравниваем по левому краю */
+  width: 100%; /* Список не растягивается на всю ширину */
+}
+
+/* Респонсивные стили */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 40px; /* Поля чуть меньше для более мелких экранов */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 25px; /* Поля еще меньше для мобильных экранов */
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+hr {
+  border: none; /* Убираем стандартную границу */
+  border-top: 2px solid #ccc; /* Добавляем верхнюю границу для линии */
+  width: 100%; /* Занимаем всю ширину страницы */
+  height: 2px; /* Толщина линии */
+  margin: 20px 0; /* Отступы сверху и снизу */
+  background-color: transparent; /* Прозрачный фон */
+}

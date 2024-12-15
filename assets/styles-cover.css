@@ -1,0 +1,82 @@
+/* Глобальные стили страницы */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Эффект на фоне тела */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: blue;
+  z-index: 1;
+  mix-blend-mode: lighten;
+  animation: subtle-glitch 0.5s infinite linear alternate;
+}
+
+/* Центрирование основного контента */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: blue;
+  color: silver;
+  font-family: monospace;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Центрирование содержимого в main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+main img {
+  margin-bottom: 5px;
+}
+
+/* Стили для изображений (увеличение вдвое) */
+img {
+  display: block;
+  width: 30%; /* Увеличение ширины вдвое */
+  height: auto;
+  transform: scale(2); /* Альтернативный способ увеличения */
+}
+
+
+/* Респонсивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .main-content,
+  .custom-audio-player {
+    padding: 10px;
+    width: 100%;
+  }
+  .time-display {
+    font-size: 12px;
+  }
+}
