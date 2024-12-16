@@ -143,8 +143,13 @@ a:hover {
 
 
 .highlight-section {
-  background-color: #0c341b;  /* Чуть светлее фон */
-  color: lime;  /* Более темный цвет текста */
+  background-color: #11312A;
+  color: #1AAD82;
+}
+
+.highlight-location {
+  background-color: #5E1E90;
+  color: #CA89FD;
 }
 
 
@@ -153,10 +158,7 @@ a:hover {
   color: #666;
 }
 
-.highlight-location {
-  background-color: #1d273b;  /* Темно-синий приглушенный фон */
-  color: #00bfff;  /* Яркий голубой текст, по яркости напоминающий лайм */
-}
+
 
 
 /* ===== Стили для донатов ===== */
