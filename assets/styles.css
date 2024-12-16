@@ -82,9 +82,14 @@ body {
 /* ===== Стили заголовков и текста ===== */
 h1 {
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-family: "Old Standard TT", serif;
   font-weight: 400;
+  border-radius: 8px;
+  padding: 0 6px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Заменено на внутреннюю тень */
+  background-color: #242424;
 }
 
 p {
@@ -143,8 +148,8 @@ a:hover {
 
 
 .highlight-section {
-  background-color: #11312A;
-  color: #1AAD82;
+  background-color: #11312C;
+  color: #3ED2B4;
 }
 
 .highlight-location {
