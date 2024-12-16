@@ -1,17 +1,17 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+      // Инициализация элементов управления плеером
       const audioPlayer = document.getElementById("audio-player");
       const playPauseBtn = document.getElementById("play-pause-btn");
       const progressBar = document.querySelector(".progress-bar");
       const currentTimeDisplay = document.getElementById("current-time");
       const durationDisplay = document.getElementById("duration");
 
+      // Динамическая подстановка ссылки на аудиофайл
       const permalink = "{{ page.permalink }}";
-
-      // Пробуем сначала использовать mp3, если файл не существует, пробуем m4a
       const source = audioPlayer.querySelector("source");
 
-      // Функция для проверки доступности файла (через fetch)
+      // Функция для проверки существования файла по URL (через HTTP HEAD)
       const checkFileExists = async (url) => {
           try {
               const response = await fetch(url, { method: "HEAD" });
@@ -22,17 +22,15 @@
           }
       };
 
+      // Попытка установить источник аудио: сначала mp3, затем m4a
       const trySetSource = async () => {
-          // Попробуем mp3
           const mp3Url = `/assets/audio${permalink}.mp3`;
           const m4aUrl = `/assets/audio${permalink}.m4a`;
 
-          // Проверим сначала mp3
           const mp3Exists = await checkFileExists(mp3Url);
           if (mp3Exists) {
               source.src = mp3Url;
           } else {
-              // Если mp3 не существует, пробуем m4a
               const m4aExists = await checkFileExists(m4aUrl);
               if (m4aExists) {
                   source.src = m4aUrl;
@@ -45,41 +43,46 @@
           audioPlayer.load();
       };
 
-      // Вызываем функцию для установки источника
+      // Устанавливаем источник аудио
       trySetSource();
 
-      // Оставшаяся часть кода для управления воспроизведением и прогресс-баром остается без изменений.
+      // Переменная для контроля автозапуска
       let autoPlayDisabled = true;
-      let isUserInteraction = false;
 
+      // При загрузке метаданных задаём начальную точку воспроизведения
       audioPlayer.addEventListener("loadedmetadata", () => {
-          const currentMinute = new Date().getMinutes();
-          const currentSecond = new Date().getSeconds();
+          const now = new Date();
+          const currentMinute = now.getMinutes();
+          const currentSecond = now.getSeconds();
 
-          if (currentMinute === 0 && currentSecond < 10) {
-              audioPlayer.currentTime = 0;
-          } else {
-              audioPlayer.currentTime = currentMinute * 60;
-          }
+          // Устанавливаем текущую позицию воспроизведения
+          audioPlayer.currentTime = currentMinute * 60 + currentSecond;
 
+          // Обновляем прогресс-бар и отображаем продолжительность
           updateProgressBar();
           durationDisplay.textContent = formatTime(audioPlayer.duration);
+
+          // Пытаемся запустить автоплей
           attemptAutoPlay();
       });
 
+      // Функция для попытки автозапуска
       function attemptAutoPlay() {
-          audioPlayer.play().then(() => {
-              console.log("Автозапуск успешно выполнен");
-              playPauseBtn.classList.remove("paused");
-              playPauseBtn.classList.add("playing");
-              autoPlayDisabled = false;
-          }).catch(error => {
-              console.error("Автозапуск блокирован:", error);
-              autoPlayDisabled = true;
-              enableAutoPlayOnInteraction();
-          });
+          audioPlayer.play()
+              .then(() => {
+                  console.log("Автозапуск успешно выполнен");
+                  playPauseBtn.classList.remove("paused");
+                  playPauseBtn.classList.add("playing");
+                  autoPlayDisabled = false;
+              })
+              .catch(error => {
+                  console.error("Автозапуск блокирован:", error);
+                  autoPlayDisabled = true;
+                  enableAutoPlayOnInteraction();
+              });
       }
 
+      // Функция включения автозапуска при взаимодействии пользователя
       function enableAutoPlayOnInteraction() {
           const interactionHandler = () => {
               if (autoPlayDisabled) {
@@ -97,14 +100,17 @@
           document.addEventListener("scroll", interactionHandler);
       }
 
+      // Функция переключения воспроизведения (пауза/воспроизведение)
       function togglePlayPause() {
           if (audioPlayer.paused) {
-              audioPlayer.play().then(() => {
-                  playPauseBtn.classList.remove("paused");
-                  playPauseBtn.classList.add("playing");
-              }).catch(error => {
-                  console.error("Не удалось воспроизвести:", error);
-              });
+              audioPlayer.play()
+                  .then(() => {
+                      playPauseBtn.classList.remove("paused");
+                      playPauseBtn.classList.add("playing");
+                  })
+                  .catch(error => {
+                      console.error("Не удалось воспроизвести:", error);
+                  });
           } else {
               audioPlayer.pause();
               playPauseBtn.classList.remove("playing");
@@ -112,19 +118,18 @@
           }
       }
 
-      playPauseBtn.addEventListener("click", () => {
-          isUserInteraction = true;
-          togglePlayPause();
-      });
+      // Обработка клика на кнопке воспроизведения/паузы
+      playPauseBtn.addEventListener("click", togglePlayPause);
 
+      // Обработка нажатия пробела для воспроизведения/паузы
       document.addEventListener("keydown", (event) => {
           if (event.code === "Space") {
               event.preventDefault();
-              isUserInteraction = true;
               togglePlayPause();
           }
       });
 
+      // Функция обновления прогресс-бара
       function updateProgressBar() {
           if (audioPlayer.duration) {
               const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -133,13 +138,14 @@
           }
       }
 
-      audioPlayer.addEventListener("loadedmetadata", updateProgressBar);
+      // Обновляем прогресс-бар по событиям воспроизведения
       audioPlayer.addEventListener("timeupdate", updateProgressBar);
 
+      // Форматирование времени (минуты:секунды)
       function formatTime(seconds) {
           const mins = Math.floor(seconds / 60);
           const secs = Math.floor(seconds % 60);
           return `${mins}:${secs < 10 ? '0' + secs : secs}`;
       }
   });
-  </script>
+</script>
