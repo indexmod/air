@@ -1,6 +1,6 @@
 ---
 title: Донатс
-layout: hour
+layout: pages
 permalink: donations
 ---
 
