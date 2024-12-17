@@ -280,3 +280,12 @@ a:hover {
 .no-underline {
   text-decoration: none !important;
 }
+
+/* Стили для Поделиться */
+
+#share-buttons a {
+    font-size: 15px;
+    margin: 0 0 0 0px;
+    color: #333;
+    text-decoration: none;
+}
