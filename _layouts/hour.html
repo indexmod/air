@@ -28,15 +28,19 @@
         <span class="highlight-location">{{ page.location }}</span></p>
 
       {% include audio.html %}
-      {{ content }}
+      <br>
+    {% include share.html %}
+      <br>
+        {{ content }}
   </main>
-        {% include hits.html %}
+
   <!-- Футер с информацией -->
   <div class="footer-info">
+      {% include hits.html %} 
     <div class="rotating-text-container">
       {% include table.html %}
     </div>
-    <a href="/donations" target="_blank" class="no-underline">+</a>
+  <a href="/donations" target="_blank" class="no-underline">+</a>
   </div>
 </body>
 </html>
