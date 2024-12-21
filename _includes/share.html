@@ -1,13 +1,14 @@
 <!-- Кнопки "Поделиться" -->
 <div id="share-buttons">
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/{{ page.permalink }}&title={{ page.title }}&description={{ page.excerpt | strip_html }}&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
+  Поделиться:
+    <a style="all: unset; display: inline;"href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/{{ page.permalink }}&title={{ page.title }}&description={{ page.excerpt | strip_html }}&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
        target="_blank"
        title="Поделитья программой {{ page.title }}">
-        <i class="fab fa-facebook">1</i>
+        <i class="fab fa-facebook"></i>
     </a>
-    <a href="https://t.me/share/url?url={{ site.url }}/{{ page.permalink }}&text=В Эфире&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
+    <a style="all: unset; display: inline;"href="https://t.me/share/url?url={{ site.url }}/{{ page.permalink }}&text=&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
        target="_blank"
        title="Поделитья программой {{ page.title }}">
-        <i class="fab fa-telegram">2</i>
+        <i class="fab fa-telegram"></i>
     </a>
 </div>
