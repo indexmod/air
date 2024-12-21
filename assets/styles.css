@@ -131,6 +131,18 @@ a:hover {
   font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
 }
 
+.special-arrow {
+  font-size: 45px;
+  position: relative;
+  top: 6px;
+}
+
+.hit {
+  position: relative;
+  top: 3px;
+}
+
+
 .highlight-section {
   background-color: #11312C;
   color: #3ED2B4;
