@@ -1,15 +1,18 @@
-<!-- Кнопки "Поделиться" -->
-
 <div id="share-buttons">
   Поделиться <span class="special-arrow">↝</span>
-    <a style="all: unset; display: inline;"href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/{{ page.permalink }}&title={{ page.title }}&description={{ page.excerpt | strip_html }}&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
-       target="_blank"
-       title="Поделитья программой {{ page.title }}">
-        <i class="fab fa-facebook"></i>
-    </a>
-    <a style="all: unset; display: inline;"href="https://t.me/share/url?url={{ site.url }}/{{ page.permalink }}&text=&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
-       target="_blank"
-       title="Поделитья программой {{ page.title }}">
-        <i class="fab fa-telegram"></i>
-    </a>
+  <a style="all: unset; display: inline;" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/{{ page.permalink }}&title={{ page.title }}&description={{ page.excerpt | strip_html }}&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
+     target="_blank"
+     title="Поделиться программой {{ page.title }}">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a style="all: unset; display: inline;" href="https://t.me/share/url?url={{ site.url }}/{{ page.permalink }}&text=&picture={{ site.url }}/assets/covers/{{ page.permalink }}.png"
+     target="_blank"
+     title="Поделиться программой {{ page.title }}">
+    <i class="fab fa-telegram"></i>
+  </a>
+  <a style="all: unset; display: inline;" href="https://twitter.com/intent/tweet?url={{ site.url }}/{{ page.permalink }}&text={{ page.title }}&via=YourTwitterHandle"
+     target="_blank"
+     title="Поделиться программой {{ page.title }} в X">
+    <i class="fab fa-x-twitter"></i>
+  </a>
 </div>
