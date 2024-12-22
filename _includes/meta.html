@@ -2,12 +2,12 @@
 <meta property="fb:app_id" content="1241631050257914" />
 <meta property="og:title" content="{{ page.title | escape }}">
 <meta property="og:description" content="Ежедневно в {{ page.start_time }} в рубрике «{{ page.section }}» {{ page.excerpt | strip_html }}">
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours/' }}.png">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers/{{ page.permalink | remove: '/hours/' }}.png">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:type" content="music.song">
 <meta property="og:audio:type" content="audio/mpeg">
-<meta property="og:audio" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours/' }}.mp3">
-<meta property="og:audio" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours/' }}.m4a">
+<meta property="og:audio" content="{{ site.url }}{{ site.baseurl }}/assets/covers/{{ page.permalink | remove: '/hours/' }}.mp3">
+<meta property="og:audio" content="{{ site.url }}{{ site.baseurl }}/assets/covers/{{ page.permalink | remove: '/hours/' }}.m4a">
 <meta property="og:site_name" content="{{ site.title }}">
 
 <!-- Add Instant Article meta tags -->
@@ -23,11 +23,11 @@
 <meta name="twitter:card" content="player" />
 <meta name="twitter:title" content="{{ page.title | escape }}">
 <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
-<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours/' }}.png" />
-<meta name="twitter:player" content="{{ site.url }}{{ site.baseurl }}/player.html?track={{ page.permalink | remove: '/hours/' }}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" />
+<meta name="twitter:player" content="{{ site.url }}{{ site.baseurl }}/player.html?track={{ page.permalink | remove: '/hours/' }}.mp3" />
 <meta name="twitter:player:width" content="640" />
 <meta name="twitter:player:height" content="90" />
-<meta name="twitter:player:stream" content="{{ site.url }}{{ site.baseurl }}/assets/audio{{ page.permalink | remove: '/hours/' }}.mp3" />
+<meta name="twitter:player:stream" content="{{ site.url }}{{ site.baseurl }}/assets/audio/{{ page.permalink | remove: '/hours/' }}.mp3" />
 <meta name="twitter:site" content="@indexmod_efir" />
 
 <!-- General Meta Tags for SEO -->
