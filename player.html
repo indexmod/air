@@ -1,0 +1,6 @@
+<!-- Встраиваемый аудиоплеер -->
+<audio id="audio-player" controls autoplay>
+  <source src="{{ site.url }}{{ site.baseurl }}/assets/audio{{ request.params.track }}.mp3" type="audio/mpeg">
+  <source src="{{ site.url }}{{ site.baseurl }}/assets/audio{{ request.params.track }}.m4a" type="audio/mp4">
+  Ваш браузер не поддерживает воспроизведение аудио.
+</audio>
