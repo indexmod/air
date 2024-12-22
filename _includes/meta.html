@@ -20,11 +20,16 @@
 <meta property="og:image:alt" content="{{ page.title | escape }}" />
 
 <!-- Twitter Card Meta Tags (for X) -->
-<meta name="twitter:title" content="Видео-рехаб">
-<meta name="twitter:description" content="Томми Блекборн, также известный как DJ Tommyboy из Далласа, — это диджей и видео-художник, который специализируется на создании миксов в стиле ретро и VHS-эстетики.">
-<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours' }}.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@indexmod_efir">
+<meta name="twitter:card" content="player" />
+<meta name="twitter:title" content="{{ page.title | escape }}" />
+<meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/covers{{ page.permalink | remove: '/hours' }}.png" />
+<meta name="twitter:player" content="{{ site.url }}/player.html" />
+<meta name="twitter:player:width" content="640" />
+<meta name="twitter:player:height" content="360" />
+<meta name="twitter:player:stream" content="{{ site.url }}/assets/covers{{ page.permalink | remove: '/hours' }}.mp4" />
+<meta name="twitter:site" content="@indexmod_efir" />
+
 
 
 <!-- General Meta Tags for SEO -->
