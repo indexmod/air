@@ -14,12 +14,13 @@ body {
   margin: 0;
   padding: 20px;
   background: #242424;
-  color: grey;
+  color: #d3d3d3;
   font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 20px;
+  line-height: 1.6; /* Улучшение читаемости */
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Обеспечивает широкие поля */
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -30,18 +31,18 @@ body {
   padding: 20px;
   background: #1c1c1c;
   border-radius: 8px;
+  overflow: hidden; /* Предотвращает выход контента */
 }
 
 p {
-  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 18px;
   color: #d3d3d3;
   margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 /* ===== Стили для ссылок ===== */
 a {
-  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 20px;
   color: grey;
   text-decoration: none;
@@ -56,19 +57,15 @@ a:hover {
 @media (max-width: 768px) {
   body {
     font-size: 18px;
+    line-height: 1.4;
   }
 
   .container {
     padding: 16px;
   }
 
-  h1 {
-    font-size: 28px;
-  }
-
   a {
     font-size: 18px;
-    padding: 12px 16px;
   }
 }
 
@@ -81,15 +78,21 @@ a:hover {
     padding: 12px;
   }
 
-  h1 {
-    font-size: 24px;
-  }
-
   a {
     font-size: 16px;
-    padding: 10px 14px;
   }
 }
 
 @media (max-width: 400px) {
   body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  a {
+    font-size: 14px;
+  }
+}
