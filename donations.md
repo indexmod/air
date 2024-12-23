@@ -14,6 +14,6 @@ permalink: donations
 + [Patreon](https://www.patreon.com)
 + [Ko-fi.com](https://ko-fi.com/indexmod)
 
----
+-------
 
-+ [Написать письмо](mailto:indexmod@ya.ru)
+[Написать письмо](mailto:indexmod@ya.ru)
