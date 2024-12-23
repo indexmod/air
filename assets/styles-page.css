@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 /* ===== Глобальные стили ===== */
 html {
@@ -18,7 +16,7 @@ body {
   padding: 20px;
   background: #242424;
   color: grey;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -26,16 +24,8 @@ body {
   min-height: 100vh;
 }
 
-/* ===== Заголовок и параграфы ===== */
-h1 {
-  font-family: 'Old Standard TT', serif;
-  font-size: 32px;
-  color: grey;
-  margin-bottom: 20px;
-}
-
 p {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 18px;
   color: #d3d3d3;
   margin-bottom: 20px;
@@ -43,21 +33,15 @@ p {
 
 /* ===== Стили для ссылок ===== */
 a {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
   font-size: 20px;
   color: grey;
   text-decoration: none;
-  background-color: #242424;
-  padding: 15px 20px;
-  border-radius: 6px;
-  margin-bottom: 15px; /* Добавлен отступ между ссылками */
-  transition: all 0.3s ease;
-  display: block;
 }
 
 a:hover {
-  background-color: #4b0082;
   color: white;
+  text-decoration: underline;
 }
 
 /* ===== Респонсивность ===== */
