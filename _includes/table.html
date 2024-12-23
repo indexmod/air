@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       {% assign page_hour = page.start_time | split: ":" | first | plus: 0 %}
       {% if page_hour <= current_hour %}
         <li class="schedule-item">
-          <span class="highlight-time">Завтра</span>
-          <span class="highlight-time">{{ page.start_time }}</span>
-          <span class="highlight-section">{{ page.section }}</span>
+          <span>Завтра</span>
+          <span>{{ page.start_time }}</span>
+          <span>{{ page.section }}</span>
         </li>
       {% endif %}
     {% endfor %}
