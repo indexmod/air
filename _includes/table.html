@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Далее</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
+          <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
     {% endfor %}
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Завтра</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
+          <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
     {% endfor %}
