@@ -25,11 +25,29 @@ body {
   height: 100vh;
 }
 
-/* ===== Новый контейнер в левом верхнем углу ===== */
+/* ===== Контейнер в левом верхнем углу ===== */
 .top-left-container {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: transparent;
+  padding: 12px 20px;
+  font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
+  font-size: 18px;
+  color: grey;
+  border-radius: 0 15px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* ===== Контейнер в правом верхнем углу ===== */
+.top-right-container {
+  position: fixed;
+  top: 0;
+  right: 0;
   background-color: transparent;
   padding: 12px 20px;
   font-family: 'Verdana', 'DejaVu Sans', 'Geneva', sans-serif;
