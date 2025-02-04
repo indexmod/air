@@ -9,8 +9,6 @@ html {
   padding: 0;
 }
 
-
-
 body {
   background: #242424;
   color: #d3d3d3;
@@ -56,6 +54,13 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ===== Стили для hr ===== */
+hr {
+  margin: 2vw 0; /* Отступ сверху и снизу */
+  border: none;
+  border-top: 1px solid #d3d3d3;
+}
+
 /* ===== Адаптивность ===== */
 @media (max-width: 768px) {
   body {
@@ -84,4 +89,3 @@ a:hover {
     font-size: 1.3em;
   }
 }
-ы
