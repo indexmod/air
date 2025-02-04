@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 *, *::before, *::after {
   box-sizing: inherit;
   margin: 0;
@@ -17,7 +18,7 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start; /* Исправлено: left → flex-start */
   min-height: 100vh;
   padding: 5vw; /* Универсальный резиновый отступ */
 }
@@ -32,13 +33,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: white;
   margin: 4vw 0; /* Отступы сверху и снизу для заголовков */
-  text-align: left; /* Центрирование заголовков */
+  text-align: left;
   line-height: 2;
 }
 
 strong {
   color: white;
-  text-decoration: none;
   font-size: inherit;
 }
 
@@ -57,8 +57,9 @@ a:hover {
 /* ===== Стили для hr ===== */
 hr {
   margin: 2vw 0; /* Отступ сверху и снизу */
-  border: none;
+  border: 0;
   border-top: 1px solid #d3d3d3;
+  width: 100%; /* Гарантия, что hr займет всю ширину */
 }
 
 /* ===== Адаптивность ===== */
@@ -68,7 +69,7 @@ hr {
   }
 
   h1, h2, h3 {
-    margin: 4vw 0; /* Увеличенные отступы для мобильных устройств */
+    margin: 4vw 0;
   }
 }
 
