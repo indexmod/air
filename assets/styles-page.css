@@ -18,13 +18,13 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Исправлено: left → flex-start */
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 5vw; /* Универсальный резиновый отступ */
+  padding: 5vw;
 }
 
 .container {
-  width: min(90%, 1200px); /* Ограничение максимальной ширины */
+  width: min(90%, 1200px);
   padding: 4vw;
   overflow: hidden;
 }
@@ -32,7 +32,7 @@ body {
 /* ===== Стили для заголовков ===== */
 h1, h2, h3, h4, h5, h6 {
   color: white;
-  margin: 4vw 0; /* Отступы сверху и снизу для заголовков */
+  margin: 4vw 0;
   text-align: left;
   line-height: 2;
 }
@@ -56,10 +56,15 @@ a:hover {
 
 /* ===== Стили для hr ===== */
 hr {
-  margin: 2vw 0; /* Отступ сверху и снизу */
+  margin: 2vw 0;
   border: 0;
   border-top: 1px solid #d3d3d3;
-  width: 100%; /* Гарантия, что hr займет всю ширину */
+  width: 100%;
+}
+
+/* ===== Стили для списков ===== */
+ul, ol {
+  padding-left: 2vw; /* Выравнивание маркеров и номеров по левому краю */
 }
 
 /* ===== Адаптивность ===== */
