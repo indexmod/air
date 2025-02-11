@@ -1,5 +1,5 @@
 ---
-layout: hour
+layout: archive
 title: Free Music Archive Vol. 1
 permalink: free-music-archive-vol-1
 location: Global
