@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Далее</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
+          <span><img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="10" height="10" alt="Cover"></span>
           <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Завтра</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
+          <span><img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="10" height="10" alt="Cover"></span>
           <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
