@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    {% include favicon.html %}
+    {% include meta-page.html %}
+    {% include yandex.html %}
+    {% include play-audio-js.html %}
+    {% include share-js.html %}
+    {% include time.html %}
+</head>
+<body>
+  <div class="top-left-container">
+    <span class="site-title">{{ site.title }}</span>
+    <span class="lime-circle">●</span>
+    <span id="header-time-wrapper" class="time-container"></span>
+  </div>
+  <div class="top-right-container">
+  {% include hits.html %}
+  </div>
+  <main>
+    <div class="main-content">
+
+      <span class="highlight-section">{{ page.section }}</span>
+      <h1>{{ page.title }}</h1>
+        <p><span class="highlight-location">{{ page.author }}</span>
+        <span class="highlight-location">{{ page.location }}</span> <span class="highlight-location">{{ page.year }}</span></p>
+      {% include audio.html %}
+    {% include share.html %}
+        {{ content }}
+  </main>
+  <!-- Футер с информацией -->
+  <div class="footer-info">
+    <div class="rotating-text-container">
+      {% include table.html %}
+    </div>
+  </div>
+</body>
+</html>
