@@ -58,7 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Далее</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
-          <span><img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="20" height="20" alt="Cover"></span>
+          <span style="border-radius: 5px; overflow: hidden; display: inline-block;">
+              <img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="20" height="20" alt="Cover" style="border-radius: 5px;">
+          </span>
           <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
@@ -72,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Завтра</span>
           <span>{{ page.start_time }}</span>
           <span>{{ page.section }}</span>
-          <span><img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="20" height="20" alt="Cover"></span>
+          <span style="border-radius: 5px; overflow: hidden; display: inline-block;">
+              <img src="/assets/covers/{{ page.permalink | remove: '/hours/' }}.png" width="20" height="20" alt="Cover" style="border-radius: 5px;">
+          </span>
           <span>«{{ page.title }}»</span>
         </li>
       {% endif %}
