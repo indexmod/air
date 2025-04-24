@@ -1,6 +1,6 @@
 ---
 title: Турчин
-permalink: tourchin
+permalink: turchin
 section: Новьё
 layout: page
 ---
