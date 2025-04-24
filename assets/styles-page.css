@@ -62,4 +62,82 @@ hr {
   width: 100%;
 }
 
-/* ===== С*
+/* ===== Стили для списков ===== */
+ul, ol {
+  padding-left: 2vw; /* Выравнивание маркеров и номеров по левому краю */
+}
+
+/* ===== Стили для таблиц ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2vw 0;
+  font-size: inherit;
+  color: #d3d3d3;
+  word-break: break-word;
+  overflow-x: auto;
+  display: block;
+}
+
+thead {
+  background-color: #2f2f2f;
+}
+
+th, td {
+  border: 1px solid #555;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+th {
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+tr:hover {
+  background-color: #333;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 4vw;
+  }
+
+  h1, h2, h3 {
+    margin: 4vw 0;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 3vw;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  table {
+    font-size: 0.85em;
+  }
+
+  th, td {
+    padding: 0.4em 0.6em;
+  }
+}
