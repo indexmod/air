@@ -1,12 +1,18 @@
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+#programs-container {
   padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  #programs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .programs-grid {
+  #programs-container {
     display: block;
   }
 }
@@ -16,6 +22,12 @@
   padding: 0.5rem;
   margin-bottom: 1rem;
   cursor: pointer;
+}
+
+.program-card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .program-card h3 {
