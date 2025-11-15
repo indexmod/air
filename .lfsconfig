@@ -1,3 +1,0 @@
-[lfs]
-    fetchinclude = *.txt,*.md
-    fetchexclude = *.mp3,*.png,*.m4a
