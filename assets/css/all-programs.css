@@ -1,3 +1,4 @@
+/* Контейнер программ */
 #programs-container.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -8,10 +9,13 @@
   display: block;
 }
 
+/* Карточки программ */
 .program-card {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
+  font-family: inherit; /* берём шрифты из репозитория */
+  color: inherit;       /* цвета из репозитория */
 }
 
 .program-card img {
@@ -20,8 +24,19 @@
   display: block;
 }
 
+/* Кнопки переключения */
 #view-toggle button {
   margin-right: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  /* На телефоне по умолчанию отображать список */
+  #programs-container {
+    display: block !important;
+  }
 }

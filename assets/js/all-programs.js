@@ -1,4 +1,3 @@
-// Загружаем все программы из rules.json
 fetch('/rules.json')
   .then(res => res.json())
   .then(programs => {
@@ -15,7 +14,6 @@ fetch('/rules.json')
       container.appendChild(card);
     });
 
-    // Клик по кнопке запуска
     container.addEventListener('click', e => {
       if(e.target.classList.contains('launch')) {
         const id = e.target.dataset.id;
@@ -27,13 +25,22 @@ fetch('/rules.json')
 function launchProgram(id) {
   // Подключаем существующую функцию запуска программы
   console.log('Launching program', id);
-  // Можно вызвать существующий скрипт из index.js
 }
 
-// Переключение Grid/List
+// Кнопки для ручного переключения
 document.getElementById('grid-view').onclick = () => {
   document.getElementById('programs-container').className = 'grid';
 };
 document.getElementById('list-view').onclick = () => {
   document.getElementById('programs-container').className = 'list';
 };
+
+// Автоматически выбираем grid или list по ширине экрана
+window.addEventListener('load', () => {
+  const container = document.getElementById('programs-container');
+  if (window.innerWidth <= 768) {
+    container.className = 'list'; // телефон
+  } else {
+    container.className = 'grid'; // монитор
+  }
+});
