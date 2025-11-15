@@ -1,0 +1,27 @@
+#programs-container.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+#programs-container.list {
+  display: block;
+}
+
+.program-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.program-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#view-toggle button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
