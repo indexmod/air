@@ -6,26 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(programs => {
       programs.forEach(program => {
-        // Создаём карточку программы
+        // Проверяем пути к медиа
+        const audioPath = program.audio || `/assets/audio/${program.id}.m4a`;
+        const coverPath = program.cover || `/assets/covers/${program.id}.jpg`;
+
+        // Создаём карточку
         const card = document.createElement('div');
         card.className = 'program-card';
 
         card.innerHTML = `
-          <img class="program-cover" src="${program.cover}" alt="${program.title}">
+          <div class="cover">
+            <img src="${coverPath}" alt="${program.title}">
+          </div>
           <div class="program-info">
             <h3>${program.title}</h3>
             ${program.author ? `<p class="author">${program.author}</p>` : ''}
             ${program.guest ? `<p class="guest">${program.guest}</p>` : ''}
-            <audio src="${program.audio}" preload="none"></audio>
+            <audio src="${audioPath}" preload="none"></audio>
           </div>
         `;
 
-        // Клик по карточке запускает аудио
+        // При клике запускаем аудио через player.js
         card.addEventListener('click', () => {
           const audio = card.querySelector('audio');
-          if (audio) {
-            audio.play();
-          }
+          if (audio) audio.play();
         });
 
         container.appendChild(card);

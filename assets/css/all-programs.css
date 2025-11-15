@@ -1,36 +1,72 @@
+/* Подключаем шрифты из репозитория */
+@import url('../fonts/main-font.css'); /* путь к шрифтам, если есть отдельный файл */
+body {
+  font-family: 'MainFont', sans-serif; /* имя шрифта из репозитория */
+  background-color: #0a0a0a; /* основной фон репозитория */
+  color: #ffffff; /* основной текст */
+  margin: 0;
+  padding: 0;
+}
+
+/* Контейнер карточек: grid на десктопе, list на телефоне */
 #programs-container {
-  padding: 1rem;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-@media (min-width: 769px) {
-  #programs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  #programs-container {
-    display: block;
-  }
-}
-
+/* Карточка программы */
 .program-card {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  background-color: #1a1a1a; /* цвет карточки из репозитория */
+  border-radius: 10px;
+  overflow: hidden;
   cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
+.program-card:hover {
+  transform: scale(1.03);
+}
+
+/* Обложка */
 .program-card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.program-card h3 {
-  margin: 0.5rem 0;
-  font-size: 1rem;
+/* Информация внутри карточки */
+.program-info {
+  padding: 10px;
+}
+
+.program-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1em;
+}
+
+.program-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #bbbbbb; /* второстепенный текст из репозитория */
+}
+
+/* Адаптив: на маленьких экранах list */
+@media (max-width: 768px) {
+  #programs-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .program-card {
+    flex-direction: row;
+    align-items: center;
+  }
+  .program-card img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+  }
 }
