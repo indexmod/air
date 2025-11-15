@@ -1,42 +1,47 @@
-/* Контейнер программ */
-#programs-container.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+/* Наследуем шрифты и цвета из сайта */
+#programs-container {
+  font-family: inherit;
+  color: inherit;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-#programs-container.list {
-  display: block;
+/* Grid для больших экранов */
+@media (min-width: 769px) {
+  #programs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
 }
 
-/* Карточки программ */
+/* List для телефонов */
+@media (max-width: 768px) {
+  #programs-container {
+    display: block;
+  }
+}
+
+/* Карточки */
 .program-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-family: inherit; /* берём шрифты из репозитория */
-  color: inherit;       /* цвета из репозитория */
+  border: 1px solid #ccc; /* или цвет из текущего сайта */
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 .program-card img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
 }
 
-/* Кнопки переключения */
-#view-toggle button {
-  margin-right: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-family: inherit;
-  color: inherit;
+.program-card h3 {
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1rem;
 }
 
-/* Адаптив */
-@media (max-width: 768px) {
-  /* На телефоне по умолчанию отображать список */
-  #programs-container {
-    display: block !important;
-  }
+.program-card p {
+  margin: 0;
+  font-size: 0.9rem;
 }
