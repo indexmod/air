@@ -1,47 +1,24 @@
-/* Наследуем шрифты и цвета из сайта */
-#programs-container {
-  font-family: inherit;
-  color: inherit;
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
   padding: 1rem;
-  box-sizing: border-box;
 }
 
-/* Grid для больших экранов */
-@media (min-width: 769px) {
-  #programs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-}
-
-/* List для телефонов */
 @media (max-width: 768px) {
-  #programs-container {
+  .programs-grid {
     display: block;
   }
 }
 
-/* Карточки */
 .program-card {
-  border: 1px solid #ccc; /* или цвет из текущего сайта */
+  border: 1px solid #ccc;
   padding: 0.5rem;
   margin-bottom: 1rem;
-  box-sizing: border-box;
-}
-
-.program-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+  cursor: pointer;
 }
 
 .program-card h3 {
-  margin: 0.5rem 0 0.2rem 0;
+  margin: 0.5rem 0;
   font-size: 1rem;
-}
-
-.program-card p {
-  margin: 0;
-  font-size: 0.9rem;
 }
