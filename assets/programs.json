@@ -1,0 +1,62 @@
+[
+  {
+    "id": "donations",
+    "title": "Донатс",
+    "permalink": "donations",
+    "author": "",
+    "guest": "",
+    "section": "",
+    "location": "",
+    "year": "",
+    "audio": "/assets/audio/donations.m4a",
+    "cover": "/assets/covers/donations.jpg"
+  },
+  {
+    "id": "lampa-alladina",
+    "title": "Акулиничев — Абстракт Сити",
+    "permalink": "lampa-alladina",
+    "author": "",
+    "guest": "",
+    "section": "Лампа Алладина",
+    "location": "",
+    "year": "",
+    "audio": "/assets/audio/lampa-alladina.m4a",
+    "cover": "/assets/covers/lampa-alladina.jpg"
+  },
+  {
+    "id": "page",
+    "title": "Page",
+    "permalink": "page",
+    "author": "",
+    "guest": "",
+    "section": "",
+    "location": "",
+    "year": "",
+    "audio": "/assets/audio/page.m4a",
+    "cover": "/assets/covers/page.jpg"
+  },
+  {
+    "id": "selfie-julime",
+    "title": "Жулиме",
+    "permalink": "julime",
+    "author": "",
+    "guest": "",
+    "section": "Селфи",
+    "location": "",
+    "year": "",
+    "audio": "/assets/audio/selfie-julime.m4a",
+    "cover": "/assets/covers/selfie-julime.jpg"
+  },
+  {
+    "id": "strugatskie",
+    "title": "Малыш (1987)",
+    "permalink": "malish",
+    "author": "",
+    "guest": "",
+    "section": "",
+    "location": "",
+    "year": 1987,
+    "audio": "/assets/audio/strugatskie.m4a",
+    "cover": "/assets/covers/strugatskie.jpg"
+  }
+]
