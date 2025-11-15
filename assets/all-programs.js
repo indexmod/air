@@ -6,17 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(programs => {
       programs.forEach(program => {
-        // Проверяем пути к медиа
-        const audioPath = program.audio || `/assets/audio/${program.id}.m4a`;
-        const coverPath = program.cover || `/assets/covers/${program.id}.jpg`;
+        // Правильные пути к аудио и обложкам
+        const audioPath = program.audio && program.audio.trim() !== ''
+          ? program.audio
+          : `/assets/audio/hours/${program.id}.m4a`;
 
-        // Создаём карточку
+        const coverPath = program.cover && program.cover.trim() !== ''
+          ? program.cover
+          : `/assets/covers/${program.id}.png`;
+
         const card = document.createElement('div');
         card.className = 'program-card';
 
         card.innerHTML = `
           <div class="cover">
-            <img src="${coverPath}" alt="${program.title}">
+            <img src="${coverPath}" alt="${program.title}" onerror="this.src='/assets/covers/default.png'">
           </div>
           <div class="program-info">
             <h3>${program.title}</h3>
@@ -26,8 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
 
-        // При клике запускаем аудио через player.js
         card.addEventListener('click', () => {
+          // Остановить все остальные аудио
+          document.querySelectorAll('#programs-container audio').forEach(a => {
+            if (a !== card.querySelector('audio')) a.pause();
+          });
+
           const audio = card.querySelector('audio');
           if (audio) audio.play();
         });

@@ -1,14 +1,13 @@
-/* Подключаем шрифты из репозитория */
-@import url('../fonts/main-font.css'); /* путь к шрифтам, если есть отдельный файл */
+/* Общие стили страницы */
 body {
-  font-family: 'MainFont', sans-serif; /* имя шрифта из репозитория */
-  background-color: #0a0a0a; /* основной фон репозитория */
-  color: #ffffff; /* основной текст */
+  font-family: 'MainFont', sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
 
-/* Контейнер карточек: grid на десктопе, list на телефоне */
+/* Контейнер карточек */
 #programs-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -18,27 +17,27 @@ body {
 
 /* Карточка программы */
 .program-card {
-  background-color: #1a1a1a; /* цвет карточки из репозитория */
+  background-color: #1a1a1a;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s;
 }
 
 .program-card:hover {
   transform: scale(1.03);
 }
 
-/* Обложка */
+/* Изображение обложки */
 .program-card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Информация внутри карточки */
+/* Информация о программе */
 .program-info {
   padding: 10px;
 }
@@ -51,10 +50,10 @@ body {
 .program-info p {
   margin: 0;
   font-size: 0.9em;
-  color: #bbbbbb; /* второстепенный текст из репозитория */
+  color: #bbbbbb;
 }
 
-/* Адаптив: на маленьких экранах list */
+/* Респонсив: список на мобильных */
 @media (max-width: 768px) {
   #programs-container {
     display: flex;
